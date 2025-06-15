@@ -1,0 +1,2 @@
+#! /usr/bin/env bash
+# The idea here would be to config username and email, if relevant, possibly also setting up ssh keys for each account and directory
