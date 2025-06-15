@@ -1,0 +1,6 @@
+#! /usr/bin/env bash
+
+# requires pnpm
+pnpm add -g @bitwarden/cli semver
+
+bw login
