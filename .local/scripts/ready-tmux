@@ -2,7 +2,9 @@
 
 if [[ -x ".ready-tmux" ]]; then
     ./.ready-tmux
-elif [[ -x "~/.ready-tmux" ]]; then
+elif [[ -x "$HOME/.ready-tmux" ]]; then
     ~/.ready-tmux
+else
+        echo "No .ready-tmux script found" >&2
 fi
 clear
