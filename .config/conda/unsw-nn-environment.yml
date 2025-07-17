@@ -1,0 +1,12 @@
+name: unsw-nn
+channels:
+  - pytorch
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.11
+  - pytorch>=1.7
+  - numpy>=1.19
+  - scikit-learn>=0.23
+  - matplotlib
+  - torchvision
