@@ -71,7 +71,7 @@ prompt_context() {
   if [[ -n "$SSH_CLIENT" ]]; then
     prompt_segment magenta white "%{$fg_bold[white]%(!.%{%F{white}%}.)%}$USER@%m%{$fg_no_bold[white]%}"
   else
-    prompt_segment yellow magenta "%{$fg_bold[magenta]%(!.%{%F{magenta}%}.)%}@$USER%{$fg_no_bold[magenta]%}"
+    prompt_segment white magenta "%{$fg_bold[magenta]%(!.%{%F{magenta}%}.)%}@$USER%{$fg_no_bold[magenta]%}"
   fi
 }
 
@@ -323,11 +323,19 @@ prompt_dir() {
   prompt_segment cyan white "%{$fg_bold[white]%}%~%{$fg_no_bold[white]%}"
 }
 
-# Virtualenv: current working virtualenv
+# Virtualenv: current working virtualenv or conda environment
 prompt_virtualenv() {
   local virtualenv_path="$VIRTUAL_ENV"
-  if [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
-    prompt_segment blue black "(`basename $virtualenv_path`)"
+  local conda_env="$CONDA_DEFAULT_ENV"
+  
+  # Handle conda environments
+  if [[ -n $conda_env && $conda_env != "base" ]]; then
+    prompt_segment blue white "($conda_env)"
+  elif [[ -n $conda_env && $conda_env == "base" ]]; then
+    prompt_segment blue white "(base)"
+  # Handle regular virtual environments
+  elif [[ -n $virtualenv_path && -n $VIRTUAL_ENV_DISABLE_PROMPT ]]; then
+    prompt_segment blue white "(`basename $virtualenv_path`)"
   fi
 }
 
@@ -355,7 +363,6 @@ build_prompt() {
   print -n "\n"
   prompt_status
   prompt_battery
-  prompt_time
   prompt_virtualenv
   prompt_dir
   prompt_git
@@ -366,5 +373,8 @@ build_prompt() {
   prompt_context
   prompt_end
 }
+
+# Disable conda's built-in prompt
+export CONDA_CHANGEPS1=false
 
 PROMPT='%{%f%b%k%}$(build_prompt) '
