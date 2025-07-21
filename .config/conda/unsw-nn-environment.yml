@@ -10,3 +10,4 @@ dependencies:
   - scikit-learn>=0.23
   - matplotlib
   - torchvision
+  - ipykernel
