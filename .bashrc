@@ -127,5 +127,4 @@ export PATH="$HOME/.npm-global/bin:$PATH"
 
 # neovim
 alias vim='nvim'
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"

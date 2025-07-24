@@ -1,7 +1,16 @@
 #! /usr/bin/env nu
 
 # requires pnpm
-flatpak install flathub com.bitwarden.desktop
+
+# Check if running on a server (no display environment)
+if ($env.DISPLAY? == null) or ($env.XDG_SESSION_TYPE? == null) {
+    print "Server environment detected - skipping desktop client installation"
+} else {
+    print "Desktop environment detected - installing Bitwarden desktop client"
+    sudo apt install flatpak
+    flatpak install flathub com.bitwarden.desktop
+}
+
 pnpm add -g @bitwarden/cli semver
 
 bw login
