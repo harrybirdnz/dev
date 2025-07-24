@@ -1,6 +1,8 @@
-#! /usr/bin/env bash
+#! /usr/bin/env nu
 
 # requires pnpm
+flatpak install flathub com.bitwarden.desktop
 pnpm add -g @bitwarden/cli semver
 
 bw login
+

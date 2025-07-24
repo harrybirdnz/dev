@@ -1,0 +1,10 @@
+# Work GitHub account
+Host github.com
+  HostName github.com
+  IdentityFile ~/.ssh/github-work
+  User harry@rocersa.nz
+
+# Personal GitHub
+Host github.com-personal
+    HostName github.com
+    IdentityFile ~/.ssh/github-personal

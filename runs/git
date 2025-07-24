@@ -1,2 +1,11 @@
 #! /usr/bin/env bash
 # The idea here would be to config username and email, if relevant, possibly also setting up ssh keys for each account and directory
+
+bw sync
+
+let notes = (bw get notes "b64e1ac6-c3a7-4ced-a66e-b324016dfe6f" | from json)
+
+$notes."personal"."github-personal.pub" | save -f ~/.ssh/github-personal.pub
+$notes."personal"."github-personal" | save -f ~/.ssh/github-personal
+$notes."work"."github-work.pub" | save -f ~/.ssh/github-work.pub
+$notes."work"."github-work" | save -f ~/.ssh/github-work

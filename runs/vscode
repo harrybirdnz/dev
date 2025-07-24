@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+# Exit on error and unset variables
+set -euo pipefail
+
+# Install dependencies (wget for downloading, apt-utils for debconf)
+echo "⚙️ Installing dependencies..."
+sudo apt update && sudo apt install -y wget apt-utils
+
+# Download and install VS Code
+echo "⬇️ Downloading VS Code..."
+wget -O code_latest_amd64.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+
+echo "🛠 Installing VS Code..."
+sudo apt install -y ./code_latest_amd64.deb
+rm code_latest_amd64.deb
+
+# Install extensions (if extensions.txt exists)
+EXTENSIONS_FILE="$HOME/personal/dev/.config/Code/User/extensions.txt"
+if [ -f "$EXTENSIONS_FILE" ]; then
+    echo "📦 Installing extensions from $EXTENSIONS_FILE..."
+    while read -r extension; do
+        echo "🔧 Installing: $extension"
+        code --install-extension "$extension" --force || echo "⚠️ Failed to install: $extension"
+    done < "$EXTENSIONS_FILE"
+else
+    echo "❌ No extensions.txt found at $EXTENSIONS_FILE. Skipping extensions."
+fi
+
+echo "✅ Done! VS Code and extensions installed."

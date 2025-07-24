@@ -3,8 +3,11 @@
 
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+export SSH_AUTH_SOCK="$HOME/.var/app/com.bitwarden.desktop/data/.bitwarden-ssh-agent.sock"
 
 ZSH_CUSTOM=~/.config/zsh
+
+
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time Oh My Zsh is loaded, in which case,
@@ -130,3 +133,5 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
