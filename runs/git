@@ -9,3 +9,8 @@ $notes."personal"."github-personal.pub" | save -f ~/.ssh/github-personal.pub
 $notes."personal"."github-personal" | save -f ~/.ssh/github-personal
 $notes."work"."github-work.pub" | save -f ~/.ssh/github-work.pub
 $notes."work"."github-work" | save -f ~/.ssh/github-work
+
+chmod 600 ~/.ssh/github-personal
+chmod 644 ~/.ssh/github-personal.pub
+chmod 600 ~/.ssh/github-work
+chmod 644 ~/.ssh/github-work.pub
