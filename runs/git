@@ -14,7 +14,3 @@ chmod 600 ~/.ssh/github-personal
 chmod 644 ~/.ssh/github-personal.pub
 chmod 600 ~/.ssh/github-work
 chmod 644 ~/.ssh/github-work.pub
-
-eval "$(ssh-agent -s)"
-ssh-add ~/.ssh/github-personal
-ssh-add ~/.ssh/github-work
