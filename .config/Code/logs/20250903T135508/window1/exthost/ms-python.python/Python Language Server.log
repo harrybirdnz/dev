@@ -1,0 +1,16 @@
+2025-09-03 14:00:19.676 [info] (Client) Pylance client (2025.7.1) started with python extension (2025.12.0)
+2025-09-03 14:00:20.725 [info] (1195440) Server root directory: file:///home/harry/.vscode/extensions/ms-python.vscode-pylance-2025.7.1/dist
+2025-09-03 14:00:20.725 [info] (1195440) Pylance language server 2025.7.1 (pyright version 1.1.403, commit 8b02aa84) starting
+2025-09-03 14:00:20.730 [info] (1195440) Starting service instance "project" for workspace "/home/harry/personal/uni/project"
+2025-09-03 14:00:20.794 [info] (1195440) Starting Mcp server id:5512 ...
+2025-09-03 14:00:20.829 [info] (1195440) Setting environmentName for service "project": "3.10.12 (global)"
+2025-09-03 14:00:20.829 [info] (1195440) Setting pythonPath for service "project": "/usr/bin/python3"
+2025-09-03 14:00:20.829 [info] (1195440) No include entries specified; assuming /home/harry/personal/uni/project
+2025-09-03 14:00:20.830 [info] (1195440) Auto-excluding **/node_modules
+2025-09-03 14:00:20.830 [info] (1195440) Auto-excluding **/__pycache__
+2025-09-03 14:00:20.830 [info] (1195440) Auto-excluding **/.*
+2025-09-03 14:00:20.853 [info] (1195440) Assuming Python version 3.10.12.final.0
+2025-09-03 14:00:20.937 [info] (1195440) No source files found.
+2025-09-03 14:00:20.956 [info] (1195440) Settings have not changed. Skipping update.
+2025-09-03 14:00:21.482 [info] (1195440) BG: Priority queue background worker(2) root directory: file:///home/harry/.vscode/extensions/ms-python.vscode-pylance-2025.7.1/dist
+2025-09-03 14:00:21.483 [info] (1195440) BG: Priority queue background worker(2) started

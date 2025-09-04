@@ -1,0 +1,26 @@
+2025-09-03 14:00:18.704 [info] Starting Python Locator /home/harry/.vscode/extensions/ms-python.python-2025.12.0-linux-x64/python-env-tools/bin/pet server
+2025-09-03 14:00:18.804 [info] Discovered manager: (Conda) /home/harry/programs/miniconda3/bin/conda
+2025-09-03 14:00:18.805 [info] Discovered env: /home/harry/programs/miniconda3/bin/python
+2025-09-03 14:00:18.815 [info] Discovered env: /usr/bin/python3
+2025-09-03 14:00:18.818 [info] Discovered env: /bin/python3
+2025-09-03 14:00:18.854 [info] Discovered env: /home/harry/programs/miniconda3/envs/unsw-nn/bin/python
+2025-09-03 14:00:18.858 [info] Locator Conda took 77.551353ms
+2025-09-03 14:00:18.859 [info] Locator Homebrew took 15.577308ms
+2025-09-03 14:00:18.859 [info] Locator LinuxGlobal took 53.418506ms
+2025-09-03 14:00:18.860 [info] Locator PipEnv took 48.932µs
+2025-09-03 14:00:18.860 [info] Locator Pixi took 37.9µs
+2025-09-03 14:00:18.860 [info] Locator Poetry took 1.232539ms
+2025-09-03 14:00:18.860 [info] Locator PyEnv took 724.695µs
+2025-09-03 14:00:18.860 [info] Locator Venv took 13.796µs
+2025-09-03 14:00:18.860 [info] Locator VirtualEnv took 12.74µs
+2025-09-03 14:00:18.860 [info] Locator VirtualEnvWrapper took 29.691µs
+2025-09-03 14:00:18.860 [info] Locator GlobalVirtualEnvs took 269.565µs
+2025-09-03 14:00:18.860 [info] Locator Locators took 77.75351ms
+2025-09-03 14:00:18.860 [info] Locator Path took 79.314018ms
+2025-09-03 14:00:18.860 [info] Locator Workspaces took 1.912107ms
+2025-09-03 14:00:18.860 [info] Refresh completed in 79ms
+2025-09-03 14:00:18.878 [info] Resolved Python Environment /usr/bin/python3
+2025-09-03 14:01:05.139 [info] Resolved Python Environment /usr/bin/python3
+2025-09-03 14:01:57.800 [info] Resolved Python Environment /usr/bin/python3
+2025-09-03 14:02:36.535 [info] Resolved Python Environment /usr/bin/python3
+2025-09-03 14:03:09.786 [info] Resolved Python Environment /usr/bin/python3

@@ -1,0 +1,4 @@
+! option   = symbols
+  hb:hb  = +hb(hb)
+
+! include %S/evdev

@@ -1,0 +1,19 @@
+file:///home/harry/personal/uni/project/working/report.typ {"mtime":1756779335042,"ctime":1756281136027,"size":935,"etag":"3eocs5a42u5","orphaned":false,"typeId":""}
+= Report
+
+== Personal Interest
+Long term - infrastructure planning
+Grey areas - gaps between short/medium/long
+Investment decision making
+- Time to online
+- Competition
+
+== Literature
+=== To find
+
+
+
+#bibliography("bib.yml", style: "ieee")
+
+
+

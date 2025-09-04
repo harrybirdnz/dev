@@ -1,0 +1,13 @@
+2025-09-03 13:55:40 [DEBUG] Resource server started on port 8828
+2025-09-03 13:56:24 [DEBUG] Creating PostgreSQL connection for 1756864584156/mydb
+2025-09-03 13:56:24 [DEBUG] Closing connection 1756864584156/mydb
+2025-09-03 13:56:36 [DEBUG] Creating PostgreSQL connection for 1756864596779/mydb
+2025-09-03 13:56:38 [DEBUG] Creating PostgreSQL connection for 1756864596779/mydb_tree
+2025-09-03 13:56:39 [DEBUG] Start load foreignKey meta data...
+2025-09-03 13:56:39 [DEBUG] Creating PostgreSQL connection for 1756864596779/mydb_meta
+2025-09-03 13:56:39 [DEBUG] Load foreignKey meta data success! cost: 11ms
+2025-09-03 13:56:39 [DEBUG] Closing connection 1756864596779/mydb_meta
+2025-09-03 13:59:19 [ INFO] Executing: CREATE or replace VIEW processed_demand AS SELECT      DATETIME,     AVG(TOTALDEMAND) OVER (         PARTITION BY REGIONID          ORDER BY DATETIME          ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING     ) AS avg_next_24h,     MIN(TOTALDEMAND) OVER (         PARTITION BY REGIONID          ORDER BY DATETIME          ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING     ) AS min_next_24h,     MAX(TOTALDEMAND) OVER (         PARTITION BY REGIONID          ORDER BY DATETIME          ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING     ) AS max_next_24h,     SUM(TOTALDEMAND) OVER (         PARTITION BY REGIONID          ORDER BY DATETIME          ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING     ) AS sum_next_24h FROM totaldemand_nsw
+2025-09-03 13:59:19 [ERROR] cannot drop columns from view
+2025-09-03 14:01:23 [ INFO] Executing: CREATE or replace VIEW processed_demand AS SELECT      DATETIME,     AVG(TOTALDEMAND) OVER (         PARTITION BY REGIONID          ORDER BY DATETIME          ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING     ) AS avg_next_24h,     MIN(TOTALDEMAND) OVER (         PARTITION BY REGIONID          ORDER BY DATETIME          ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING     ) AS min_next_24h,     MAX(TOTALDEMAND) OVER (         PARTITION BY REGIONID          ORDER BY DATETIME          ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING     ) AS max_next_24h,     SUM(TOTALDEMAND) OVER (         PARTITION BY REGIONID          ORDER BY DATETIME          ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING     ) AS sum_next_24h FROM totaldemand_nsw
+2025-09-03 14:01:23 [ INFO] Result: Completed in 6ms

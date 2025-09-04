@@ -1,0 +1,10 @@
+    <layout>
+      <configItem>
+        <name>hb</name>
+        <shortDescription>hb</shortDescription>
+        <description>English (Harry)</description>
+        <languageList>
+          <iso639Id>eng</iso639Id>
+        </languageList>
+      </configItem>
+    </layout>

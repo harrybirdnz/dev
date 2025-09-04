@@ -1,0 +1,316 @@
+[2025-09-03T02:00:18Z INFO  tinymist::cmd::lsp] tinymist version information: [["Build Timestamp", "2025-08-26T08:23:05.224318186Z"], ["Build Git Describe", "v0.13.24"], ["Commit SHA", "2fc5d919e9af811b4335388111ac0345b5770360"], ["Commit Date", "None"], ["Commit Branch", "None"], ["Cargo Target Triple", "x86_64-unknown-linux-gnu"], ["Typst Version", "0.13.1"], ["Typst Source", "git+https://github.com/Myriad-Dreamin/typst.git?tag=tinymist/v0.13.10#946ea31fb554bcf62e3215f64ddda87d70b026af"]]
+[2025-09-03T02:00:18Z INFO  tinymist::cmd::lsp] starting language server: LspArgs { mirror: MirrorArgs { mirror: "", replay: "" }, font: CompileFontArgs { font_paths: [], ignore_system_fonts: false } }
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling initialize - (0)
+[2025-09-03T02:00:18Z INFO  tinymist::config] ServerState: config update_by_map {}
+[2025-09-03T02:00:18Z INFO  tinymist::config] ServerState: config update_by_map {"colorTheme":"dark","compileStatus":"enable","completion":{"postfix":true,"postfixUfcs":true,"postfixUfcsLeft":true,"postfixUfcsRight":true,"symbol":"step","triggerOnSnippetPlaceholders":false},"configureDefaultWordSeparator":"disable","copyAndPaste":"enable","customizedShowDocument":true,"delegateFsRequests":false,"dragAndDrop":"enable","exportPdf":"never","exportTarget":"paged","formatterIndentSize":2,"formatterMode":"typstyle","formatterPrintWidth":120,"formatterProseWrap":false,"lint":{"enabled":false,"when":"onSave"},"onEnterEvent":true,"outputPath":"","preview":{"cursorIndicator":false,"fontPaths":[],"invertColors":"never","partialRendering":true,"pinPreviewFile":false,"refresh":"onType","scrollSync":"onSelectionChangeByMouse","sysInputs":{},"systemFonts":true},"previewFeature":"enable","probedServerPath":"/home/harry/.vscode/extensions/myriad-dreamin.tinymist-0.13.24-linux-x64/out/tinymist","projectResolution":"singleFile","renderDocs":"enable","semanticTokens":"enable","showExportFileIn":null,"statusBarFormat":"{compileStatusIcon} {wordCount} [{fileName}]","supportExtendedCodeAction":true,"supportHtmlInMarkdown":true,"systemFonts":true,"trace":{"server":"off"},"triggerParameterHints":true,"triggerSuggest":true,"triggerSuggestAndParameterHints":true,"typingContinueCommentsOnNewline":true,"typstExtraArgs":[]}
+[2025-09-03T02:00:18Z INFO  tinymist::server] ServerState: initialized with config Config { const_config: ConstConfig { position_encoding: Utf16, cfg_change_registration: true, notify_will_rename_files: true, tokens_dynamic_registration: true, tokens_overlapping_token_support: false, tokens_multiline_token_support: false, doc_line_folding_only: true, doc_fmt_dynamic_registration: true, locale: Some("en") }, const_dap_config: ConstDapConfig { path_format: Path, lines_start_at1: true, columns_start_at1: true }, delegate_fs_requests: false, customized_show_document: true, has_default_entry_path: false, notify_status: true, support_html_in_markdown: true, extended_code_action: true, development: false, color_theme: Some("dark"), entry_resolver: EntryResolver { project_resolution: SingleFile, root_path: None, roots: ["/home/harry/personal/uni/project"], entry: None, typst_toml_cache: {} }, lsp_inputs: {"x-preview": "{\"version\":1,\"theme\":\"dark\"}"}, periscope_args: None, typst_extra_args: Some(TypstExtraArgs { root_dir: None, entry: None, inputs: {}, font: CompileFontArgs { font_paths: [], ignore_system_fonts: false }, package: CompilePackageArgs { package_path: None, package_cache_path: None }, features: [], pdf_standard: [], creation_timestamp: None, cert: None }), semantic_tokens: Enable, completion: CompletionFeat { trigger_on_snippet_placeholders: false, trigger_suggest: true, trigger_parameter_hints: true, trigger_suggest_and_parameter_hints: true, symbol: Some(Step), postfix: Some(true), postfix_ufcs: Some(true), postfix_ufcs_left: Some(true), postfix_ufcs_right: Some(true), postfix_snippets: None }, preview: PreviewFeat { browsing: BrowsingPreviewOpts { args: None }, background: BackgroundPreviewOpts { enabled: false, args: None }, refresh: Some(OnType), partial_rendering: true, invert_colors: Enum(Never) }, lint: LintFeat { enabled: Some(false), when: Some(OnSave) }, on_enter: OnEnterFeat { handle_list: false }, font_opts: CompileFontArgs { font_paths: [], ignore_system_fonts: false }, font_paths: [], fonts: OnceLock(<uninit>), access_model: OnceLock(<uninit>), system_fonts: Some(true), export_target: Paged, export_pdf: Never, output_path: PathPattern(""), formatter_mode: Typstyle, formatter_print_width: Some(120), formatter_indent_size: Some(2), formatter_prose_wrap: Some(false), warnings: [] }
+[2025-09-03T02:00:18Z INFO  tinymist::config] creating AccessModel with delegation=false
+[2025-09-03T02:00:18Z INFO  tinymist::project] ServerState: creating ProjectState, entry: EntryState { root: Some("/home/harry/personal/uni/project"), main: None }, inputs: {"x-preview": "{\"version\":1,\"theme\":\"dark\"}"}
+[2025-09-03T02:00:18Z INFO  tinymist::config] creating SharedFontResolver with CompileFontArgs { font_paths: [], ignore_system_fonts: false }
+[2025-09-03T02:00:18Z INFO  tinymist::tool::preview] Stopping all preview tasks
+[2025-09-03T02:00:18Z INFO  tinymist_project::watch] NotifyActor: start watching files...
+[2025-09-03T02:00:18Z INFO  tinymist::project] ServerState: creating ProjectState, entry: EntryState { root: Some("/home/harry/personal/uni/project"), main: None }, inputs: {"x-preview": "{\"version\":1,\"theme\":\"dark\"}"}
+[2025-09-03T02:00:18Z INFO  tinymist_project::watch] NotifyActor: start watching files...
+[2025-09-03T02:00:18Z INFO  tinymist_project::watch] NotifyActor: failed to get event, exiting...
+[2025-09-03T02:00:18Z INFO  tinymist_project::watch] NotifyActor: exited
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  initialize - (0) in 69.00ms
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notifying initialized
+[2025-09-03T02:00:18Z INFO  tinymist::lsp] server initialized
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notify initialized succeeded in 947.08µs
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notifying textDocument/didOpen
+[2025-09-03T02:00:18Z INFO  tinymist::lsp] did open file:///home/harry/personal/uni/project/working/database/preprocessing.sql
+[2025-09-03T02:00:18Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: Some(@ws/p0:0.0.0/working/database/preprocessing.sql) }), inputs: None }
+[2025-09-03T02:00:18Z INFO  tinymist::input] file focused[implicit,o]: Some("/home/harry/personal/uni/project/working/database/preprocessing.sql")
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notify textDocument/didOpen succeeded in 5.24ms
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling workspace/executeCommand - (1)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling workspace/executeCommand - (2)
+[2025-09-03T02:00:18Z INFO  tinymist::cmd] first manual focusing is coming
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  workspace/executeCommand - (1) in 2.51ms
+[2025-09-03T02:00:18Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: Some(@ws/p0:0.0.0/working/question.typ) }), inputs: None }
+[2025-09-03T02:00:18Z INFO  tinymist::cmd] file focused: Some("/home/harry/personal/uni/project/working/question.typ")
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notifying textDocument/didOpen
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  workspace/executeCommand - (2) in 116.25µs
+[2025-09-03T02:00:18Z INFO  tinymist::lsp] did open file:///home/harry/personal/uni/project/working/question.typ
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notify textDocument/didOpen succeeded in 312.96µs
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notifying textDocument/didOpen
+[2025-09-03T02:00:18Z INFO  tinymist::lsp] did open file:///home/harry/personal/uni/project/working/database/docker-compose.yml
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notify textDocument/didOpen succeeded in 33.86µs
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling workspace/executeCommand - (3)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling textDocument/documentSymbol - (4)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  workspace/executeCommand - (3) in 4.68ms
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling textDocument/codeAction - (5)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (4) in 1.11ms
+[2025-09-03T02:00:18Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/database/preprocessing.sql: compilation succeeded in 14.479505ms
+[2025-09-03T02:00:18Z INFO  tinymist::project] skipping emit pending reasons for 3 != 2
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  textDocument/codeAction - (5) in 7.67ms
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling textDocument/documentColor - (6)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling textDocument/documentLink - (7)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  textDocument/documentColor - (6) in 74.64µs
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  textDocument/documentLink - (7) in 501.42µs
+[2025-09-03T02:00:18Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 67.805698ms
+[2025-09-03T02:00:18Z INFO  tinymist::project] skipping emit pending reasons for 4 != 3
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notifying $/setTrace
+[2025-09-03T02:00:18Z WARN  sync_ls::server::lsp_srv] unhandled notification: $/setTrace
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notify $/setTrace succeeded in 15.36µs
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notifying workspace/didChangeConfiguration
+[2025-09-03T02:00:18Z INFO  sync_ls::server] notify workspace/didChangeConfiguration succeeded in 25.70µs
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling textDocument/codeAction - (8)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  textDocument/codeAction - (8) in 136.23µs
+[2025-09-03T02:00:18Z INFO  tinymist::config] ServerState: config update_by_map {"colorTheme":"dark","compileStatus":"enable","completion":{"postfix":true,"postfixUfcs":true,"postfixUfcsLeft":true,"postfixUfcsRight":true,"symbol":"step","triggerOnSnippetPlaceholders":false},"development":null,"exportPdf":"never","exportTarget":"paged","fontPaths":null,"formatterIndentSize":2,"formatterMode":"typstyle","formatterPrintWidth":120,"formatterProseWrap":false,"hoverPeriscope":null,"lint":{"enabled":false,"when":"onSave"},"onEnter":null,"outputPath":"","preview":{"cursorIndicator":false,"fontPaths":[],"invertColors":"never","partialRendering":true,"pinPreviewFile":false,"refresh":"onType","scrollSync":"onSelectionChangeByMouse","sysInputs":{},"systemFonts":true},"projectResolution":"singleFile","rootPath":null,"semanticTokens":"enable","systemFonts":true,"tinymist":{"compileStatus":"enable","completion":{"postfix":true,"postfixUfcs":true,"postfixUfcsLeft":true,"postfixUfcsRight":true,"symbol":"step","triggerOnSnippetPlaceholders":false},"configureDefaultWordSeparator":"disable","copyAndPaste":"enable","dragAndDrop":"enable","exportPdf":"never","exportTarget":"paged","fontPaths":null,"formatterIndentSize":2,"formatterMode":"typstyle","formatterPrintWidth":120,"formatterProseWrap":false,"lint":{"enabled":false,"when":"onSave"},"onEnterEvent":true,"outputPath":"","preview":{"cursorIndicator":false,"fontPaths":[],"invertColors":"never","partialRendering":true,"pinPreviewFile":false,"refresh":"onType","scrollSync":"onSelectionChangeByMouse","sysInputs":{},"systemFonts":true},"previewFeature":"enable","projectResolution":"singleFile","renderDocs":"enable","rootPath":null,"semanticTokens":"enable","serverPath":null,"showExportFileIn":null,"statusBarFormat":"{compileStatusIcon} {wordCount} [{fileName}]","systemFonts":true,"trace":{"server":"off"},"typingContinueCommentsOnNewline":true,"typstExtraArgs":[]},"typstExtraArgs":[]}
+[2025-09-03T02:00:18Z INFO  tinymist::lsp] new settings applied
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling textDocument/foldingRange - (9)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  textDocument/foldingRange - (9) in 95.88µs
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling textDocument/codeLens - (10)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  textDocument/codeLens - (10) in 118.17µs
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handling textDocument/documentSymbol - (11)
+[2025-09-03T02:00:18Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (11) in 117.26µs
+[2025-09-03T02:00:19Z INFO  sync_ls::server] handling textDocument/semanticTokens/full - (12)
+[2025-09-03T02:00:19Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full - (12) in 863.14µs
+[2025-09-03T02:00:20Z INFO  sync_ls::server] notifying $/setTrace
+[2025-09-03T02:00:20Z WARN  sync_ls::server::lsp_srv] unhandled notification: $/setTrace
+[2025-09-03T02:00:20Z INFO  sync_ls::server] notify $/setTrace succeeded in 18.02µs
+[2025-09-03T02:00:20Z INFO  sync_ls::server] notifying workspace/didChangeConfiguration
+[2025-09-03T02:00:20Z INFO  sync_ls::server] notify workspace/didChangeConfiguration succeeded in 39.98µs
+[2025-09-03T02:00:20Z INFO  tinymist::config] ServerState: config update_by_map {"colorTheme":"dark","compileStatus":"enable","completion":{"postfix":true,"postfixUfcs":true,"postfixUfcsLeft":true,"postfixUfcsRight":true,"symbol":"step","triggerOnSnippetPlaceholders":false},"development":null,"exportPdf":"never","exportTarget":"paged","fontPaths":null,"formatterIndentSize":2,"formatterMode":"typstyle","formatterPrintWidth":120,"formatterProseWrap":false,"hoverPeriscope":null,"lint":{"enabled":false,"when":"onSave"},"onEnter":null,"outputPath":"","preview":{"cursorIndicator":false,"fontPaths":[],"invertColors":"never","partialRendering":true,"pinPreviewFile":false,"refresh":"onType","scrollSync":"onSelectionChangeByMouse","sysInputs":{},"systemFonts":true},"projectResolution":"singleFile","rootPath":null,"semanticTokens":"enable","systemFonts":true,"tinymist":{"compileStatus":"enable","completion":{"postfix":true,"postfixUfcs":true,"postfixUfcsLeft":true,"postfixUfcsRight":true,"symbol":"step","triggerOnSnippetPlaceholders":false},"configureDefaultWordSeparator":"disable","copyAndPaste":"enable","dragAndDrop":"enable","exportPdf":"never","exportTarget":"paged","fontPaths":null,"formatterIndentSize":2,"formatterMode":"typstyle","formatterPrintWidth":120,"formatterProseWrap":false,"lint":{"enabled":false,"when":"onSave"},"onEnterEvent":true,"outputPath":"","preview":{"cursorIndicator":false,"fontPaths":[],"invertColors":"never","partialRendering":true,"pinPreviewFile":false,"refresh":"onType","scrollSync":"onSelectionChangeByMouse","sysInputs":{},"systemFonts":true},"previewFeature":"enable","projectResolution":"singleFile","renderDocs":"enable","rootPath":null,"semanticTokens":"enable","serverPath":null,"showExportFileIn":null,"statusBarFormat":"{compileStatusIcon} {wordCount} [{fileName}]","systemFonts":true,"trace":{"server":"off"},"typingContinueCommentsOnNewline":true,"typstExtraArgs":[]},"typstExtraArgs":[]}
+[2025-09-03T02:00:20Z INFO  tinymist::lsp] new settings applied
+[2025-09-03T02:00:20Z INFO  sync_ls::server] handling textDocument/codeAction - (13)
+[2025-09-03T02:00:20Z INFO  sync_ls::server] handling textDocument/documentColor - (14)
+[2025-09-03T02:00:20Z INFO  sync_ls::server] handled  textDocument/codeAction - (13) in 123.55µs
+[2025-09-03T02:00:20Z INFO  sync_ls::server] handled  textDocument/documentColor - (14) in 82.66µs
+[2025-09-03T02:00:20Z INFO  sync_ls::server] handling textDocument/foldingRange - (15)
+[2025-09-03T02:00:20Z INFO  sync_ls::server] handled  textDocument/foldingRange - (15) in 150.38µs
+[2025-09-03T02:00:21Z INFO  sync_ls::server] handling textDocument/documentSymbol - (16)
+[2025-09-03T02:00:21Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (16) in 78.72µs
+[2025-09-03T02:00:21Z INFO  sync_ls::server] handling textDocument/semanticTokens/full/delta - (17)
+[2025-09-03T02:00:21Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full/delta - (17) in 116.63µs
+[2025-09-03T02:00:27Z INFO  sync_ls::server] handling textDocument/documentHighlight - (18)
+[2025-09-03T02:00:27Z INFO  sync_ls::server] handled  textDocument/documentHighlight - (18) in 331.02µs
+[2025-09-03T02:00:28Z INFO  sync_ls::server] handling textDocument/codeLens - (19)
+[2025-09-03T02:00:28Z INFO  sync_ls::server] handled  textDocument/codeLens - (19) in 346.47µs
+[2025-09-03T02:00:28Z INFO  sync_ls::server] handling textDocument/codeAction - (20)
+[2025-09-03T02:00:28Z INFO  sync_ls::server] handled  textDocument/codeAction - (20) in 291.94µs
+[2025-09-03T02:00:38Z INFO  sync_ls::server] handling workspace/executeCommand - (21)
+[2025-09-03T02:00:38Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: None }), inputs: None }
+[2025-09-03T02:00:38Z INFO  tinymist_project::compiler] ProjectCompiler: removing diag
+[2025-09-03T02:00:38Z INFO  tinymist::cmd] file focused: None
+[2025-09-03T02:00:38Z INFO  sync_ls::server] handled  workspace/executeCommand - (21) in 83.45µs
+[2025-09-03T02:00:56Z INFO  sync_ls::server] handling workspace/executeCommand - (22)
+[2025-09-03T02:00:56Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: None }), inputs: None }
+[2025-09-03T02:00:56Z INFO  tinymist_project::compiler] ProjectCompiler: removing diag
+[2025-09-03T02:00:56Z INFO  tinymist::cmd] file focused: None
+[2025-09-03T02:00:56Z INFO  sync_ls::server] handled  workspace/executeCommand - (22) in 56.27µs
+[2025-09-03T02:01:05Z INFO  sync_ls::server] handling workspace/executeCommand - (23)
+[2025-09-03T02:01:05Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: None }), inputs: None }
+[2025-09-03T02:01:05Z INFO  tinymist_project::compiler] ProjectCompiler: removing diag
+[2025-09-03T02:01:05Z INFO  tinymist::cmd] file focused: None
+[2025-09-03T02:01:05Z INFO  sync_ls::server] handled  workspace/executeCommand - (23) in 77.06µs
+[2025-09-03T02:01:08Z INFO  sync_ls::server] handling workspace/executeCommand - (24)
+[2025-09-03T02:01:08Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: None }), inputs: None }
+[2025-09-03T02:01:08Z INFO  tinymist_project::compiler] ProjectCompiler: removing diag
+[2025-09-03T02:01:08Z INFO  tinymist::cmd] file focused: None
+[2025-09-03T02:01:08Z INFO  sync_ls::server] handled  workspace/executeCommand - (24) in 125.80µs
+[2025-09-03T02:01:12Z INFO  sync_ls::server] handling workspace/executeCommand - (25)
+[2025-09-03T02:01:12Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: None }), inputs: None }
+[2025-09-03T02:01:12Z INFO  tinymist_project::compiler] ProjectCompiler: removing diag
+[2025-09-03T02:01:12Z INFO  tinymist::cmd] file focused: None
+[2025-09-03T02:01:12Z INFO  sync_ls::server] handled  workspace/executeCommand - (25) in 86.40µs
+[2025-09-03T02:01:23Z INFO  sync_ls::server] handling workspace/executeCommand - (26)
+[2025-09-03T02:01:23Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: None }), inputs: None }
+[2025-09-03T02:01:23Z INFO  tinymist_project::compiler] ProjectCompiler: removing diag
+[2025-09-03T02:01:23Z INFO  tinymist::cmd] file focused: None
+[2025-09-03T02:01:23Z INFO  sync_ls::server] handled  workspace/executeCommand - (26) in 73.06µs
+[2025-09-03T02:01:57Z INFO  sync_ls::server] handling workspace/executeCommand - (27)
+[2025-09-03T02:01:57Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: None }), inputs: None }
+[2025-09-03T02:01:57Z INFO  tinymist_project::compiler] ProjectCompiler: removing diag
+[2025-09-03T02:01:57Z INFO  tinymist::cmd] file focused: None
+[2025-09-03T02:01:57Z INFO  sync_ls::server] handled  workspace/executeCommand - (27) in 54.81µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/documentColor - (28)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/codeAction - (29)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/documentColor - (28) in 102.86µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/codeAction - (29) in 65.45µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/documentLink - (30)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/documentLink - (30) in 141.68µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling workspace/executeCommand - (31)
+[2025-09-03T02:02:36Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: Some(@ws/p0:0.0.0/working/question.typ) }), inputs: None }
+[2025-09-03T02:02:36Z INFO  tinymist::cmd] file focused: Some("/home/harry/personal/uni/project/working/question.typ")
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  workspace/executeCommand - (31) in 64.04µs
+[2025-09-03T02:02:36Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 126.759µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/documentHighlight - (32)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/documentHighlight - (32) in 110.65µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/foldingRange - (33)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/foldingRange - (33) in 128.28µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/codeAction - (34)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/codeAction - (34) in 242.44µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/semanticTokens/full/delta - (35)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full/delta - (35) in 389.85µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/documentSymbol - (36)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (36) in 281.15µs
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handling textDocument/codeLens - (37)
+[2025-09-03T02:02:36Z INFO  sync_ls::server] handled  textDocument/codeLens - (37) in 302.62µs
+[2025-09-03T02:02:41Z INFO  sync_ls::server] handling textDocument/codeAction - (38)
+[2025-09-03T02:02:41Z INFO  sync_ls::server] handled  textDocument/codeAction - (38) in 153.21µs
+[2025-09-03T02:02:43Z INFO  sync_ls::server] handling textDocument/codeAction - (39)
+[2025-09-03T02:02:43Z INFO  sync_ls::server] handled  textDocument/codeAction - (39) in 390.68µs
+[2025-09-03T02:02:43Z INFO  sync_ls::server] handling textDocument/codeAction - (40)
+[2025-09-03T02:02:43Z INFO  sync_ls::server] handled  textDocument/codeAction - (40) in 383.34µs
+[2025-09-03T02:02:47Z INFO  sync_ls::server] notifying textDocument/didChange
+[2025-09-03T02:02:47Z INFO  sync_ls::server] notify textDocument/didChange succeeded in 188.68µs
+[2025-09-03T02:02:47Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 2.309507ms
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handling textDocument/foldingRange - (41)
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handled  textDocument/foldingRange - (41) in 133.06µs
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handling textDocument/codeLens - (42)
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handled  textDocument/codeLens - (42) in 91.15µs
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handling textDocument/semanticTokens/full/delta - (43)
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full/delta - (43) in 223.60µs
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handling textDocument/documentSymbol - (44)
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handling textDocument/documentSymbol - (45)
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (44) in 266.20µs
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (45) in 250.45µs
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handling textDocument/documentHighlight - (46)
+[2025-09-03T02:02:47Z INFO  sync_ls::server] handled  textDocument/documentHighlight - (46) in 262.31µs
+[2025-09-03T02:02:48Z INFO  sync_ls::server] handling textDocument/codeAction - (47)
+[2025-09-03T02:02:48Z INFO  sync_ls::server] handled  textDocument/codeAction - (47) in 292.24µs
+[2025-09-03T02:02:48Z INFO  sync_ls::server] handling textDocument/documentLink - (48)
+[2025-09-03T02:02:48Z INFO  sync_ls::server] handling textDocument/documentColor - (49)
+[2025-09-03T02:02:48Z INFO  sync_ls::server] handled  textDocument/documentLink - (48) in 335.24µs
+[2025-09-03T02:02:48Z INFO  sync_ls::server] handled  textDocument/documentColor - (49) in 282.65µs
+[2025-09-03T02:02:49Z INFO  sync_ls::server] handling textDocument/codeAction - (50)
+[2025-09-03T02:02:49Z INFO  sync_ls::server] handled  textDocument/codeAction - (50) in 313.59µs
+[2025-09-03T02:02:52Z INFO  sync_ls::server] notifying textDocument/didChange
+[2025-09-03T02:02:52Z INFO  sync_ls::server] notify textDocument/didChange succeeded in 222.23µs
+[2025-09-03T02:02:52Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 1.42969ms
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handling textDocument/foldingRange - (51)
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handled  textDocument/foldingRange - (51) in 207.37µs
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handling textDocument/codeLens - (52)
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handled  textDocument/codeLens - (52) in 127.48µs
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handling textDocument/semanticTokens/full/delta - (53)
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full/delta - (53) in 496.48µs
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handling textDocument/documentSymbol - (54)
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handling textDocument/documentSymbol - (55)
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (54) in 239.83µs
+[2025-09-03T02:02:52Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (55) in 140.13µs
+[2025-09-03T02:02:53Z INFO  sync_ls::server] handling textDocument/documentLink - (56)
+[2025-09-03T02:02:53Z INFO  sync_ls::server] handling textDocument/documentColor - (57)
+[2025-09-03T02:02:53Z INFO  sync_ls::server] handled  textDocument/documentColor - (57) in 166.19µs
+[2025-09-03T02:02:53Z INFO  sync_ls::server] handled  textDocument/documentLink - (56) in 343.63µs
+[2025-09-03T02:02:53Z INFO  sync_ls::server] handling textDocument/documentHighlight - (58)
+[2025-09-03T02:02:53Z INFO  sync_ls::server] handled  textDocument/documentHighlight - (58) in 104.65µs
+[2025-09-03T02:02:54Z INFO  sync_ls::server] handling textDocument/codeAction - (59)
+[2025-09-03T02:02:54Z INFO  sync_ls::server] handled  textDocument/codeAction - (59) in 401.61µs
+[2025-09-03T02:02:59Z INFO  sync_ls::server] notifying textDocument/didChange
+[2025-09-03T02:02:59Z INFO  sync_ls::server] notify textDocument/didChange succeeded in 198.05µs
+[2025-09-03T02:02:59Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 1.31889ms
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handling textDocument/completion - (60)
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handled  textDocument/completion - (60) in 1.57ms
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handling textDocument/foldingRange - (61)
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handled  textDocument/foldingRange - (61) in 117.23µs
+[2025-09-03T02:02:59Z INFO  sync_ls::server] notifying textDocument/didChange
+[2025-09-03T02:02:59Z INFO  sync_ls::server] notify textDocument/didChange succeeded in 75.97µs
+[2025-09-03T02:02:59Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 431.049µs
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handling textDocument/completion - (62)
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handled  textDocument/completion - (62) in 237.47µs
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handling textDocument/semanticTokens/full/delta - (63)
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full/delta - (63) in 178.14µs
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handling textDocument/foldingRange - (64)
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handled  textDocument/foldingRange - (64) in 269.68µs
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handling textDocument/codeAction - (65)
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handling textDocument/codeLens - (66)
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handled  textDocument/codeAction - (65) in 248.54µs
+[2025-09-03T02:02:59Z INFO  sync_ls::server] handled  textDocument/codeLens - (66) in 187.68µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/documentSymbol - (67)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (67) in 258.60µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/documentSymbol - (68)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (68) in 293.89µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] notifying textDocument/didChange
+[2025-09-03T02:03:00Z INFO  sync_ls::server] notify textDocument/didChange succeeded in 218.29µs
+[2025-09-03T02:03:00Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 1.401368ms
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/completion - (69)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/completion - (69) in 283.89µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] notifying textDocument/didChange
+[2025-09-03T02:03:00Z INFO  sync_ls::server] notify textDocument/didChange succeeded in 215.87µs
+[2025-09-03T02:03:00Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 1.495591ms
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/completion - (70)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/completion - (70) in 393.93µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/foldingRange - (71)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/foldingRange - (71) in 335.92µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/semanticTokens/full/delta - (72)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full/delta - (72) in 461.45µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/codeAction - (73)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/codeLens - (74)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/codeAction - (73) in 340.30µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/codeLens - (74) in 271.75µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/documentColor - (75)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/documentColor - (75) in 320.25µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/documentSymbol - (76)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/documentSymbol - (77)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (76) in 159.65µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (77) in 70.62µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] notifying textDocument/didChange
+[2025-09-03T02:03:00Z INFO  sync_ls::server] notify textDocument/didChange succeeded in 140.53µs
+[2025-09-03T02:03:00Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 817.535µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/completion - (78)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/completion - (78) in 329.69µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] notifying textDocument/didChange
+[2025-09-03T02:03:00Z INFO  sync_ls::server] notify textDocument/didChange succeeded in 96.21µs
+[2025-09-03T02:03:00Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 443.179µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/completion - (79)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/completion - (79) in 181.57µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/foldingRange - (80)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/foldingRange - (80) in 159.26µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/semanticTokens/full/delta - (81)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full/delta - (81) in 116.84µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/codeAction - (82)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/codeLens - (83)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/codeAction - (82) in 119.23µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/codeLens - (83) in 70.68µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/documentSymbol - (84)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handling textDocument/documentSymbol - (85)
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (84) in 114.85µs
+[2025-09-03T02:03:00Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (85) in 51.10µs
+[2025-09-03T02:03:01Z INFO  sync_ls::server] handling textDocument/documentColor - (86)
+[2025-09-03T02:03:01Z INFO  sync_ls::server] handled  textDocument/documentColor - (86) in 364.18µs
+[2025-09-03T02:03:01Z INFO  sync_ls::server] handling textDocument/documentLink - (87)
+[2025-09-03T02:03:01Z INFO  sync_ls::server] handled  textDocument/documentLink - (87) in 343.79µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling workspace/willRenameFiles - (88)
+[2025-09-03T02:03:09Z INFO  tinymist::lsp::query] will rename files RenameFilesParams { files: [FileRename { old_uri: "file:///home/harry/personal/uni/project/working/question.typ", new_uri: "file:///home/harry/personal/uni/project/working/report.typ" }] }
+[2025-09-03T02:03:09Z INFO  tinymist_query::will_rename_files] did rename diff: "../report.typ"
+[2025-09-03T02:03:09Z INFO  tinymist_query::will_rename_files] did rename def_fid: @ws/p0:0.0.0/working/question.typ
+[2025-09-03T02:03:09Z INFO  tinymist_query::will_rename_files] did rename edits: {}
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  workspace/willRenameFiles - (88) in 22.99ms
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling textDocument/documentHighlight - (89)
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  textDocument/documentHighlight - (89) in 82.73µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] notifying textDocument/didClose
+[2025-09-03T02:03:09Z INFO  sync_ls::server] notify textDocument/didClose succeeded in 39.24µs
+[2025-09-03T02:03:09Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/question.typ: compilation succeeded in 116.305µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] notifying textDocument/didOpen
+[2025-09-03T02:03:09Z INFO  tinymist::lsp] did open file:///home/harry/personal/uni/project/working/report.typ
+[2025-09-03T02:03:09Z INFO  sync_ls::server] notify textDocument/didOpen succeeded in 82.49µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling textDocument/documentColor - (90)
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling textDocument/codeAction - (91)
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  textDocument/documentColor - (90) in 175.40µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  textDocument/codeAction - (91) in 114.18µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling textDocument/documentSymbol - (92)
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (92) in 106.76µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling textDocument/semanticTokens/full - (93)
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  textDocument/semanticTokens/full - (93) in 174.12µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling textDocument/documentLink - (94)
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  textDocument/documentLink - (94) in 76.73µs
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling workspace/executeCommand - (95)
+[2025-09-03T02:03:09Z INFO  tinymist::input] the task of the primary is changing to TaskInputs { entry: Some(EntryState { root: Some("/home/harry/personal/uni/project"), main: Some(@ws/p0:0.0.0/working/report.typ) }), inputs: None }
+[2025-09-03T02:03:09Z INFO  tinymist::cmd] file focused: Some("/home/harry/personal/uni/project/working/report.typ")
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  workspace/executeCommand - (95) in 56.59µs
+[2025-09-03T02:03:09Z INFO  tinymist_project::compiler] /home/harry/personal/uni/project/working/report.typ: compilation succeeded in 5.988237ms
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handling textDocument/foldingRange - (96)
+[2025-09-03T02:03:09Z INFO  sync_ls::server] handled  textDocument/foldingRange - (96) in 84.63µs
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handling textDocument/codeLens - (97)
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handled  textDocument/codeLens - (97) in 322.79µs
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handling textDocument/codeAction - (98)
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handled  textDocument/codeAction - (98) in 308.36µs
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handling textDocument/documentSymbol - (99)
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handled  textDocument/documentSymbol - (99) in 186.36µs
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handling textDocument/documentHighlight - (100)
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handled  textDocument/documentHighlight - (100) in 121.20µs
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handling textDocument/codeLens - (101)
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handled  textDocument/codeLens - (101) in 357.14µs
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handling textDocument/codeAction - (102)
+[2025-09-03T02:03:10Z INFO  sync_ls::server] handled  textDocument/codeAction - (102) in 225.79µs

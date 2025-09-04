@@ -1,0 +1,12 @@
+2025-09-03 14:00:18.626 [info] Native locator: Refresh started
+2025-09-03 14:00:18.679 [info] Native locator: Refresh started
+2025-09-03 14:00:18.702 [info] Skipping ActivatedEnv Detection:  process.env.VSCODE_CLI !== '1'
+2025-09-03 14:00:18.702 [info] Skipping ActivatedEnv Detection:  process.env.VSCODE_CLI !== '1'
+2025-09-03 14:00:18.715 [info] > conda info --json
+2025-09-03 14:00:18.736 [info] > pyenv which python
+2025-09-03 14:00:18.736 [info] cwd: .
+2025-09-03 14:00:18.804 [info] Conda environment manager found at: /home/harry/programs/miniconda3/bin/conda
+2025-09-03 14:00:18.805 [info] Using conda: /home/harry/programs/miniconda3/bin/conda
+2025-09-03 14:00:18.864 [info] Native locator: Refresh finished in 235 ms
+2025-09-03 14:00:18.880 [info] Python interpreter path: /usr/bin/python3
+2025-09-03 14:00:20.745 [info] Starting Pylance language server.

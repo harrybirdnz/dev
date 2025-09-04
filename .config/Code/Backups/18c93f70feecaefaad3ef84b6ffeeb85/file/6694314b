@@ -1,0 +1,25 @@
+file:///home/harry/personal/uni/project/working/database/preprocessing.sql {"mtime":1756864657573,"ctime":1756864657573,"size":0,"etag":"3eoh3nln90","orphaned":false,"typeId":""}
+CREATE or replace VIEW processed_demand AS
+SELECT 
+    DATETIME,
+    AVG(TOTALDEMAND) OVER (
+        PARTITION BY REGIONID 
+        ORDER BY DATETIME 
+        ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING
+    ) AS avg_next_24h,
+    MIN(TOTALDEMAND) OVER (
+        PARTITION BY REGIONID 
+        ORDER BY DATETIME 
+        ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING
+    ) AS min_next_24h,
+    MAX(TOTALDEMAND) OVER (
+        PARTITION BY REGIONID 
+        ORDER BY DATETIME 
+        ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING
+    ) AS max_next_24h,
+    SUM(TOTALDEMAND) OVER (
+        PARTITION BY REGIONID 
+        ORDER BY DATETIME 
+        ROWS BETWEEN CURRENT ROW AND 47 FOLLOWING
+    ) AS sum_next_24h
+FROM totaldemand_nsw;

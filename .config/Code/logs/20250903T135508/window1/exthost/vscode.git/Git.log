@@ -1,0 +1,116 @@
+2025-09-03 13:55:11.043 [info] [main] Log level: Info
+2025-09-03 13:55:11.043 [info] [main] Validating found git in: "git"
+2025-09-03 13:55:11.043 [info] [main] Using git "2.34.1" from "git"
+2025-09-03 13:55:11.043 [info] [Model][doInitialScan] Initial repository scan started
+2025-09-03 13:55:11.043 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-09-03 13:55:41.278 [info] [main] Log level: Info
+2025-09-03 13:55:41.278 [info] [main] Validating found git in: "git"
+2025-09-03 13:55:41.278 [info] [main] Using git "2.34.1" from "git"
+2025-09-03 13:55:41.278 [info] [Model][doInitialScan] Initial repository scan started
+2025-09-03 13:55:41.278 [info] > git rev-parse --show-toplevel [1ms]
+2025-09-03 13:55:41.278 [info] > git rev-parse --git-dir --git-common-dir --show-superproject-working-tree [2ms]
+2025-09-03 13:55:41.278 [info] [Model][openRepository] Opened repository (path): /home/harry/personal/uni/project
+2025-09-03 13:55:41.278 [info] [Model][openRepository] Opened repository (real path): /home/harry/personal/uni/project
+2025-09-03 13:55:41.278 [info] [Model][openRepository] Opened repository (kind): repository
+2025-09-03 13:55:41.278 [info] > git rev-parse --show-toplevel [2104ms]
+2025-09-03 13:55:41.278 [info] > git config --get commit.template [2109ms]
+2025-09-03 13:55:41.278 [info] > git rev-parse --show-toplevel [67ms]
+2025-09-03 13:55:41.278 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [130ms]
+2025-09-03 13:55:41.280 [info] > git rev-parse --show-toplevel [159ms]
+2025-09-03 13:55:41.594 [info] > git check-ignore -v -z --stdin [42ms]
+2025-09-03 13:55:41.595 [info] > git status -z -uall [35ms]
+2025-09-03 13:55:41.595 [info] > git fetch [2877ms]
+2025-09-03 13:55:41.595 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [26ms] (cancelled)
+2025-09-03 13:55:41.608 [info] > git rev-parse --show-toplevel [319ms]
+2025-09-03 13:55:41.656 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [51ms]
+2025-09-03 13:55:41.673 [info] > git config --get --local branch.main.vscode-merge-base [7ms]
+2025-09-03 13:55:41.683 [info] > git rev-parse --show-toplevel [28ms]
+2025-09-03 13:55:41.683 [info] > git config --get commit.template [37ms]
+2025-09-03 13:55:41.683 [info] > git config --get commit.template [46ms]
+2025-09-03 13:55:41.693 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/main refs/remotes/origin/main [11ms]
+2025-09-03 13:55:41.723 [info] > git rev-parse --show-toplevel [31ms]
+2025-09-03 13:55:41.759 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [37ms]
+2025-09-03 13:55:41.759 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [46ms]
+2025-09-03 13:55:41.760 [info] > git merge-base refs/heads/main refs/remotes/origin/main [57ms]
+2025-09-03 13:55:41.790 [info] > git rev-parse --show-toplevel [57ms]
+2025-09-03 13:55:41.817 [info] > git diff --name-status -z --diff-filter=ADMR d2e8da547b431f4b7e74e52957ecf3fa31849693...refs/remotes/origin/main [48ms]
+2025-09-03 13:55:41.819 [info] > git rev-parse --show-toplevel [10ms]
+2025-09-03 13:55:41.820 [info] [Model][doInitialScan] Initial repository scan completed - repositories (1), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2025-09-03 13:55:41.841 [info] > git status -z -uall [10ms]
+2025-09-03 13:55:41.842 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2025-09-03 13:55:43.658 [info] > git check-ignore -v -z --stdin [1ms]
+2025-09-03 13:55:45.115 [info] > git check-ignore -v -z --stdin [0ms]
+2025-09-03 13:56:05.712 [info] > git show --textconv :working/.env [9ms]
+2025-09-03 13:56:05.720 [info] > git ls-files --stage -- working/.env [9ms]
+2025-09-03 13:56:05.728 [info] > git hash-object -t tree /dev/null [9ms]
+2025-09-03 13:56:05.728 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/.env.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2F.env%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:56:05.730 [info] > git hash-object -t tree /dev/null [3ms]
+2025-09-03 13:56:05.730 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/.env.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2F.env%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:56:06.186 [info] > git show --textconv :working/database/docker-compose.yml [10ms]
+2025-09-03 13:56:06.186 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/database/docker-compose.yml.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fdocker-compose.yml%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:56:06.187 [info] > git ls-files --stage -- working/database/docker-compose.yml [1ms]
+2025-09-03 13:56:06.187 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/database/docker-compose.yml.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fdocker-compose.yml%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:57:16.283 [info] > git blame --root --incremental d2e8da547b431f4b7e74e52957ecf3fa31849693 -- working/database/docker-compose.yml [1ms]
+2025-09-03 13:57:16.283 [info] fatal: no such path working/database/docker-compose.yml in d2e8da547b431f4b7e74e52957ecf3fa31849693
+2025-09-03 13:57:37.837 [info] > git show --textconv :working/database/preprocessing.sql [7ms]
+2025-09-03 13:57:37.837 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:57:37.837 [info] > git ls-files --stage -- working/database/preprocessing.sql [1ms]
+2025-09-03 13:57:37.838 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:57:38.142 [info] > git check-ignore -v -z --stdin [2ms]
+2025-09-03 13:57:38.702 [info] > git config --get commit.template [4ms]
+2025-09-03 13:57:38.729 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [4ms]
+2025-09-03 13:57:38.773 [info] > git status -z -uall [21ms]
+2025-09-03 13:57:38.775 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [3ms]
+2025-09-03 13:59:00.374 [info] > git show --textconv :working/database/docker-compose.yml [9ms]
+2025-09-03 13:59:00.375 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/database/docker-compose.yml.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fdocker-compose.yml%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:59:00.375 [info] > git ls-files --stage -- working/database/docker-compose.yml [2ms]
+2025-09-03 13:59:00.375 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/database/docker-compose.yml.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fdocker-compose.yml%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:59:01.601 [info] > git show --textconv :working/database/preprocessing.sql [8ms]
+2025-09-03 13:59:01.602 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:59:01.602 [info] > git ls-files --stage -- working/database/preprocessing.sql [1ms]
+2025-09-03 13:59:01.603 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 13:59:01.737 [info] > git fetch [2818ms]
+2025-09-03 13:59:01.752 [info] > git config --get commit.template [7ms]
+2025-09-03 13:59:01.752 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [0ms]
+2025-09-03 13:59:01.768 [info] > git status -z -uall [7ms]
+2025-09-03 13:59:01.768 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [1ms]
+2025-09-03 13:59:14.317 [info] > git blame --root --incremental d2e8da547b431f4b7e74e52957ecf3fa31849693 -- working/database/preprocessing.sql [4ms]
+2025-09-03 13:59:14.317 [info] fatal: no such path working/database/preprocessing.sql in d2e8da547b431f4b7e74e52957ecf3fa31849693
+2025-09-03 14:00:18.436 [info] > git show --textconv :working/question.typ [23ms]
+2025-09-03 14:00:18.437 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/question.typ.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fquestion.typ%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:00:18.440 [info] > git ls-files --stage -- working/question.typ [16ms]
+2025-09-03 14:00:18.440 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/question.typ.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fquestion.typ%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:00:27.781 [info] > git blame --root --incremental d2e8da547b431f4b7e74e52957ecf3fa31849693 -- working/question.typ [1ms]
+2025-09-03 14:00:27.781 [info] fatal: no such path working/question.typ in d2e8da547b431f4b7e74e52957ecf3fa31849693
+2025-09-03 14:00:38.503 [info] > git show --textconv :working/database/preprocessing.sql [9ms]
+2025-09-03 14:00:38.503 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:00:38.503 [info] > git ls-files --stage -- working/database/preprocessing.sql [1ms]
+2025-09-03 14:00:38.504 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:01:05.351 [info] > git show --textconv :working/database/preprocessing.sql [9ms]
+2025-09-03 14:01:05.351 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:01:05.351 [info] > git ls-files --stage -- working/database/preprocessing.sql [1ms]
+2025-09-03 14:01:05.352 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:01:12.964 [info] > git show --textconv :working/database/preprocessing.sql [8ms]
+2025-09-03 14:01:12.965 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:01:12.965 [info] > git ls-files --stage -- working/database/preprocessing.sql [1ms]
+2025-09-03 14:01:12.965 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/database/preprocessing.sql.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fdatabase%2Fpreprocessing.sql%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:02:04.489 [info] > git fetch [2708ms]
+2025-09-03 14:02:04.549 [info] > git config --get commit.template [27ms]
+2025-09-03 14:02:04.550 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-09-03 14:02:04.576 [info] > git status -z -uall [12ms]
+2025-09-03 14:02:04.577 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2025-09-03 14:02:36.747 [info] > git show --textconv :working/question.typ [8ms]
+2025-09-03 14:02:36.748 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/question.typ.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fquestion.typ%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:02:36.748 [info] > git ls-files --stage -- working/question.typ [1ms]
+2025-09-03 14:02:36.748 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/question.typ.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Fquestion.typ%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:03:10.000 [info] > git show --textconv :working/report.typ [11ms]
+2025-09-03 14:03:10.000 [warning] [GitFileSystemProvider][readFile] File not found - git:/home/harry/personal/uni/project/working/report.typ.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Freport.typ%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:03:10.001 [info] > git ls-files --stage -- working/report.typ [2ms]
+2025-09-03 14:03:10.001 [warning] [GitFileSystemProvider][stat] File not found - git:/home/harry/personal/uni/project/working/report.typ.git?%7B%22path%22%3A%22%2Fhome%2Fharry%2Fpersonal%2Funi%2Fproject%2Fworking%2Freport.typ%22%2C%22ref%22%3A%22%22%7D
+2025-09-03 14:03:10.012 [info] > git blame --root --incremental d2e8da547b431f4b7e74e52957ecf3fa31849693 -- working/report.typ [1ms]
+2025-09-03 14:03:10.012 [info] fatal: no such path working/report.typ in d2e8da547b431f4b7e74e52957ecf3fa31849693
+2025-09-03 14:03:10.302 [info] > git check-ignore -v -z --stdin [4ms]
+2025-09-03 14:03:10.832 [info] > git config --get commit.template [28ms]
+2025-09-03 14:03:10.834 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2025-09-03 14:03:10.870 [info] > git status -z -uall [16ms]
+2025-09-03 14:03:10.871 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
