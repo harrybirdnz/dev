@@ -1,0 +1,2 @@
+#! /usr/bin/env bash
+restic -r sftp:harry@bird-server:/home/harry/restic-repo backup ~/ -verbose --exclude-file ~/.config/resticprofile/excludes.txt --password-file ~/.config/resticprofile/bird-password
