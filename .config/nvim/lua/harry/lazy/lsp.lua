@@ -44,7 +44,12 @@ return {
             ensure_installed = {
                 "lua_ls",
                 "rust_analyzer",
-                "gopls",
+                "svelte",
+                "tailwindcss",
+                "html",
+                "pyright",
+                "bashls",
+                "yamlls",
             },
             handlers = {
                 function(server_name) -- default handler (optional)

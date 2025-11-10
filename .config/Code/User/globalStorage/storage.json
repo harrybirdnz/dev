@@ -6,21 +6,46 @@
         "workspaces": [],
         "folders": [
             {
-                "folderUri": "file:///home/harry/personal/uni/project"
+                "folderUri": "file:///home/harry/work/rocersa-steel"
+            },
+            {
+                "folderUri": "file:///home/harry/work/latex"
+            },
+            {
+                "folderUri": "file:///home/harry/personal/coding/websites/blog"
+            },
+            {
+                "folderUri": "file:///home/harry/personal/coding/dev"
             }
         ],
         "emptyWindows": [
             {
-                "backupFolder": "1756864509626"
+                "backupFolder": "1762722701700"
+            },
+            {
+                "backupFolder": "1762739961986"
             }
         ]
     },
     "windowControlHeight": 35,
     "profileAssociations": {
         "workspaces": {
-            "file:///home/harry/personal/uni/project": "__default__profile__"
+            "file:///home/harry/personal/uni/project": "__default__profile__",
+            "file:///home/harry/work/odoo": "__default__profile__",
+            "file:///home/harry/work/rocersa-steel": "__default__profile__",
+            "file:///home/harry/work/latex": "__default__profile__",
+            "file:///home/harry/work/corten": "__default__profile__",
+            "vscode-remote://ssh-remote%2Bodoo-server/opt/odoo": "__default__profile__",
+            "file:///home/harry/personal/coding/dev": "__default__profile__",
+            "vscode-remote://ssh-remote%2Bodoo-server/": "__default__profile__",
+            "file:///home/harry/personal/coding/websites/harrybirdnz": "__default__profile__",
+            "file:///home/harry/personal/coding/finances": "__default__profile__",
+            "file:///home/harry/personal/coding/websites/blog": "__default__profile__"
         },
-        "emptyWindows": {}
+        "emptyWindows": {
+            "1762722701700": "__default__profile__",
+            "1762739961986": "__default__profile__"
+        }
     },
     "theme": "vs-dark",
     "themeBackground": "#272822",
@@ -43,21 +68,21 @@
             "titleBarHeight": 35,
             "activityBarWidth": 48,
             "sideBarWidth": 300,
-            "auxiliaryBarWidth": 0,
+            "auxiliaryBarWidth": 300,
             "statusBarHeight": 22,
             "windowBorder": false
         }
     },
     "windowsState": {
         "lastActiveWindow": {
-            "folder": "file:///home/harry/personal/uni/project",
-            "backupPath": "/home/harry/.config/Code/Backups/18c93f70feecaefaad3ef84b6ffeeb85",
+            "folder": "file:///home/harry/personal/coding/dev",
+            "backupPath": "/home/harry/.config/Code/Backups/7ad34a4f6a3699dc690a73bb04677942",
             "uiState": {
                 "mode": 1,
-                "x": 1282,
-                "y": 36,
-                "width": 1274,
-                "height": 1400
+                "x": 2568,
+                "y": 40,
+                "width": 1904,
+                "height": 1032
             }
         },
         "openedWindows": []
@@ -68,6 +93,46 @@
             "auxiliaryBarWidth": 300,
             "workspaces": {
                 "eb1d1323cf2e79fbf8370f6c99fb15fe": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "7ff480561f22218bff7e27242c20a3ab": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "126ee751a69237b3cd347af65f88c4ee": {
+                    "sideBarVisible": false,
+                    "auxiliaryBarVisible": true
+                },
+                "f5eb42bce15738aefdc0a9d0228db8a7": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "cfc2342704973bf3d881a20d2eaa9e70": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "e2b14d158c871cd2724d4ee521fc5da0": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": false
+                },
+                "4632b13bb4cfd8b6c5acc6414955757a": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "ad82a663e8bb7652dc281955a2e5a3ba": {
+                    "sideBarVisible": false,
+                    "auxiliaryBarVisible": false
+                },
+                "fa4d57bd1de208b101c4cf1c7458180f": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "0bf07b31c8a0569a3d0347394ab9d160": {
+                    "sideBarVisible": true,
+                    "auxiliaryBarVisible": true
+                },
+                "38796d6ec35a5cf97867cc9deff21782": {
                     "sideBarVisible": true,
                     "auxiliaryBarVisible": false
                 }

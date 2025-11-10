@@ -1,0 +1,37 @@
+partial alphanumeric_keys
+xkb_symbols "hb_nz" {
+
+    include "us(basic)"  // Start with standard US QWERTY
+    include "level3(alt_switch)"  // Enable Alt key for level 3 (works with single Alt)
+
+    name[Group1] = "English (Harry NZ)";
+
+    // Modified top row (numbers & symbols) - same as your original
+    key <TLDE> { [     grave, numbersign ] };  // ` → $, ~
+    key <AE01> { [     plus,        1 ] };                                  // 1 → +, 1
+    key <AE02> { [     bracketleft, 2 ] };                                  // 2 → [, 2
+    key <AE03> { [     braceleft,   3 ] };                                  // 3 → {, 3
+    key <AE04> { [     parenleft,   4 ] };                                  // 4 → (, 4
+    key <AE05> { [     ampersand,   5 ] };                                  // 5 → &, 5
+    key <AE06> { [     equal,       6 ] };                                  // 6 → =, 6
+    key <AE07> { [     parenright,  7 ] };                                  // 7 → ), 7
+    key <AE08> { [     braceright,  8 ] };                                  // 8 → }, 8
+    key <AE09> { [     bracketright,9 ] };                                  // 9 → ], 9
+    key <AE10> { [     asterisk,    0 ] };                                  // 0 → *, 0
+    key <AE11> { [     exclam,      percent ] };                             // - → !, %
+    key <AE12> { [     dollar,      asciitilde ] };                          // = → -, _
+
+    // Modified symbol keys - same as your original
+    key <AD12> { [     backslash,      bar ] };                           // / → /, ?
+    key <AD11> { [     at,          asciicircum ] };                        // [ → @, ^
+    key <BKSL> { [     minus,   underscore ] };                                // \ → \, |
+
+    // Add macrons to vowels using Alt key (level 3)
+    key <AC01>  { [ a,   A,  amacron, Amacron ] };  // a/A + Alt = ā/Ā
+    key <AD03>  { [ e,   E,  emacron, Emacron ] };  // e/E + Alt = ē/Ē
+    key <AD08>  { [ i,   I,  imacron, Imacron ] };  // i/I + Alt = ī/Ī
+    key <AD09>  { [ o,   O,  omacron, Omacron ] };  // o/O + Alt = ō/Ō
+    key <AD07>  { [ u,   U,  umacron, Umacron ] };  // u/U + Alt = ū/Ū
+
+    // All other letters and keys remain standard US QWERTY
+};

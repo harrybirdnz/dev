@@ -1,0 +1,409 @@
+{
+  "version": 3,
+  "requesterUsername": "harrybirdwork",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/150116999",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "editor",
+  "requests": [
+    {
+      "requestId": "request_18d26a9e-561e-4a57-a93e-439d72a0883f",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 36
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 37
+            },
+            "text": "product.code does not contain gabbra",
+            "kind": "text"
+          }
+        ],
+        "text": "product.code does not contain gabbra"
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/harry/work/latex/app.py",
+            "external": "file:///home/harry/work/latex/app.py",
+            "path": "/home/harry/work/latex/app.py",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "    found_bracewire = False",
+                "range": {
+                  "startLineNumber": 613,
+                  "startColumn": 1,
+                  "endLineNumber": 613,
+                  "endColumn": 40
+                }
+              }
+            ],
+            [
+              {
+                "text": "    for product in components:",
+                "range": {
+                  "startLineNumber": 614,
+                  "startColumn": 1,
+                  "endLineNumber": 614,
+                  "endColumn": 279
+                }
+              }
+            ],
+            [
+              {
+                "text": "        code = str(product['products'].get('code', '')).lower()",
+                "range": {
+                  "startLineNumber": 615,
+                  "startColumn": 1,
+                  "endLineNumber": 615,
+                  "endColumn": 35
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        table_rows += f\"\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{(product['products'].get('weight', 0) * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\ \\n\"",
+                "range": {
+                  "startLineNumber": 615,
+                  "startColumn": 64,
+                  "endLineNumber": 615,
+                  "endColumn": 64
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        table_rows += \"\\\\hline \\n\"",
+                "range": {
+                  "startLineNumber": 616,
+                  "startColumn": 286,
+                  "endLineNumber": 616,
+                  "endColumn": 286
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        # detect bracewire products by common code/name patterns to avoid duplicating the standalone GabBra row",
+                "range": {
+                  "startLineNumber": 617,
+                  "startColumn": 35,
+                  "endLineNumber": 617,
+                  "endColumn": 35
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        if (",
+                "range": {
+                  "startLineNumber": 618,
+                  "startColumn": 112,
+                  "endLineNumber": 618,
+                  "endColumn": 112
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n            'gabbra' in code",
+                "range": {
+                  "startLineNumber": 619,
+                  "startColumn": 13,
+                  "endLineNumber": 619,
+                  "endColumn": 13
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n            or 'gabbra' in code",
+                "range": {
+                  "startLineNumber": 620,
+                  "startColumn": 29,
+                  "endLineNumber": 620,
+                  "endColumn": 29
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n            or ('gab' in code and 'bra' in code)",
+                "range": {
+                  "startLineNumber": 621,
+                  "startColumn": 32,
+                  "endLineNumber": 621,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n            or 'bracewire' in code",
+                "range": {
+                  "startLineNumber": 622,
+                  "startColumn": 49,
+                  "endLineNumber": 622,
+                  "endColumn": 49
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n            or 'bra' == code  # catch short codes like \"bra\"",
+                "range": {
+                  "startLineNumber": 623,
+                  "startColumn": 35,
+                  "endLineNumber": 623,
+                  "endColumn": 35
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        ):",
+                "range": {
+                  "startLineNumber": 624,
+                  "startColumn": 61,
+                  "endLineNumber": 624,
+                  "endColumn": 61
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n            found_bracewire = True",
+                "range": {
+                  "startLineNumber": 625,
+                  "startColumn": 11,
+                  "endLineNumber": 625,
+                  "endColumn": 11
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 626,
+                  "startColumn": 35,
+                  "endLineNumber": 626,
+                  "endColumn": 35
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    # if a bracewire product was already included in components, disable the extra GabBra row appended later",
+                "range": {
+                  "startLineNumber": 627,
+                  "startColumn": 1,
+                  "endLineNumber": 627,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    if found_bracewire:",
+                "range": {
+                  "startLineNumber": 628,
+                  "startColumn": 109,
+                  "endLineNumber": 628,
+                  "endColumn": 109
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n        bracewire = 0",
+                "range": {
+                  "startLineNumber": 629,
+                  "startColumn": 24,
+                  "endLineNumber": 629,
+                  "endColumn": 24
+                }
+              }
+            ],
+            []
+          ],
+          "state": {
+            "sha1": "a99d89c6a3740d16ad47d8175f9c88752d11b9ab",
+            "applied": 1
+          }
+        }
+      ],
+      "responseId": "response_69d0efaf-9199-43aa-9f7b-7138273d2951",
+      "result": {
+        "timings": {
+          "totalElapsed": 11318
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "toolCallRounds": [
+            {
+              "response": "```python\n    found_bracewire = False\n    for product in components:\n        code = str(product['products'].get('code', '')).lower()\n        table_rows += f\"\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{(product['products'].get('weight', 0) * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n        # detect bracewire products by common code/name patterns to avoid duplicating the standalone GabBra row\n        if (\n            'gabbra' in code\n            or 'gabbra' in code\n            or ('gab' in code and 'bra' in code)\n            or 'bracewire' in code\n            or 'bra' == code  # catch short codes like \"bra\"\n        ):\n            found_bracewire = True\n\n    # if a bracewire product was already included in components, disable the extra GabBra row appended later\n    if found_bracewire:\n        bracewire = 0\n```",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "de955127-e022-4e2d-868a-311392c38307"
+            }
+          ],
+          "modelMessageId": "aedd659f-6eb9-44cc-9eb0-6e4bc21b39ea",
+          "responseId": "3c14e679-2c06-4e0f-866f-42ea5b9ebdcf",
+          "sessionId": "f3a7f8d5-1862-4f86-967b-ef717c0ee26f",
+          "agentId": "github.copilot.editor"
+        },
+        "details": "GPT-5 mini • 0x"
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.1",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editor",
+        "description": "Ask or edit in context",
+        "when": "!config.inlineChat.enableV2 && !config.github.copilot.chat.advanced.inlineChat2",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "Copilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "editor"
+        ],
+        "modes": [
+          "ask"
+        ],
+        "slashCommands": [
+          {
+            "name": "generate",
+            "description": "Generate new code",
+            "disambiguation": [
+              {
+                "category": "generate",
+                "description": "Generate new code",
+                "examples": [
+                  "Add a function that returns the sum of two numbers"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "edit",
+            "description": "Edit the selected code in your active editor",
+            "disambiguation": [
+              {
+                "category": "edit",
+                "description": "Make changes to existing code",
+                "examples": [
+                  "Change this method to use async/await"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "doc",
+            "description": "Add documentation comment for this symbol",
+            "disambiguation": [
+              {
+                "category": "doc",
+                "description": "Add documentation comment for this symbol",
+                "examples": [
+                  "Add jsdoc to this method"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code",
+            "disambiguation": [
+              {
+                "category": "fix",
+                "description": "Propose a fix for the problems in the selected code",
+                "examples": [
+                  "There is a problem in this code. Rewrite the code to show it with the bug fixed."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works",
+            "disambiguation": [
+              {
+                "category": "explain",
+                "description": "Explain how the code in your active editor works",
+                "examples": [
+                  "Write an explanation for the code above as paragraphs of text."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code",
+            "disambiguation": [
+              {
+                "category": "tests",
+                "description": "Generate unit tests for the selected code. The user does not want to fix their existing tests.",
+                "examples": [
+                  "Write a set of detailed unit test functions for the code above."
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": [
+          {
+            "category": "unknown",
+            "description": "Intent of this command is unclear or is not related to information technologies",
+            "examples": [
+              "Add a dog to this comment."
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1760921064901
+    }
+  ],
+  "sessionId": "8ecf23a2-1ed9-49bd-82de-c0918bd33cdb",
+  "creationDate": 1760921016473,
+  "isImported": false,
+  "lastMessageDate": 1760921064901
+}

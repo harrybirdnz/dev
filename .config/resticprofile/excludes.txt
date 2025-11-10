@@ -1,0 +1,13 @@
+node_modules
+.git
+odoo/odoo
+.conda
+.venv
+programs
+Documents
+Downloads
+Desktop
+.*
+VirtualBox VMs
+*.mp4
+*.mkv

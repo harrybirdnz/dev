@@ -1,0 +1,10 @@
+<div class="container mx-auto font-mono pt-5">
+    <h1 class="text-center text-3xl">thepaper</h1>
+    <div>
+        <h2 class="text-2xl">Headline 1</h2>
+        <p>
+            Aenean consectetur eu odio vitae fringilla. In eget laoreet lectus. Donec aliquet luctus dui. Pellentesque a euismod dolor. Ut interdum.
+        </p>
+    </div>
+</div>
+

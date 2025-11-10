@@ -1,0 +1,52 @@
+-- Active: 1756864596779@@127.0.0.1@5430
+-- Active: 1759808189054@@odoo-server@5432@rocersa-testive: 1759808189054@@odoo-server@5432@rocersa-test
+
+CREATE OR REPLACE FUNCTION get_products_by_codes(product_codes TEXT[])
+RETURNS TABLE (
+    name TEXT,
+    "internal reference" TEXT,
+    "Unit" TEXT,
+    weight REAL,
+    "product category" TEXT,
+    "Cost" REAL,
+    "is_published" BOOLEAN,
+    ecommerce_category_id TEXT,
+    websites TEXT,
+    list_price REAL
+) AS $$
+BEGIN
+    RETURN QUERY
+    SELECT
+        coalesce(products.name_metric, products.name_imperial) AS name,
+        products.code AS "internal reference",
+        'Units' AS "Unit",
+        products.weight,
+        categories.name AS "product category",
+        products.au_wholesale_cost AS "Cost",
+        products.au_web AS "is_published",
+        array_to_string(products.ecommerce_category_id, ',') AS ecommerce_category_id,
+        concat_ws(',',
+            CASE WHEN products.au_web THEN 'cor-ten-steel.com.au' END,
+            CASE WHEN products.nz_web THEN 'cor-ten-steel.co.nz' END,
+            CASE WHEN products.uk_web THEN 'cor-ten-steel.co.uk' END,
+            CASE WHEN products.us_web THEN 'cor-ten-steel.com' END
+        ) AS websites,
+        products.au_retail_cost AS list_price
+    FROM products
+    JOIN categories ON categories.id = products.category_id
+    WHERE products.code = ANY(product_codes)
+    AND categories.group IN ('Corten', 'Corten Kitsets')
+    GROUP BY products.id, categories.name
+    ORDER BY products.category_id;
+END;
+$$ LANGUAGE plpgsql;
+
+-- Example usage:
+-- SELECT * FROM get_products_by_codes(ARRAY[
+--     'Corten twelfth R2400 x 200 x 3mm A=1257',
+--     'Riser Top-35 x 900 x 150 x 3mm',
+--     'Corten Step 600 F x 450 S x 150 H x 3mm'
+-- ]);
+
+
+

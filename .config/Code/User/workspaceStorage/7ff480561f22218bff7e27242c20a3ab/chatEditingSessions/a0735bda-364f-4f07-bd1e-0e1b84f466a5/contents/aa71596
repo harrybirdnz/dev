@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="purchase_order_form_inherit" model="ir.ui.view">
+        <field name="name">purchase.order.form.inherit</field>
+        <field name="model">purchase.order</field>
+        <field name="inherit_id" ref="purchase.purchase_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+                expr="//field[@name='price_unit']"
+                position="before"
+            >
+                <field name="line_weight" />
+            </xpath>
+            <xpath
+                expr="//span[@name='amount_total']"
+                position="after"
+            >
+                <tr>
+                    <td class="o_td_label">
+                        <label class="o_form_label">Total Weight</label>
+                    </td>
+                    <td class="o_list_monetary">
+                        <field name="total_weight" style="font-weight: bold;" /> kg
+                    </td>
+                </tr>
+            </xpath>
+        </field>
+    </record>
+</odoo>

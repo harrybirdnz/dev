@@ -1,0 +1,42 @@
+# Restrict access to test instance to Tailscale only
+odoo-server.tail66fb8e.ts.net {
+    # Use manual self-signed certificate
+    tls /etc/caddy/certs/tailscale.crt /etc/caddy/certs/tailscale.key
+
+    # Only allow Tailnet IPs
+    @tailscale remote_ip 100.64.0.0/10
+
+    handle @tailscale {
+        reverse_proxy localhost:8169 {
+            header_up X-Forwarded-Proto https
+            header_up X-Forwarded-Host {host}
+	    header_up X-Url-Scheme {scheme}
+	    header_up X-Real-IP {remote}
+        }
+    }
+
+    # Everyone else gets 403
+    handle {
+        respond "Forbidden" 403
+    }
+
+    log {
+        output file /var/log/caddy/odoo-test.access.log
+    }
+}
+
+
+# Production sites
+rocersa.rocersa.nz, odoo.cor-ten-steel.com.au, odoo.rocersa.nz {
+    encode gzip
+    tls {
+        dns cloudflare {env.CLOUDFLARE_API_TOKEN}
+    }
+    reverse_proxy localhost:8069 {
+            header_up X-Forwarded-Proto https
+            header_up X-Forwarded-Host {host}
+	    header_up X-Url-Scheme {scheme}
+	    header_up X-Real-IP {remote}
+    }
+}
+

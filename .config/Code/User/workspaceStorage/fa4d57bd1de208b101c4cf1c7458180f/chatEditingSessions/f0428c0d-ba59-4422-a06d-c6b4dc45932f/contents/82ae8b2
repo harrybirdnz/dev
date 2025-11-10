@@ -1,0 +1,90 @@
+#import "@preview/simple-technical-resume:0.1.0": *
+
+#let name = "Harry Bird"
+#let phone = "+64 2041357900"
+#let email = "harry@harrybird.nz"
+#let github = "harrybirdnz"
+#let personal-site = "harrybird.nz"
+
+#show: resume.with(
+  top-margin: 0.45in,
+  personal-info-font-size: 9.2pt,
+  author-position: center,
+  personal-info-position: center,
+  author-name: name,
+  phone: phone,
+  email: email,
+  website: personal-site,
+  github-username: github
+)
+
+#custom-title("Education")[
+  #education-heading(
+    "University of New South Wales", "Sydney, Australia",
+    "Master of Data Science", "",
+    datetime(year: 2024, month: 1, day: 1),
+    datetime(year: 2025, month: 10,  day: 1)
+  )[
+  ]
+  #education-heading(
+    "University of Canterbury", "Christchurch, New Zealand",
+    "Bachelor of Engineering (Honours)", "Mechanical Engineering, Minor in Aerospace Engineering",
+    datetime(year: 2020, month: 2, day: 1),
+    datetime(year: 2023, month: 11,  day: 1)
+  )[
+  ]
+]
+
+#custom-title("Experience")[  
+  #work-heading(
+    "Full Stack Web Developer",
+    "Gabion1",
+    "Wellington, NZ",
+    datetime(year:2023, month:11, day:1),
+    "Present"
+  )[
+    - Oversaw transition from legacy MS Access System to Custom Web interface using Supabase
+    - Created eCommerce site using Nuxt and Supabase to provide live pricing
+    - Developed performance dashboards using JavaScript and SQL to monitor company sales and stock
+    - Currently overseeing adoption of Odoo
+  ]
+
+  #work-heading(
+    "Building Services Intern",
+    "Aurecon",
+    "Christchurch, NZ",
+    datetime(year:2022, month:11, day:1),
+    datetime(year:2023, month:2, day:1),
+  )[
+    - Developed understanding of Mechanical Building Services and collaborated with team members to develop
+      energy-efficient solutions for buildings
+    - Conducted thermal modelling using software to determine building heating and cooling loads
+    - Gained valuable experience in a professional consulting environment.
+  ]
+]
+
+#custom-title("Projects")[
+  #project-heading(
+    "Central America Rail Network Feasibility Study",
+  )[
+    - Comprehensively researched the challenges and opportunities in developing passenger and freight rail
+      connections in Central America.
+    - Analyses financial and risk management data, and combined it with regional demographics to create a
+      comprehensive study.
+  ]
+  #project-heading(
+    "Temperature Monitoring Station",
+  )[
+    - Used an Arduino and an old desktop to create a weather monitoring station with historical data.
+    - Developed skills in networking and self-hosting using docker.
+  ]
+]
+
+
+#custom-title("Skills")[
+  #skills()[
+    - *Professional Skills:* Python, SQL, JavaScript, Machine Learning, Docker, Typst, Data Science,
+    - *Programming Languages:* Python, SQL, R, MATLAB, JavaScript, Nuxt, SvelteKit, LaTeX, Typst
+    - *Languages:* English(native), Spanish(B2)
+  ]
+]

@@ -1,0 +1,14 @@
+[options]
+db_name = rocersa-test
+# db_host = localhost
+# db_port = 5432
+db_user = odoo
+# db_password = 
+default_productivity_apps = True
+admin_passwd = $pbkdf2-sha512$600000$ypkzxnjPubd2rnVOqTVGCA$BS/rGHfl7JOrEpzHVwKh5Q9Q5qdWVlTyZdePq3MegajEKyky1TjniDFS6YGBBl2qp9FtYUTu9nfh4V4jlVC.HA
+
+list_db = False
+dev_mode = True
+http_interface = 127.0.0.1
+
+addons_path = /usr/lib/python3/dist-packages/odoo/addons,/var/lib/odoo/odoo/addons

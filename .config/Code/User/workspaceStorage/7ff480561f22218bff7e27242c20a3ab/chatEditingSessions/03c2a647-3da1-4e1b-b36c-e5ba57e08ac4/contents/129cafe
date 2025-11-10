@@ -1,0 +1,55 @@
+-- Active: 1756864596779@@127.0.0.1@5430
+-- Active: 1759808189054@@odoo-server@5432@rocersa-testive: 1759808189054@@odoo-server@5432@rocersa-test
+SELECT
+    name_metric AS name,
+    code AS "internal reference",
+    'Units' AS Unit,
+    weight,
+    categories.name AS "product category",
+    au_wholesale_cost AS Cost,
+    au_web AS "is_published",
+    array_to_string(ecommerce_category_id, ',') AS ecommerce_category_id,
+    concat_ws(',',
+        CASE WHEN au_web THEN 'cor-ten-steel.com.au' END,
+        CASE WHEN nz_web THEN 'cor-ten-steel.co.nz' END,
+        CASE WHEN uk_web THEN 'cor-ten-steel.co.uk' END,
+        CASE WHEN us_web THEN 'cor-ten-steel.com' END
+    ) AS websites
+FROM products
+JOIN categories ON categories.id = products.category_id
+WHERE name_metric in (
+'Corten twelfth R2400 x 200 x 3mm A=1257',
+'Riser Top-35 x 900 x 150 x 3mm',
+'Corten Step 600 F x 450 S x 150 H x 3mm',
+'Corten Step 1200 F x 300 S x 200 H x 3mm',
+'Corten Step 900 F x 450 S x 200 H x 3mm',
+'Corten Step 900 F x 300 S x 200 H x 3mm',
+'Corten Panel 2100 x 750 x 3mm Std',
+'Corten Panel 1200 x 1050 x 3mm Top',
+'Corten Panel 600 x 1050 x 3mm Top',
+'Riser Top-35 x 1800 x 175 x 3mm',
+'Riser Top-35 x 900 x 175 x 3mm',
+'Corten Step 900 F x 300 S x 300 H x 3mm',
+'Corten Step 600 F x 450 S x 200 H x 3mm',
+'Corten Step 1200 F x 300 S x 150 H x 3mm',
+'Corten twelfth R2400 x 300 x 3mm
+Corten Step 600 F x 450 S x 200 H x 3mm at row 303
+Corten Step 1200 F x 300 S x 150 H x 3mm at row 329
+Corten twelfth R2400 x 300 x 3mm A=1257 at row 330
+at row 333
+at row 334
+Corten Step 600 F x 450 S x 300 H x 3mm at row 364
+at row 368
+at row 374
+Corten twelfth R2100 x 150 x 3mm A=1100 at row 417
+Riser Top-35 x 1500 x 175 x 3mm at row 438
+Corten twelfth R2400 x 150 x 3mm A=1257 at row 442
+Corten twelfth R2100 x 200 x 3mm A=1100 at row 456
+Corten twelfth R2100 x 300 x 3mm A=1100
+)
+and categories.group in ('Corten', 'Corten Kitsets')
+GROUP BY products.id, categories.name
+ORDER BY category_id;
+
+
+

@@ -1,0 +1,92 @@
+{
+  "version": 3,
+  "requesterUsername": "harrybirdwork",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/150116999",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_87a2ccd6-830e-4947-9efc-7243958dba92",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 199
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 200
+            },
+            "text": "help me debug this, where the tailscale address gets: This site can’t provide a secure connection, and the production timeout. however the resources work as they can be accessed via cloudflare tunnel",
+            "kind": "text"
+          }
+        ],
+        "text": "help me debug this, where the tailscale address gets: This site can’t provide a secure connection, and the production timeout. however the resources work as they can be accessed via cloudflare tunnel"
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [],
+      "responseId": "response_e935a9fb-023d-4c0f-ba82-2288c4e4bf85",
+      "result": {},
+      "followups": [],
+      "isCanceled": true,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.3",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [
+          {
+            "name": "list"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1761777286489,
+      "modelId": "copilot/claude-sonnet-4"
+    }
+  ],
+  "sessionId": "7e723e82-38f8-4012-a064-b4bada96ff49",
+  "creationDate": 1761777106221,
+  "isImported": false,
+  "lastMessageDate": 1761777286489,
+  "customTitle": "Debugging Tailscale address secure connection issue"
+}

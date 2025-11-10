@@ -1,0 +1,11 @@
+[options]
+db_name = rocersa
+db_host = False
+db_port = False
+db_user = odoo
+db_password = False
+default_productivity_apps = True
+admin_passwd = $pbkdf2-sha512$600000$ypkzxnjPubd2rnVOqTVGCA$BS/rGHfl7JOrEpzHVwKh5Q9Q5qdWVlTyZdePq3MegajEKyky1TjniDFS6YGBBl2qp9FtYUTu9nfh4V4jlVC.HA
+
+list_db = False
+addons_path = /usr/lib/python3/dist-packages/odoo/addons,/root/odoo/addons

@@ -1,0 +1,24 @@
+name: project
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  # Core Data Science Stack
+  - pandas
+  - numpy
+  - matplotlib
+  - seaborn
+  - scikit-learn
+  - jupyter
+  # Critical GPU libraries installed via Conda for compatibility
+  - cudatoolkit=11.2  # Must match TF version requirement
+  - cudnn=8.1.0       # Must match TF version requirement
+  # Use pip for the rest
+  - pip
+  - pip:
+    # Install TensorFlow from pip. It will detect the conda-installed CUDA libraries.
+    - tensorflow==2.10.1  # Pinning the version to match CUDA/cuDNN
+    # Other potential utilities
+    - nbconvert  # For converting Jupyter notebooks
+    - graphviz   # For model plotting (e.g., tf.keras.utils.plot_model)

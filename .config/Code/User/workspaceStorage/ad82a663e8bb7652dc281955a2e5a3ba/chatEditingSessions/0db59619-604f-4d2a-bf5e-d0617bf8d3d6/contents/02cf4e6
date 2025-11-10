@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+#!/bin/bash
+set -euo pipefail
+
+echo "Updating package index..."
+sudo nala update
+
+echo "Installing Odoo dependencies..."
+sudo nala install -y \
+  python3-asn1crypto \
+  python3-cbor2 \
+  python3-docutils \
+  python3-geoip2 \
+  python3-gevent \
+  python3-greenlet \
+  python3-libsass \
+  python3-lxml-html-clean \
+  python3-num2words \
+  python3-ofxparse \
+  python3-openpyxl \
+  python3-passlib \
+  python3-pdfminer \
+  python3-pil \
+  python3-polib \
+  python3-psutil \
+  python3-psycopg2 \
+  python3-pypdf2 \
+  python3-qrcode \
+  python3-reportlab \
+  python3-rjsmin \
+  python3-stdnum \
+  python3-usb \
+  python3-vobject \
+  python3-werkzeug \
+  python3-xlrd \
+  python3-xlsxwriter \
+  python3-xlwt \
+  python3-zeep \
+  python3-freezegun \
+  python3-renderpm \
+  fonts-inconsolata \
+  fonts-font-awesome \
+  fonts-roboto-unhinted \
+  gsfonts \
+  libjs-underscore \
+  postgresql \
+  postgresql-contrib \
+  postgresql-client
+
+echo "✅ All dependencies installed successfully!"
+
+# Create Odoo PostgreSQL user only if it doesn't exist
+if ! sudo -u postgres psql -tAc "SELECT 1 FROM pg_roles WHERE rolname='odoo';" | grep -q 1; then
+    echo "Creating PostgreSQL user 'odoo'..."
+    sudo -u postgres createuser -s odoo
+else
+    echo "PostgreSQL user 'odoo' already exists, skipping creation."
+fi
+
+echo "Installing Odoo..."
+sudo dpkg -i odoo_19.0+e.latest_all.deb

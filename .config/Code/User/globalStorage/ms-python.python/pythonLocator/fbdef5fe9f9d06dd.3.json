@@ -1,0 +1,15 @@
+{
+  "environment": {
+    "executable": "/home/harry/programs/miniconda3/envs/odoo/bin/python",
+    "prefix": "/home/harry/programs/miniconda3/envs/odoo",
+    "version": "3.13.7.final.0",
+    "is64Bit": true,
+    "symlinks": [
+      "/home/harry/programs/miniconda3/envs/odoo/bin/python",
+      "/home/harry/programs/miniconda3/envs/odoo/bin/python3",
+      "/home/harry/programs/miniconda3/envs/odoo/bin/python3.1",
+      "/home/harry/programs/miniconda3/envs/odoo/bin/python3.13"
+    ]
+  },
+  "symlinks": []
+}

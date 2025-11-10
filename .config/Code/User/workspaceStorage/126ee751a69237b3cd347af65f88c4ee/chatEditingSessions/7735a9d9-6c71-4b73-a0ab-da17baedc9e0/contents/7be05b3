@@ -1,0 +1,146 @@
+<script setup>
+const loading = useState('loading');
+const invoice = useState('invoice');
+let country = useState('country');
+const latex_url = useState('latex_url');
+
+// Remove zero-width spaces and other invisible characters
+function sanitizeString(str) {
+    if (!str || typeof str !== 'string') return str;
+    // Remove zero-width space, zero-width non-joiner, zero-width joiner, and other invisible characters
+    return str.replace(/[\u200B-\u200D\uFEFF]/g, '');
+}
+
+// Deep sanitize an object to remove zero-width spaces from all string fields
+function sanitizeObject(obj) {
+    if (obj === null || obj === undefined) return obj;
+
+    if (Array.isArray(obj)) {
+        return obj.map((item) => sanitizeObject(item));
+    }
+
+    if (typeof obj === 'object') {
+        const sanitized = {};
+        for (const key in obj) {
+            sanitized[key] = sanitizeObject(obj[key]);
+        }
+        return sanitized;
+    }
+
+    if (typeof obj === 'string') {
+        return sanitizeString(obj);
+    }
+
+    return obj;
+}
+
+async function printInvoice() {
+    loading.value = true;
+    if (!prePrintCheck()) {
+        loading.value = false;
+        return;
+    }
+    console.log(country.value);
+    const sanitizedInvoice = sanitizeObject(invoice.value);
+    const response = await $fetch(`${latex_url.value}generate-pdf-invoice`, {
+        method: 'POST',
+        body: JSON.stringify({
+            invoice: sanitizedInvoice,
+            country: country.value,
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    const url = URL.createObjectURL(response);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${invoice.value.customers.last_name}-${invoice.value.id} Invoice.pdf`;
+    link.click();
+    URL.revokeObjectURL(url);
+    loading.value = false;
+}
+
+async function printPicklist() {
+    loading.value = true;
+    if (!prePrintCheck()) {
+        loading.value = false;
+        return;
+    }
+    invoice.value.bracewire =
+        invoice.value.invoice_components.reduce((acc, component) => {
+            console.log(component);
+            return (
+                acc +
+                parseFloat(component.products.bracewire) * component.quantity
+            );
+        }, 0) / 33;
+    console.log(invoice.value.weight);
+    console.log(invoice.value.bracewire);
+    const sanitizedInvoice = sanitizeObject(invoice.value);
+    const response = await $fetch(`${latex_url.value}generate-pdf-picklist`, {
+        method: 'POST',
+        body: JSON.stringify({
+            invoice: sanitizedInvoice,
+            country: country.value,
+            components: invoice.value.picklist_components,
+            info: {
+                total_items: invoice.value.picklist_components.reduce(
+                    (acc, curr) => acc + curr.quantity,
+                    0
+                ),
+            },
+        }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    });
+    const url = URL.createObjectURL(response);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = `${invoice.value.customers.last_name}-${invoice.value.id} Picklist.pdf`;
+    link.click();
+    URL.revokeObjectURL(url);
+    loading.value = false;
+}
+
+function prePrintCheck() {
+    if (
+        invoice.value.freight_charged === null ||
+        invoice.value.freight_charged === undefined
+    ) {
+        alert('Please enter freight charge');
+        return false;
+    }
+    if (!invoice.value.freight_carrier) {
+        alert('Please enter freight carrier');
+        return false;
+    }
+    if (!invoice.value.addresses) {
+        alert('Please enter delivery address');
+        return false;
+    }
+    if (!invoice.value.type) {
+        alert('Please select invoice type');
+        return false;
+    }
+    return true;
+}
+</script>
+
+<template>
+    <div class="py-5">
+        <button
+            class="bg-blue-400 hover:bg-blue-600 text-white font-medium p-4 rounded"
+            @click="printInvoice"
+        >
+            Print Invoice
+        </button>
+        <button
+            class="bg-blue-400 hover:bg-blue-600 text-white font-medium p-4 rounded mx-2"
+            @click="printPicklist"
+        >
+            Print Picklist
+        </button>
+    </div>
+</template>

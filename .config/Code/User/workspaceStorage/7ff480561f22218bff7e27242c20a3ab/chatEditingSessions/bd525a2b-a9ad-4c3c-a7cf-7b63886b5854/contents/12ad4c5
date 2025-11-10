@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!-- Inherit the CRM Lead Form View -->
+    <record id="crm_lead_view_form_inherit_customer_tag" model="ir.ui.view">
+        <field name="name">crm.lead.form.inherit.customer.tag</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+            <!-- Change tag_ids label to "Opportunity Type" in the lead section -->
+            <xpath expr="//group[@name='lead_info']//field[@name='tag_ids']" position="attributes">
+                <attribute name="string">Opportunity Type</attribute>
+            </xpath>
+            
+            <!-- Add Customer Type field after tag_ids in the lead section -->
+            <xpath expr="//group[@name='lead_info']//field[@name='tag_ids']" position="after">
+                <field name="partner_id" invisible="1"/>
+                <field name="category_id" string="Customer Type" 
+                       widget="many2many_tags" 
+                       options="{'color_field': 'color', 'no_create_edit': True}"
+                       domain="[]"
+                       readonly="not partner_id"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

@@ -1,0 +1,223 @@
+{
+  "version": 3,
+  "requesterUsername": "harrybirdwork",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/150116999",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "editor",
+  "requests": [
+    {
+      "requestId": "request_f7e81fa3-6541-49e9-ac13-b1b370ef02b2",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 50
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 51
+            },
+            "text": "filter where product.code doesn't contain 'gabbra'",
+            "kind": "text"
+          }
+        ],
+        "text": "filter where product.code doesn't contain 'gabbra'"
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/harry/work/latex/app.py",
+            "external": "file:///home/harry/work/latex/app.py",
+            "path": "/home/harry/work/latex/app.py",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "    for product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):",
+                "range": {
+                  "startLineNumber": 613,
+                  "startColumn": 1,
+                  "endLineNumber": 613,
+                  "endColumn": 40
+                }
+              }
+            ],
+            []
+          ],
+          "state": {
+            "sha1": "a99d89c6a3740d16ad47d8175f9c88752d11b9ab",
+            "applied": 1
+          }
+        }
+      ],
+      "responseId": "response_08cbbc97-8250-4819-9d02-6f76a07d44aa",
+      "result": {
+        "timings": {
+          "totalElapsed": 2968
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "toolCallRounds": [
+            {
+              "response": "```python\n    for product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\n        table_rows += f\"\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{(product['products']['weight'] * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n```",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "f3eef8fd-a0e4-412e-be3a-e7af32400be0"
+            }
+          ],
+          "modelMessageId": "d1b86fae-dde7-45b7-8e46-888d085afe6d",
+          "responseId": "02bffc9d-eb60-4925-b992-4b41938177d4",
+          "sessionId": "243c5e25-fb4f-4c3f-bcef-4d6aa920a64d",
+          "agentId": "github.copilot.editor"
+        },
+        "details": "Claude Sonnet 4 • 1x"
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.1",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editor",
+        "description": "Ask or edit in context",
+        "when": "!config.inlineChat.enableV2 && !config.github.copilot.chat.advanced.inlineChat2",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "Copilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "editor"
+        ],
+        "modes": [
+          "ask"
+        ],
+        "slashCommands": [
+          {
+            "name": "generate",
+            "description": "Generate new code",
+            "disambiguation": [
+              {
+                "category": "generate",
+                "description": "Generate new code",
+                "examples": [
+                  "Add a function that returns the sum of two numbers"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "edit",
+            "description": "Edit the selected code in your active editor",
+            "disambiguation": [
+              {
+                "category": "edit",
+                "description": "Make changes to existing code",
+                "examples": [
+                  "Change this method to use async/await"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "doc",
+            "description": "Add documentation comment for this symbol",
+            "disambiguation": [
+              {
+                "category": "doc",
+                "description": "Add documentation comment for this symbol",
+                "examples": [
+                  "Add jsdoc to this method"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code",
+            "disambiguation": [
+              {
+                "category": "fix",
+                "description": "Propose a fix for the problems in the selected code",
+                "examples": [
+                  "There is a problem in this code. Rewrite the code to show it with the bug fixed."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works",
+            "disambiguation": [
+              {
+                "category": "explain",
+                "description": "Explain how the code in your active editor works",
+                "examples": [
+                  "Write an explanation for the code above as paragraphs of text."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code",
+            "disambiguation": [
+              {
+                "category": "tests",
+                "description": "Generate unit tests for the selected code. The user does not want to fix their existing tests.",
+                "examples": [
+                  "Write a set of detailed unit test functions for the code above."
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": [
+          {
+            "category": "unknown",
+            "description": "Intent of this command is unclear or is not related to information technologies",
+            "examples": [
+              "Add a dog to this comment."
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1760921124861,
+      "modelId": "copilot/claude-sonnet-4"
+    }
+  ],
+  "sessionId": "8034232a-67c6-4289-824d-257dbec0fe40",
+  "creationDate": 1760921106428,
+  "isImported": false,
+  "lastMessageDate": 1760921124862
+}

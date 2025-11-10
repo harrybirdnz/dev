@@ -1,0 +1,18 @@
+{
+    "trailingComma": "es5",
+    "tabWidth": 4,
+    "semi": false,
+    "singleQuote": true,
+    "plugins": ["@prettier/plugin-xml"],
+    "xmlWhitespaceSensitivity": "ignore",
+    "overrides": [
+        {
+            "files": "*.xml",
+            "options": {
+                "parser": "xml",
+                "xmlSelfClosingSpace": false,
+                "xmlSortAttributesByKey": false
+            }
+        }
+    ]
+}

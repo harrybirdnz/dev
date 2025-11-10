@@ -1,0 +1,30 @@
+---
+title: "Introduction"
+date: "2025-11-05"
+excerpt: "Why make this?"
+---
+
+# Hello
+
+
+
+## Why Svelte?
+
+
+
+## Getting Started
+
+Creating a new Svelte project is simple:
+
+```bash
+npm create svelte@latest my-app
+cd my-app
+npm install
+npm run dev
+```
+
+That's it! You now have a Svelte app running locally.
+
+## Conclusion
+
+Svelte is an excellent choice for modern web development. Its simplicity and performance make it ideal for projects of any size.

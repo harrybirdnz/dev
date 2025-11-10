@@ -1,0 +1,289 @@
+{
+  "version": 3,
+  "requesterUsername": "harrybirdwork",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/150116999",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "editor",
+  "requests": [
+    {
+      "requestId": "request_9b8559e6-b847-4760-b51b-227df2aa5c56",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 29
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 30
+            },
+            "text": "just make this a normal query",
+            "kind": "text"
+          }
+        ],
+        "text": "just make this a normal query"
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/harry/work/odoo/sql/stock.sql",
+            "external": "file:///home/harry/work/odoo/sql/stock.sql",
+            "path": "/home/harry/work/odoo/sql/stock.sql",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "SELECT",
+                "range": {
+                  "startLineNumber": 2,
+                  "startColumn": 1,
+                  "endLineNumber": 2,
+                  "endColumn": 1
+                }
+              }
+            ],
+            [
+              {
+                "text": "    '[' || sm.code || ']' || sm.name_metric AS product,",
+                "range": {
+                  "startLineNumber": 3,
+                  "startColumn": 1,
+                  "endLineNumber": 3,
+                  "endColumn": 23
+                }
+              }
+            ],
+            [
+              {
+                "text": "    SUM(sm.quantity) AS \"counted quantity\"",
+                "range": {
+                  "startLineNumber": 4,
+                  "startColumn": 1,
+                  "endLineNumber": 4,
+                  "endColumn": 11
+                }
+              }
+            ],
+            [
+              {
+                "text": "FROM stock_movements sm",
+                "range": {
+                  "startLineNumber": 5,
+                  "startColumn": 1,
+                  "endLineNumber": 5,
+                  "endColumn": 54
+                }
+              }
+            ],
+            [
+              {
+                "text": "JOIN product_details pd ON '[' || sm.code || ']' || sm.name_metric = pd.name",
+                "range": {
+                  "startLineNumber": 6,
+                  "startColumn": 1,
+                  "endLineNumber": 6,
+                  "endColumn": 44
+                }
+              }
+            ],
+            [
+              {
+                "text": "GROUP BY sm.code, sm.name_metric",
+                "range": {
+                  "startLineNumber": 7,
+                  "startColumn": 1,
+                  "endLineNumber": 7,
+                  "endColumn": 25
+                }
+              }
+            ],
+            [
+              {
+                "text": "",
+                "range": {
+                  "startLineNumber": 8,
+                  "startColumn": 1,
+                  "endLineNumber": 14,
+                  "endColumn": 68
+                }
+              }
+            ],
+            []
+          ],
+          "state": {
+            "sha1": "3fd786deef75fb230fbeabec5cfda891c2f216eb",
+            "applied": 1
+          }
+        }
+      ],
+      "responseId": "response_cf4e185a-ece3-4531-8e32-66bff5c84628",
+      "result": {
+        "timings": {
+          "totalElapsed": 1735
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "toolCallRounds": [
+            {
+              "response": "```sql\nSELECT\n    '[' || sm.code || ']' || sm.name_metric AS product,\n    SUM(sm.quantity) AS \"counted quantity\"\nFROM stock_movements sm\nJOIN product_details pd ON '[' || sm.code || ']' || sm.name_metric = pd.name\nGROUP BY sm.code, sm.name_metric\n```",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "15f51e1f-5fe0-43e5-8f6d-3af45cdab2d2"
+            }
+          ],
+          "modelMessageId": "f62cadbd-e458-475c-b403-cde051a031b2",
+          "responseId": "7d1e0690-afc7-4c98-8f3c-c6f8976cc77a",
+          "sessionId": "b6841199-1677-437b-8e96-a0834063850d",
+          "agentId": "github.copilot.editor"
+        },
+        "details": "Claude Sonnet 4 • 1x"
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.3",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editor",
+        "description": "Ask or edit in context",
+        "when": "!config.inlineChat.enableV2 && !config.github.copilot.chat.advanced.inlineChat2",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "Copilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "editor"
+        ],
+        "modes": [
+          "ask"
+        ],
+        "slashCommands": [
+          {
+            "name": "generate",
+            "description": "Generate new code",
+            "disambiguation": [
+              {
+                "category": "generate",
+                "description": "Generate new code",
+                "examples": [
+                  "Add a function that returns the sum of two numbers"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "edit",
+            "description": "Edit the selected code in your active editor",
+            "disambiguation": [
+              {
+                "category": "edit",
+                "description": "Make changes to existing code",
+                "examples": [
+                  "Change this method to use async/await"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "doc",
+            "description": "Add documentation comment for this symbol",
+            "disambiguation": [
+              {
+                "category": "doc",
+                "description": "Add documentation comment for this symbol",
+                "examples": [
+                  "Add jsdoc to this method"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code",
+            "disambiguation": [
+              {
+                "category": "fix",
+                "description": "Propose a fix for the problems in the selected code",
+                "examples": [
+                  "There is a problem in this code. Rewrite the code to show it with the bug fixed."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works",
+            "disambiguation": [
+              {
+                "category": "explain",
+                "description": "Explain how the code in your active editor works",
+                "examples": [
+                  "Write an explanation for the code above as paragraphs of text."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code",
+            "disambiguation": [
+              {
+                "category": "tests",
+                "description": "Generate unit tests for the selected code. The user does not want to fix their existing tests.",
+                "examples": [
+                  "Write a set of detailed unit test functions for the code above."
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": [
+          {
+            "category": "unknown",
+            "description": "Intent of this command is unclear or is not related to information technologies",
+            "examples": [
+              "Add a dog to this comment."
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1761600534599,
+      "modelId": "copilot/claude-sonnet-4"
+    }
+  ],
+  "sessionId": "34d99218-9b2c-4a16-b4d4-ec7833e83c16",
+  "creationDate": 1761600530018,
+  "isImported": false,
+  "lastMessageDate": 1761600534599
+}

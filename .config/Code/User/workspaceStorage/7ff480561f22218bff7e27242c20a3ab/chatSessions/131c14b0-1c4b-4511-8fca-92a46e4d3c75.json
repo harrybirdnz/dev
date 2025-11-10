@@ -1,0 +1,421 @@
+{
+  "version": 3,
+  "requesterUsername": "harrybirdwork",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/150116999",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "editor",
+  "requests": [
+    {
+      "requestId": "request_ce440a44-4741-4a27-a4db-b676e51d0953",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 27
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 28
+            },
+            "text": "make this a list of strings",
+            "kind": "text"
+          }
+        ],
+        "text": "make this a list of strings"
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/harry/work/odoo/sql/products.sql",
+            "external": "file:///home/harry/work/odoo/sql/products.sql",
+            "path": "/home/harry/work/odoo/sql/products.sql",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "WHERE name_metric IN (",
+                "range": {
+                  "startLineNumber": 20,
+                  "startColumn": 1,
+                  "endLineNumber": 20,
+                  "endColumn": 54
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1300 x 175 x 3mm',",
+                "range": {
+                  "startLineNumber": 21,
+                  "startColumn": 1,
+                  "endLineNumber": 21,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1300 x 200 x 3mm',",
+                "range": {
+                  "startLineNumber": 22,
+                  "startColumn": 1,
+                  "endLineNumber": 22,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1600 x 150 x 3mm',",
+                "range": {
+                  "startLineNumber": 23,
+                  "startColumn": 1,
+                  "endLineNumber": 23,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1600 x 175 x 3mm',",
+                "range": {
+                  "startLineNumber": 24,
+                  "startColumn": 1,
+                  "endLineNumber": 24,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1600 x 200 x 3mm',",
+                "range": {
+                  "startLineNumber": 25,
+                  "startColumn": 1,
+                  "endLineNumber": 25,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1800 x 150 x 3mm',",
+                "range": {
+                  "startLineNumber": 26,
+                  "startColumn": 1,
+                  "endLineNumber": 26,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1800 x 200 x 3mm',",
+                "range": {
+                  "startLineNumber": 27,
+                  "startColumn": 1,
+                  "endLineNumber": 27,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1900 x 150 x 3mm',",
+                "range": {
+                  "startLineNumber": 28,
+                  "startColumn": 1,
+                  "endLineNumber": 28,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1900 x 175 x 3mm',",
+                "range": {
+                  "startLineNumber": 29,
+                  "startColumn": 1,
+                  "endLineNumber": 29,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1900 x 200 x 3mm',",
+                "range": {
+                  "startLineNumber": 30,
+                  "startColumn": 1,
+                  "endLineNumber": 30,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 2100 x 175 x 3mm',",
+                "range": {
+                  "startLineNumber": 31,
+                  "startColumn": 1,
+                  "endLineNumber": 31,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 2100 x 200 x 3mm',",
+                "range": {
+                  "startLineNumber": 32,
+                  "startColumn": 1,
+                  "endLineNumber": 32,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 2200 x 175 x 3mm',",
+                "range": {
+                  "startLineNumber": 33,
+                  "startColumn": 1,
+                  "endLineNumber": 33,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 2200 x 200 x 3mm',",
+                "range": {
+                  "startLineNumber": 34,
+                  "startColumn": 1,
+                  "endLineNumber": 34,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1000 x 150 x 3mm',",
+                "range": {
+                  "startLineNumber": 35,
+                  "startColumn": 1,
+                  "endLineNumber": 35,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1000 x 175 x 3mm',",
+                "range": {
+                  "startLineNumber": 36,
+                  "startColumn": 1,
+                  "endLineNumber": 36,
+                  "endColumn": 32
+                }
+              }
+            ],
+            [
+              {
+                "text": "    'Riser Top-35 x 1000 x 200 x 3mm'",
+                "range": {
+                  "startLineNumber": 37,
+                  "startColumn": 1,
+                  "endLineNumber": 37,
+                  "endColumn": 2
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n)",
+                "range": {
+                  "startLineNumber": 37,
+                  "startColumn": 38,
+                  "endLineNumber": 37,
+                  "endColumn": 38
+                }
+              }
+            ],
+            []
+          ],
+          "state": {
+            "sha1": "ea349adb3b6ac53eceb969c6ec853c48815e1cce",
+            "applied": 1
+          }
+        }
+      ],
+      "responseId": "response_f4e5cb3f-6674-435c-924d-40376620878a",
+      "result": {
+        "timings": {
+          "totalElapsed": 4619
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "toolCallRounds": [
+            {
+              "response": "```sql\nWHERE name_metric IN (\n    'Riser Top-35 x 1300 x 175 x 3mm',\n    'Riser Top-35 x 1300 x 200 x 3mm',\n    'Riser Top-35 x 1600 x 150 x 3mm',\n    'Riser Top-35 x 1600 x 175 x 3mm',\n    'Riser Top-35 x 1600 x 200 x 3mm',\n    'Riser Top-35 x 1800 x 150 x 3mm',\n    'Riser Top-35 x 1800 x 200 x 3mm',\n    'Riser Top-35 x 1900 x 150 x 3mm',\n    'Riser Top-35 x 1900 x 175 x 3mm',\n    'Riser Top-35 x 1900 x 200 x 3mm',\n    'Riser Top-35 x 2100 x 175 x 3mm',\n    'Riser Top-35 x 2100 x 200 x 3mm',\n    'Riser Top-35 x 2200 x 175 x 3mm',\n    'Riser Top-35 x 2200 x 200 x 3mm',\n    'Riser Top-35 x 1000 x 150 x 3mm',\n    'Riser Top-35 x 1000 x 175 x 3mm',\n    'Riser Top-35 x 1000 x 200 x 3mm'\n)\n```",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "924e39a8-99da-44c3-8bce-e89316dd0ac1"
+            }
+          ],
+          "modelMessageId": "367b0d35-0034-47b7-b734-5c656d1bccfc",
+          "responseId": "3a5f5bb4-3779-4fde-90e5-63fcf3fd307c",
+          "sessionId": "c96a9651-40e4-4bed-8243-8fc07e37774c",
+          "agentId": "github.copilot.editor"
+        },
+        "details": "Claude Sonnet 4 • 1x"
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.3",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editor",
+        "description": "Ask or edit in context",
+        "when": "!config.inlineChat.enableV2 && !config.github.copilot.chat.advanced.inlineChat2",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "Copilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "editor"
+        ],
+        "modes": [
+          "ask"
+        ],
+        "slashCommands": [
+          {
+            "name": "generate",
+            "description": "Generate new code",
+            "disambiguation": [
+              {
+                "category": "generate",
+                "description": "Generate new code",
+                "examples": [
+                  "Add a function that returns the sum of two numbers"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "edit",
+            "description": "Edit the selected code in your active editor",
+            "disambiguation": [
+              {
+                "category": "edit",
+                "description": "Make changes to existing code",
+                "examples": [
+                  "Change this method to use async/await"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "doc",
+            "description": "Add documentation comment for this symbol",
+            "disambiguation": [
+              {
+                "category": "doc",
+                "description": "Add documentation comment for this symbol",
+                "examples": [
+                  "Add jsdoc to this method"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code",
+            "disambiguation": [
+              {
+                "category": "fix",
+                "description": "Propose a fix for the problems in the selected code",
+                "examples": [
+                  "There is a problem in this code. Rewrite the code to show it with the bug fixed."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works",
+            "disambiguation": [
+              {
+                "category": "explain",
+                "description": "Explain how the code in your active editor works",
+                "examples": [
+                  "Write an explanation for the code above as paragraphs of text."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code",
+            "disambiguation": [
+              {
+                "category": "tests",
+                "description": "Generate unit tests for the selected code. The user does not want to fix their existing tests.",
+                "examples": [
+                  "Write a set of detailed unit test functions for the code above."
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": [
+          {
+            "category": "unknown",
+            "description": "Intent of this command is unclear or is not related to information technologies",
+            "examples": [
+              "Add a dog to this comment."
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1761171905177,
+      "modelId": "copilot/claude-sonnet-4"
+    }
+  ],
+  "sessionId": "131c14b0-1c4b-4511-8fca-92a46e4d3c75",
+  "creationDate": 1761171899398,
+  "isImported": false,
+  "lastMessageDate": 1761171905178
+}

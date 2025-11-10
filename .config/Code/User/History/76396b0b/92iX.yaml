@@ -1,0 +1,42 @@
+# ~/.config/resticprofile/config.yaml
+global:
+  default-command: snapshots
+  initialize: false
+
+profiles:
+  bird-daily:
+    repository: "sftp:harry@bird-server:/home/harry/restic-repo"
+    password-file: "~/.config/resticprofile/bird-password.gpg" # Encrypted password
+
+    backup:
+      source:
+        - "." # Current directory
+      exclude-file: "excludes.txt"
+      tag:
+        - "daily"
+        - "bird-server"
+      verbose: true
+      # Optional: Add these for better performance
+      # exclude-caches: true
+      # one-file-system: true
+
+    # Retention policy - THIS IS WHAT YOU'RE MISSING!
+    retain:
+      keep-daily: 7
+      keep-weekly: 4
+      keep-monthly: 6
+      keep-yearly: 2
+      prune: true
+      compact: false
+
+    # Optional: Check repository integrity periodically
+    check:
+      check-unused: false
+      with-cache: false
+      read-data: false # Set to true monthly for full check
+
+
+    # Optional: Hooks for notifications
+    # run-before: "echo 'Starting backup to bird-server...'"
+    # run-after: "echo 'Backup completed successfully'"
+    # run-failed: "echo 'Backup failed!'"

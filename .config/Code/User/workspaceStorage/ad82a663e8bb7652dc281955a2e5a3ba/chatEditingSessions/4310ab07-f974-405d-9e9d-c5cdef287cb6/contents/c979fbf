@@ -1,0 +1,2 @@
+# Caddy environment variables
+Environment="CLOUDFLARE_API_TOKEN=your_token_here"

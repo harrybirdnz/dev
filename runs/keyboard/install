@@ -1,0 +1,111 @@
+#!/bin/bash
+
+# Harry's Custom Keyboard Layout Installation Script
+# Installs programmer-friendly keyboard layout with macron support for Cosmic DE
+set -e
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LAYOUT_NAME="hb"
+LAYOUT_DESCRIPTION="English (Harry)"
+
+echo "=== Installing Harry's Custom Keyboard Layout ==="
+echo "Location: $(basename "$SCRIPT_DIR")"
+echo ""
+
+# Check if running as root
+if [[ $EUID -eq 0 ]]; then
+    echo "❌ Please run this script as a regular user, it will use sudo when needed."
+    exit 1
+fi
+
+# Check if symbols file exists
+SYMBOLS_FILE="$SCRIPT_DIR/hb"
+if [[ ! -f "$SYMBOLS_FILE" ]]; then
+    echo "❌ Symbols file not found: $SYMBOLS_FILE"
+    exit 1
+fi
+
+echo "✅ Found keyboard layout file"
+echo ""
+
+# Step 1: Install symbols file
+echo "1️⃣  Installing keyboard symbols..."
+sudo cp "$SYMBOLS_FILE" "/usr/share/X11/xkb/symbols/$LAYOUT_NAME"
+sudo chmod 644 "/usr/share/X11/xkb/symbols/$LAYOUT_NAME"
+echo "   ✅ Symbols file installed"
+echo ""
+
+# Step 2: Update XML rules files with proper formatting
+echo "2️⃣  Updating XKB configuration files..."
+
+# Check if Python script exists
+XML_UPDATER="$SCRIPT_DIR/update_xml.py"
+if [[ ! -f "$XML_UPDATER" ]]; then
+    echo "   ❌ XML updater script not found: $XML_UPDATER"
+    exit 1
+fi
+
+# Use Python script for proper XML handling
+sudo python3 "$XML_UPDATER" "$LAYOUT_NAME" "$LAYOUT_DESCRIPTION"
+
+echo ""
+
+# Step 3: Clear XKB cache
+echo "3️⃣  Refreshing XKB cache..."
+sudo rm -rf /var/lib/xkb/* 2>/dev/null || true
+# Also clear user cache if it exists
+rm -rf ~/.cache/xkb/* 2>/dev/null || true
+echo "   ✅ Cache cleared"
+echo ""
+
+# Step 4: Load the layout
+echo "4️⃣  Activating keyboard layout..."
+if setxkbmap -layout "$LAYOUT_NAME" 2>/dev/null; then
+    echo "   ✅ Layout activated successfully!"
+else
+    echo "   ⚠️  Layout installed but may need manual activation"
+fi
+
+# Step 5: Verification
+echo ""
+echo "🔍 Verification:"
+echo "   Current layout: $(setxkbmap -query 2>/dev/null | grep layout || echo 'Unknown (Wayland)')"
+echo "   Symbols file: $(ls -la /usr/share/X11/xkb/symbols/$LAYOUT_NAME 2>/dev/null || echo 'Not found')"
+echo ""
+
+# Step 6: Set layout persistently (for some desktop environments)
+echo "5️⃣  Attempting to set persistent layout..."
+if command -v gsettings >/dev/null 2>&1; then
+    # Try GNOME/Cosmic settings
+    gsettings set org.gnome.desktop.input-sources sources "[('xkb', '$LAYOUT_NAME')]" 2>/dev/null && echo "   ✅ Set via gsettings" || echo "   ⚠️  gsettings failed (normal for some DEs)"
+fi
+
+if command -v localectl >/dev/null 2>&1; then
+    # Try systemd localectl
+    sudo localectl set-x11-keymap "$LAYOUT_NAME" 2>/dev/null && echo "   ✅ Set via localectl" || echo "   ⚠️  localectl failed"
+fi
+
+echo ""
+echo "🎉 Installation Complete!"
+echo ""
+echo "📋 Layout Features:"
+echo "   🔧 Programmer symbols: +[{(&=)]}*!\$ on number row"
+echo "   🔤 Macron support: Alt + vowel (a,e,i,o,u) = ā,ē,ī,ō,ū"
+echo "   🇳🇿 Perfect for coding and te reo Māori"
+echo ""
+echo "📝 How to activate:"
+echo ""
+echo "   Method 1 - Cosmic Settings:"
+echo "   1. Open Settings → Desktop → Input → Keyboard"
+echo "   2. Find 'English (Harry)' in the layout list"
+echo "   3. Select it"
+echo ""
+echo "   Method 2 - Command line:"
+echo "   setxkbmap -layout $LAYOUT_NAME"
+echo ""
+echo "   Method 3 - If not visible in settings:"
+echo "   • Log out and back in"
+echo "   • Restart desktop session"
+echo "   • Reboot if necessary"
+echo ""
+echo "🚀 Happy coding!"

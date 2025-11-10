@@ -1,0 +1,234 @@
+{
+  "version": 3,
+  "requesterUsername": "harrybirdwork",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/150116999",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "editor",
+  "requests": [
+    {
+      "requestId": "request_2a7c5517-bb1c-42eb-a1c5-f0f2797de30e",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 21
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 22
+            },
+            "text": "disallow all crawlers",
+            "kind": "text"
+          }
+        ],
+        "text": "disallow all crawlers"
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/harry/personal/coding/websites/blog/static/robots.txt",
+            "external": "file:///home/harry/personal/coding/websites/blog/static/robots.txt",
+            "path": "/home/harry/personal/coding/websites/blog/static/robots.txt",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "# disallow all crawlers",
+                "range": {
+                  "startLineNumber": 1,
+                  "startColumn": 1,
+                  "endLineNumber": 1,
+                  "endColumn": 39
+                }
+              }
+            ],
+            [
+              {
+                "text": "Disallow: /",
+                "range": {
+                  "startLineNumber": 3,
+                  "startColumn": 1,
+                  "endLineNumber": 3,
+                  "endColumn": 10
+                }
+              }
+            ],
+            []
+          ],
+          "state": {
+            "sha1": "0f04f905bd6919f51dd395c1a6d4840bdfebe0e8",
+            "applied": 1
+          }
+        }
+      ],
+      "responseId": "response_568ca24c-6f6d-4738-b7c8-bb9d2593afb3",
+      "result": {
+        "timings": {
+          "totalElapsed": 3931
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "toolCallRounds": [
+            {
+              "response": "Here's the modified code to disallow all crawlers:\n\n```plaintext\n# disallow all crawlers\nUser-agent: *\nDisallow: /\n```\n\nThe key change is setting `Disallow: /` which blocks all crawlers from",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "411519a9-5929-4fe2-bd45-5e8f374e500b"
+            }
+          ],
+          "modelMessageId": "6055ac6a-685d-45b9-84b4-3bbf66c74fce",
+          "responseId": "3b4877f8-c077-46ea-84e9-cf45b414b205",
+          "sessionId": "19d79b69-074c-4894-b695-eac0aefd29dd",
+          "agentId": "github.copilot.editor"
+        },
+        "details": "Claude Sonnet 4.5 • 1x"
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.4",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editor",
+        "description": "Ask or edit in context",
+        "when": "!config.inlineChat.enableV2 && !config.github.copilot.chat.advanced.inlineChat2",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "Copilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "editor"
+        ],
+        "modes": [
+          "ask"
+        ],
+        "slashCommands": [
+          {
+            "name": "generate",
+            "description": "Generate new code",
+            "disambiguation": [
+              {
+                "category": "generate",
+                "description": "Generate new code",
+                "examples": [
+                  "Add a function that returns the sum of two numbers"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "edit",
+            "description": "Edit the selected code in your active editor",
+            "disambiguation": [
+              {
+                "category": "edit",
+                "description": "Make changes to existing code",
+                "examples": [
+                  "Change this method to use async/await"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "doc",
+            "description": "Add documentation comment for this symbol",
+            "disambiguation": [
+              {
+                "category": "doc",
+                "description": "Add documentation comment for this symbol",
+                "examples": [
+                  "Add jsdoc to this method"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code",
+            "disambiguation": [
+              {
+                "category": "fix",
+                "description": "Propose a fix for the problems in the selected code",
+                "examples": [
+                  "There is a problem in this code. Rewrite the code to show it with the bug fixed."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works",
+            "disambiguation": [
+              {
+                "category": "explain",
+                "description": "Explain how the code in your active editor works",
+                "examples": [
+                  "Write an explanation for the code above as paragraphs of text."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code",
+            "disambiguation": [
+              {
+                "category": "tests",
+                "description": "Generate unit tests for the selected code. The user does not want to fix their existing tests.",
+                "examples": [
+                  "Write a set of detailed unit test functions for the code above."
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": [
+          {
+            "category": "unknown",
+            "description": "Intent of this command is unclear or is not related to information technologies",
+            "examples": [
+              "Add a dog to this comment."
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1762300238780,
+      "modelId": "copilot/claude-sonnet-4.5"
+    }
+  ],
+  "sessionId": "48ff5709-7f6e-4fb9-aad0-703b619b3f1d",
+  "creationDate": 1762300233505,
+  "isImported": false,
+  "lastMessageDate": 1762300238780
+}

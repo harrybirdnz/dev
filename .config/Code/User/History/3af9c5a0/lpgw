@@ -1,0 +1,8 @@
+dbuser=postgres.zbbubgexytgtmoamdott 
+password=Z%rG~537m3T7uGC
+host=aws-0-ap-southeast-2.pooler.supabase.com
+port=5432
+dbname=postgres
+
+
+sudo -i -u postgres psql -c "ALTER USER odoo WITH PASSWORD 'AnotherStr0ngPass!';"

@@ -1,0 +1,91 @@
+#import "@preview/simple-technical-resume:0.1.0": *
+
+#let name = "Harry Bird"
+#let phone = "+64 2041357900"
+#let email = "harry@harrybird.nz"
+#let github = "harrybirdnz"
+#let personal-site = "harrybird.nz"
+
+#show: resume.with(
+  top-margin: 0.45in,
+  personal-info-font-size: 9.2pt,
+  author-position: center,
+  personal-info-position: center,
+  author-name: name,
+  phone: phone,
+  email: email,
+  website: personal-site,
+  github-username: github
+)
+
+#custom-title("Education")[
+  #education-heading(
+    "University of New South Wales", "Sydney, Australia",
+    "Master of Data Science", "",
+    datetime(year: 2024, month: 1, day: 1),
+    datetime(year: 2025, month: 10,  day: 1)
+  )[
+  ]
+  #education-heading(
+    "University of Canterbury", "Christchurch, New Zealand",
+    "Bachelor of Engineering (Honours)", "Mechanical Engineering, Minor in Aerospace Engineering",
+    datetime(year: 2020, month: 2, day: 1),
+    datetime(year: 2023, month: 11,  day: 1)
+  )[
+  ]
+]
+
+#custom-title("Experience")[  
+  #work-heading(
+    "Full Stack Web Developer (Part Time)",
+    "Gabion1",
+    "Wellington, NZ",
+    datetime(year:2023, month:11, day:1),
+    "Present"
+  )[
+    - Architected and led digital transformation initiative, migrating legacy Microsoft Access database system to modern cloud-native web application leveraging Supabase backend-as-a-service (BaaS) platform with PostgreSQL database, implementing RESTful APIs and real-time data synchronization
+    - Engineered responsive eCommerce platform utilizing Nuxt.js framework (Vue.js-based SSR/SSG), integrated with Supabase for real-time inventory management, dynamic pricing algorithms, and seamless payment gateway integration, resulting in enhanced user experience and conversion optimization
+    - Designed and implemented business intelligence dashboards with advanced data visualization utilizing JavaScript frameworks, complex SQL queries, and stored procedures to provide actionable insights on KPIs, sales analytics, inventory turnover metrics, and revenue forecasting
+  ]
+
+  #work-heading(
+    "Building Services Engineering Intern",
+    "Aurecon",
+    "Christchurch, NZ",
+    datetime(year:2022, month:11, day:1),
+    datetime(year:2023, month:2, day:1),
+  )[
+    - Collaborated with multidisciplinary engineering teams in delivering sustainable HVAC (Heating, Ventilation, and Air Conditioning) solutions for commercial building projects, conducting energy audits and optimization analysis for high-performance building systems
+    - Performed comprehensive thermal modeling and computational fluid dynamics (CFD) simulations using industry-standard software (IES VE, Carrier HAP) to calculate heat load analysis, psychrometric calculations, and optimize HVAC system design for energy efficiency and occupant comfort
+  ]
+]
+
+#custom-title("Projects")[
+  #project-heading(
+    "Central America Rail Network Feasibility Study | Transportation Engineering & Data Analytics",
+  )[
+    - Conducted comprehensive feasibility analysis and transportation planning study for intercontinental passenger and freight rail infrastructure development, performing stakeholder analysis, risk assessment, and market opportunity evaluation
+    - Applied quantitative analysis methodologies including financial modeling, Monte Carlo simulations, NPV/IRR calculations, and sensitivity analysis to evaluate project viability and ROI projections
+    - Synthesized geospatial data, demographic analytics, socioeconomic indicators, and transportation demand forecasting models to develop data-driven recommendations for sustainable infrastructure investment
+  ]
+  #project-heading(
+    "IoT Weather Monitoring & Data Acquisition System | Full-Stack Development",
+  )[
+    - Engineered end-to-end IoT solution utilizing Arduino microcontroller, temperature/humidity sensors (DHT22), and embedded systems programming for real-time environmental data collection and transmission
+    - Deployed self-hosted solution on Linux server with network configuration
+  ]
+]
+
+
+#custom-title("Technical Skills & Competencies")[
+  #skills()[
+    - *Programming & Scripting Languages:* Python, JavaScript, TypeScript, SQL (PostgreSQL), R, MATLAB, Shell Scripting (Bash/Zsh)
+    - *Web Development & Frameworks:* Nuxt.js, Vue.js, SvelteKit, Node.js, RESTful APIs
+    - *Data Science & Machine Learning:* Pandas, NumPy, Scikit-learn, TensorFlow, PyTorch, Statistical Analysis, Predictive Modeling, Feature Engineering, Data Visualization (Matplotlib, Seaborn, Plotly), Jupyter Notebooks, A/B Testing
+    - *Database & Backend Technologies:* PostgreSQL, Supabase, Database Design, Query Optimization, Prisma, Data Warehousing
+    - *DevOps & Cloud Infrastructure:* Docker, Docker Compose, Git/GitHub, CI/CD Pipelines, Linux System Administration, Cloud Deployment (Vercel, Netlify), Monitoring & Logging
+    - *Business & Analytics Tools:* Odoo ERP, Power BI, Tableau, Google Analytics
+    - *Engineering Software & CAD:* FreeCAD, SolidWorks, Computational Fluid Dynamics (ANSYS), Finite Element Analysis (FEA), Building Information Modeling (BIM)
+    - *Languages:* English (Native), Spanish (B2 - Professional Working Proficiency)
+  ]
+]

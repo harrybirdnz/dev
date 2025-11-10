@@ -1,0 +1,2 @@
+# Allow caddy user to install root certificates
+caddy ALL=(root) NOPASSWD: /usr/bin/tee /usr/local/share/ca-certificates/*

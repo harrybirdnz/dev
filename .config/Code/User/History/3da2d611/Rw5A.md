@@ -1,0 +1,34 @@
+---
+title: "Getting Started with Svelte"
+date: "2025-11-01"
+excerpt: "Learn the basics of Svelte and why it's becoming one of the most popular frontend frameworks."
+---
+
+# Getting Started with Svelte
+
+Svelte is a radical new approach to building user interfaces. Whereas traditional frameworks like React and Vue do the bulk of their work in the browser, Svelte shifts that work into a compile step that happens when you build your app.
+
+## Why Svelte?
+
+Instead of using techniques like virtual DOM diffing, Svelte writes code that surgically updates the DOM when the state of your app changes. This results in:
+
+- **Smaller bundle sizes** - No framework runtime to ship to users
+- **Better performance** - No virtual DOM overhead
+- **Less boilerplate** - Write less code to do the same thing
+
+## Getting Started
+
+Creating a new Svelte project is simple:
+
+```bash
+npm create svelte@latest my-app
+cd my-app
+npm install
+npm run dev
+```
+
+That's it! You now have a Svelte app running locally.
+
+## Conclusion
+
+Svelte is an excellent choice for modern web development. Its simplicity and performance make it ideal for projects of any size.

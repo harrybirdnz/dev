@@ -1,0 +1,14 @@
+{
+  "environment": {
+    "executable": "/home/harry/work/odoo/.venv/bin/python",
+    "prefix": "/home/harry/work/odoo/.venv",
+    "version": "3.12.3.final.0",
+    "is64Bit": true,
+    "symlinks": [
+      "/home/harry/work/odoo/.venv/bin/python",
+      "/home/harry/work/odoo/.venv/bin/python3",
+      "/home/harry/work/odoo/.venv/bin/python3.12"
+    ]
+  },
+  "symlinks": []
+}

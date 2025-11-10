@@ -1,0 +1,457 @@
+{
+  "version": 3,
+  "requesterUsername": "harrybirdwork",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/150116999",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "panel",
+  "requests": [
+    {
+      "requestId": "request_9833910e-698c-4b71-a9fe-d08f311102d3",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 21
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 22
+            },
+            "text": "is this valid python?",
+            "kind": "text"
+          }
+        ],
+        "text": "is this valid python?"
+      },
+      "variableData": {
+        "variables": [
+          {
+            "kind": "file",
+            "id": "vscode.implicit.selection",
+            "name": "file:app.py",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/harry/work/latex/app.py",
+                "external": "file:///home/harry/work/latex/app.py",
+                "path": "/home/harry/work/latex/app.py",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 480,
+                "startColumn": 1,
+                "endLineNumber": 491,
+                "endColumn": 22,
+                "selectionStartLineNumber": 491,
+                "selectionStartColumn": 22,
+                "positionLineNumber": 480,
+                "positionColumn": 1
+              }
+            },
+            "modelDescription": "User's active selection"
+          }
+        ]
+      },
+      "response": [
+        {
+          "value": "Looking at the selected code, there's a **syntax error** on line 486. The `filter` method is being called incorrectly.\n\n```python\nfor product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\n```\n\nThe issue is that `components` appears to be a list or similar collection, but Python lists don't have a `filter` method. You need to use the built-in `filter()` function instead:\n\n```python\nfor product in filter(lambda p: 'gabbra' not in p['products']['code'].lower(), components):\n```\n\nOr convert to a list comprehension:\n\n```python\nfor product in [p for p in components if 'gabbra' not in p['products']['code'].lower()]:\n```\n\nWould you like me to fix this syntax error?",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/harry/work/latex/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "responseId": "response_73eed6a5-127c-4f91-8751-8a4aa3d230db",
+      "result": {
+        "timings": {
+          "firstProgress": 3978,
+          "totalElapsed": 6689
+        },
+        "metadata": {
+          "codeBlocks": [
+            {
+              "code": "for product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\n",
+              "language": "python",
+              "markdownBeforeBlock": "Looking at the selected code, there's a **syntax error** on line 486. The `filter` method is being called incorrectly.\n\n"
+            },
+            {
+              "code": "for product in filter(lambda p: 'gabbra' not in p['products']['code'].lower(), components):\n",
+              "language": "python",
+              "markdownBeforeBlock": "\nThe issue is that `components` appears to be a list or similar collection, but Python lists don't have a `filter` method. You need to use the built-in `filter()` function instead:\n\n"
+            },
+            {
+              "code": "for product in [p for p in components if 'gabbra' not in p['products']['code'].lower()]:\n",
+              "language": "python",
+              "markdownBeforeBlock": "\nOr convert to a list comprehension:\n\n"
+            }
+          ],
+          "renderedUserMessage": [
+            {
+              "type": 1,
+              "text": "<attachments>\n<attachment id=\"file:app.py\">\nUser's active selection:\nExcerpt from app.py, lines 480 to 491:\n```python\ndef picklist_table_rows(components, country, bracewire):\n    # Use metric or imperial names based on the country\n    name_key = \"name_imperial\" if country == \"US\" else \"name_metric\"\n    weight_multiplier = 2.20462 if country == \"US\" else 1\n    table_rows = \"\"\n    for product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\n        table_rows += f\"\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{(product['products']['weight'] * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    if bracewire and bracewire > 0:\n        table_rows += f\"\\\\texttt{{GabBra}} & \\\\texttt{{Bracewire}} & \\\\texttt{{1}} & \\\\texttt{{{(bracewire * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    return table_rows\n```\n</attachment>\n<attachment filePath=\"/home/harry/work/latex/app.py\">\nUser's active file for additional context:\nfrom flask import Flask, request, send_file, jsonify\nfrom datetime import datetime\nfrom flask_cors import CORS\nimport subprocess\nimport tempfile\nimport os\nimport pytz\n\napp = Flask(__name__)\nCORS(app)\n\n\n@app.route(\"/generate-pdf-invoice\", methods=[\"POST\"])\ndef generate_pdf_invoice():\n    data = request.json\n    invoice = data.get(\"invoice\")\n    country = data.get(\"country\")\n    utc_now = datetime.now(pytz.utc)\n    uk_time = utc_now.astimezone(pytz.timezone(\"Europe/London\"))\n    us_time = utc_now.astimezone(pytz.timezone(\"America/Los_Angeles\"))\n    nz_time = utc_now.astimezone(pytz.timezone(\"Pacific/Auckland\"))\n    au_time = utc_now.astimezone(pytz.timezone(\"Australia/Sydney\"))\n    # Generate LaTeX source code\n    country = country.upper()\n    if country == \"UK\":\n        latex_source = generate_latex_invoice(invoice, uk_time, country, \"£\")\n    elif country == \"US\":\n        latex_source = generate_latex_invoice(invoice, us_time, country, \"\\\\$\")\n    elif country == \"NZ\":\n        latex_source = generate_latex_invoice(invoice, nz_time, country, \"\\\\$\")\n    elif country == \"AU\":\n        latex_source = generate_latex_invoice(invoice, au_time, country, \"\\\\$\")\n\n    # Use a secure temporary directory\n    with tempfile.TemporaryDirectory() as tmpdirname:\n        tex_file_path = os.path.join(tmpdirname, \"invoice.tex\")\n        pdf_file_path = os.path.join(tmpdirname, \"invoice.pdf\")\n\n        # Write LaTeX source to a file\n        with open(tex_file_path, \"w\") as f:\n            f.write(latex_source)\n\n        # Run pdflatex to generate PDF\n        try:\n            subprocess.run(\n                [\"pdflatex\", \"-output-directory\", tmpdirname, tex_file_path], check=True\n            )\n        except subprocess.CalledProcessError as e:\n            return jsonify({\"error\": \"PDF generation failed\", \"details\": e.stderr}), 500\n\n        # Ensure the generated PDF file exists\n        if not os.path.exists(pdf_file_path):\n            return jsonify({\"error\": \"PDF file not found\"}), 500\n\n        # Send the generated PDF file\n        return send_file(pdf_file_path, as_attachment=True)\n\n\ndef generate_latex_invoice(invoice, time, country, currency):\n    # Define country-specific details\n    country_details = {\n        3: {\n            \"header\": \"COR-TEN-STEEL UK\",\n            \"address\": \"Cadley \\\\\\\\ SN8 4NE \\\\\\\\ 01793 386001 \\\\\\\\ uk@cor-ten-steel.co.uk \\\\\\\\ www.cor-ten-steel.co.uk\",\n            \"tax_label\": \"VAT (20\\\\%)\",\n            \"tax_rate\": 0.2,\n            \"tax_number\": \"VAT Number: 161 6032 40\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{VAT Number: 161 6032 40}} \\\\\\\\ \\\\texttt{{Sort Code: 40-05-16}} \\\\\\\\ \\\\texttt{{Account Number: 02371960}}\",\n        },\n        7: {\n            \"header\": \"GABION1 UK\",\n            \"address\": \"Cadley \\\\\\\\ SN8 4NE \\\\\\\\ 01793 386000 \\\\\\\\ uk@gabion1.co.uk \\\\\\\\ www.gabion1.co.uk\",\n            \"tax_label\": \"VAT (20\\\\%)\",\n            \"tax_rate\": 0.2,\n            \"tax_number\": \"VAT Number: 161 6032 40\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{VAT Number: 161 6032 40}} \\\\\\\\ \\\\texttt{{Sort Code: 40-05-16}} \\\\\\\\ \\\\texttt{{Account Number: 02371960}}\",\n        },\n        1: {\n            \"header\": \"COR-TEN-STEEL NZ\",\n            \"address\": \"14 Riverbank Road \\\\\\\\ Otaki \\\\\\\\ 5512 \\\\\\\\ 04 888 7441 \\\\\\\\ nz@cor-ten-steel.co.nz \\\\\\\\ www.cor-ten-steel.co.nz\",\n            \"tax_label\": \"GST (15\\\\%)\",\n            \"tax_rate\": 0.15,\n            \"tax_number\": \"GST Number: 66 558 215\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{GST Number: 66 558 215}} \\\\\\\\ \\\\texttt{{Account Number: 02-0506-0143690-002}}\",\n        },\n        5: {\n            \"header\": \"GABION1 NZ\",\n            \"address\": \"14 Riverbank Road \\\\\\\\ Otaki \\\\\\\\ 5512 \\\\\\\\ 04 888 7440 \\\\\\\\ nz@gabion1.co.nz \\\\\\\\ www.gabion1.co.nz\",\n            \"tax_label\": \"GST (15\\\\%)\",\n            \"tax_rate\": 0.15,\n            \"tax_number\": \"GST Number: 66 558 215\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{GST Number: 66 558 215}} \\\\\\\\ \\\\texttt{{Account Number: 02-0506-0143690-002}}\",\n        },\n        2: {\n            \"header\": \"COR-TEN-STEEL AU\",\n            \"address\": \"53 Hobart St \\\\\\\\ Riverstone 2765 \\\\\\\\ NSW \\\\\\\\ 02 4062 0026 \\\\\\\\ aus@cor-ten-steel.com.au \\\\\\\\ www.cor-ten-steel.com.au\",\n            \"tax_label\": \"GST (10\\\\%)\",\n            \"tax_rate\": 0.1,\n            \"tax_number\": \"GST Number: 35 671 639 843\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{GST Number: 35 671 639 843}} \\\\\\\\ \\\\texttt{{BSB: 06 2000}} \\\\\\\\ \\\\texttt{{ACC: 14651089}}\",\n        },\n        6: {\n            \"header\": \"GABION1 AU\",\n            \"address\": \"53 Hobart St \\\\\\\\ Riverstone 2765 \\\\\\\\ NSW \\\\\\\\ 02 4062 0025 \\\\\\\\ aus@gabion1.com.au \\\\\\\\ www.gabion1.com.au\",\n            \"tax_label\": \"GST (10\\\\%)\",\n            \"tax_rate\": 0.1,\n            \"tax_number\": \"GST Number: 35 671 639 843\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{GST Number: 35 671 639 843}} \\\\\\\\ \\\\texttt{{BSB: 06 2000}} \\\\\\\\ \\\\texttt{{ACC: 14651089}}\",\n        },\n        4: {\n            \"header\": \"COR-TEN-STEEL USA\",\n            \"address\": \"Mesa Street \\\\\\\\ Hesperia \\\\\\\\ 92345 CA \\\\\\\\ Tel: 323 300 2558 \\\\\\\\ Email: usa@cor-ten-steel.com\",\n            \"tax_label\": \"Tax\",\n            \"tax_rate\": invoice.get(\"us_tax_rate\", 0) / 100,\n            \"tax_number\": \"EIN: 47-3791745\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n            \"bank_details\": \".\",\n        },\n        8: {\n            \"header\": \"GABION1 USA\",\n            \"address\": \"Mesa Street \\\\\\\\ Hesperia \\\\\\\\ 92345 CA \\\\\\\\ Tel: 323 300 2585 \\\\\\\\ Email: usa@gabion1.com\",\n            \"tax_label\": \"Tax\",\n            \"tax_rate\": invoice.get(\"us_tax_rate\", 0) / 100,\n            \"tax_number\": \"EIN: 47-3791745\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n            \"bank_details\": \".\",\n        },\n    }\n    details = country_details[invoice[\"subdivision_id\"]]\n    tax_rate = details[\"tax_rate\"]\n    tax_label = details[\"tax_label\"]\n\n    latex_source = f\"\"\"\n    \\\\documentclass[a4paper,12pt]{{article}}\n    \\\\usepackage{{graphicx}}\n    \\\\usepackage{{geometry}}\n    \\\\geometry{{a4paper, margin=1cm}}\n    \\\\usepackage{{array}}\n    \\\\usepackage{{longtable}}\n    \\\\usepackage{{booktabs}}\n    \\\\usepackage{{ragged2e}}\n    \\\\pagestyle{{empty}}\n\n    %% Define new column types:\n    \\\\newcolumntype{{L}}[1]{{>{{\\\\RaggedRight}}p{{#1\\\\linewidth}}}}\n    \\\\newcolumntype{{R}}[1]{{>{{\\\\RaggedLeft}}p{{#1\\\\linewidth}}}}\n    \\\\newcolumntype{{C}}[1]{{>{{\\\\Centering}}p{{#1\\\\linewidth}}}}\n\n    \\\\begin{{document}}\n    \n    \\\\begin{{center}}\n        \\\\textbf{{\\\\Huge {{{details['header']}}}}}\n    \\\\end{{center}}\n    \\\\vspace{{0.5cm}}\n    \\\\noindent\n    \\\\begin{{minipage}}[t]{{0.45\\\\textwidth}}\n        \\\\raggedright\n        \\\\small\n        {details['address']} \\\\\\\\\n        \\\\vspace{{0.5cm}}\n        \\\\noindent\n        \\\\texttt{{{escape_latex(invoice['customers']['first_name'])}}} \\\\texttt{{{escape_latex(invoice['customers']['last_name'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"customers\"][\"company\"]:\n        latex_source += f\"\"\"\n        \\\\texttt{{{escape_latex(invoice['customers']['company'])}}} \\\\\\\\\n        \"\"\"\n    latex_source += f\"\"\"\n        \\\\texttt{{{escape_latex(invoice['customers']['email'])}}} \\\\\\\\\n        \\\\texttt{{{escape_latex(invoice['customers']['phone'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"customers\"][\"second_phone\"]:\n        latex_source += f\"\"\"\n        \\\\texttt{{{invoice['customers']['second_phone']}}} \\\\\\\\\n        \"\"\"\n    if invoice[\"addresses\"][\"building_name\"]:\n        latex_source += f\"\"\"\n    \\\\texttt{{{escape_latex(invoice['addresses']['building_name'])}}} \\\\\\\\\n    \"\"\"\n    latex_source += f\"\"\"\n        \\\\texttt{{{escape_latex(invoice['addresses']['street_address'])}}} \\\\\\\\\n        \\\\texttt{{{escape_latex(invoice['addresses']['suburb'])}}} \\\\texttt{{{escape_latex(invoice['addresses']['postal_code'])}}} \\\\\\\\\n        \\\\texttt{{{escape_latex(invoice['addresses']['city'])}}} \\\\\\\\\n        \\\\texttt{{{escape_latex(invoice['addresses']['country'])}}}\n    \\\\end{{minipage}}\n    \\\\hfill\n    \\\\begin{{minipage}}[t]{{0.45\\\\textwidth}}\n        \\\\raggedleft\n        \\\\small\n        Tax Invoice \\\\\\\\\n        {{{details['tax_number']}}} \\\\\\\\\n        \\\\vspace{{1cm}}\n        Invoice Number: \\\\texttt{{{details['invoice_number']}}} \\\\\\\\\n        Date Issued: \\\\texttt{{{time.strftime(\"%d-%b-%Y\")}}}\n    \\\\end{{minipage}}\n    \\\\begingroup\n    \\\\footnotesize\n    \\\\setlength\\\\tabcolsep{{3pt}}\n    \\\\begin{{longtable}}{{@{{}} L{{0.4}} C{{0.05}} R{{0.1}} R{{0.1}} R{{0.1}} R{{0.1}} @{{}}}}\n        \\\\textbf{{Item Description}} & \\\\textbf{{Qty}} & \\\\textbf{{Unit Price}} & \\\\textbf{{Total excl. {tax_label}}} & \\\\textbf{{{tax_label}}} & \\\\textbf{{Total}} \\\\\\\\\n        \\\\midrule\n        \\\\endfirsthead\n\n        \\\\multicolumn{{6}}{{@{{}}l}}{{{{\\\\bfseries\\\\tablename\\\\ \\\\thetable}}, continued from previous page}} \\\\\\\\\n        \\\\addlinespace\n        \\\\textbf{{Item Description}} & \\\\textbf{{Qty}} & \\\\textbf{{Unit Price}} & \\\\textbf{{Total excl. {tax_label}}} & \\\\textbf{{{tax_label}}} & \\\\textbf{{Total}} \\\\\\\\\n        \\\\midrule\n        \\\\endhead\n\n        \\\\midrule\n        \\\\multicolumn{{6}}{{r@{{}}}}{{(Continued on next page)}} \\\\\\\\\n        \\\\endfoot\n\n        \\\\endlastfoot\n\n        {invoice_table_rows(invoice, tax_rate, country, currency)}\n        \\\\hline\n        \\\\multicolumn{{3}}{{c}}{{}} & \\\\multicolumn{{1}}{{r|}}{{\\\\textbf{{{currency}{((invoice['price']) * (1/(1 + tax_rate))):.2f}}}}} & \\\\multicolumn{{1}}{{r|}}{{\\\\textbf{{{currency}{(invoice['price'] * (tax_rate / (1 + tax_rate))):.2f}}}}} & \\\\multicolumn{{1}}{{r}}{{\\\\textbf{{{currency}{invoice['price']:.2f}}}}} \\\\\\\\\n        \\\\cline{{4-6}}\n    \"\"\"\n    if invoice[\"amount_paid\"]:\n        latex_source += f\"\"\"\n        \\\\multicolumn{{3}}{{c}}{{}} & \\\\multicolumn{{2}}{{r|}}{{Amount Paid}} & \\\\multicolumn{{1}}{{r|}}{{\\\\texttt{{{currency}{invoice['amount_paid']:.2f}}}}} \\\\\\\\\n        \\\\cline{{4-6}}\n        \\\\multicolumn{{3}}{{c}}{{}} & \\\\multicolumn{{2}}{{r|}}{{Balance due inc. {tax_label}}} & \\\\multicolumn{{1}}{{r}}{{\\\\textbf{{{currency}{(invoice['price'] - invoice['amount_paid']):.2f}}}}} \\\\\\\\\n        \"\"\"\n    else:\n        latex_source += f\"\"\"\n        \\\\multicolumn{{3}}{{c}}{{}} & \\\\multicolumn{{2}}{{r|}}{{Balance due inc. {tax_label}}} & \\\\multicolumn{{1}}{{r}}{{\\\\textbf{{{currency}{(invoice['price']):.2f}}}}} \\\\\\\\\n        \"\"\"\n    latex_source += f\"\"\"\n    \\\\end{{longtable}}\n    \\\\endgroup\n    \\\\noindent\n    \"\"\"\n    if (country != 'US'):\n        latex_source += f\"\"\"\n        Payment can be made by bank transfer to the following account:\n        \\\\begin{{center}}\n        \n        {details['bank_details']} \\\\\\\\\n        \\\\texttt{{Reference: {details['invoice_number']}}}\n        \\\\end{{center}}\n        \"\"\"\n    latex_source += f\"\"\"\n    \\\\end{{document}}\n    \"\"\"\n    return latex_source\n\n\ndef invoice_table_rows(invoice, tax_rate, country, currency):\n    table_rows = \"\"\n    if country == \"US\":\n        name = \"name_imperial\"\n        for product in invoice[\"invoice_components\"]:\n            table_rows += f\"\\\\texttt{{{escape_latex(product['products'][name])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{currency}{(product['price']):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity']):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity'] * tax_rate):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity'] * (1 + tax_rate)):.2f}}} \\\\\\\\ \\n\"\n            table_rows += \"\\\\hline \\n\"\n    else:\n        name = \"name_metric\"\n        for product in invoice[\"invoice_components\"]:\n            table_rows += f\"\\\\texttt{{{escape_latex(product['products'][name])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{currency}{(product['price'] * (1/(1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity'] * (1/(1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity'] * (tax_rate / (1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity']):.2f}}} \\\\\\\\ \\n\"\n            table_rows += \"\\\\hline \\n\"\n\n    if invoice[\"freight_charged\"] != 0:\n        table_rows += f\"\\\\texttt{{Freight: {escape_latex(invoice['freight_carrier'])}}} & \\\\texttt{{1}} & \\\\texttt{{{currency}{(invoice['freight_charged'] * (1/(1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(invoice['freight_charged'] * (1/(1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(invoice['freight_charged'] * (tax_rate / (1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(invoice['freight_charged']):.2f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    return table_rows\n\n\n@app.route(\"/generate-pdf-picklist\", methods=[\"POST\"])\ndef generate_pdf_picklist():\n    data = request.json\n    invoice = data.get(\"invoice\")\n    info = data.get(\"info\")\n    components = data.get(\"components\")\n    country = data.get(\"country\")\n    utc_now = datetime.now(pytz.utc)\n    uk_time = utc_now.astimezone(pytz.timezone(\"Europe/London\"))\n    us_time = utc_now.astimezone(pytz.timezone(\"America/Los_Angeles\"))\n    nz_time = utc_now.astimezone(pytz.timezone(\"Pacific/Auckland\"))\n    au_time = utc_now.astimezone(pytz.timezone(\"Australia/Sydney\"))\n    # Generate LaTeX source code\n    country = country.upper()\n    if country == \"UK\":\n        latex_source = generate_latex_picklist(\n            invoice, info, components, uk_time, country\n        )\n    elif country == \"US\":\n        latex_source = generate_latex_picklist(\n            invoice, info, components, us_time, country\n        )\n    elif country == \"NZ\":\n        latex_source = generate_latex_picklist(\n            invoice, info, components, nz_time, country\n        )\n    elif country == \"AU\":\n        latex_source = generate_latex_picklist(\n            invoice, info, components, au_time, country\n        )\n\n    # Use a secure temporary directory\n    with tempfile.TemporaryDirectory() as tmpdirname:\n        tex_file_path = os.path.join(tmpdirname, \"picklist.tex\")\n        pdf_file_path = os.path.join(tmpdirname, \"picklist.pdf\")\n\n        # Write LaTeX source to a file\n        with open(tex_file_path, \"w\") as f:\n            f.write(latex_source)\n        # Run pdflatex to generate PDF\n        try:\n            subprocess.run(\n                [\"pdflatex\", \"-output-directory\", tmpdirname, tex_file_path], check=True\n            )\n        except subprocess.CalledProcessError as e:\n            return jsonify({\"error\": \"PDF generation failed\", \"details\": e.stderr}), 500\n\n        # Ensure the generated PDF file exists\n        if not os.path.exists(pdf_file_path):\n            return jsonify({\"error\": \"PDF file not found\"}), 500\n\n        # Send the generated PDF file\n        return send_file(pdf_file_path, as_attachment=True)\n\n\ndef generate_latex_picklist(invoice, info, components, time, country):\n    # Define country-specific details\n    country_details = {\n        3: {\n            \"header\": \"COR-TEN-STEEL UK\",\n            \"address\": \"Cadley \\\\\\\\ SN8 4NE \\\\\\\\ Tel: 01793 386001 \\\\\\\\ Email: uk@cor-ten-steel.co.uk\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n        },\n        7: {\n            \"header\": \"GABION1 UK\",\n            \"address\": \"Cadley \\\\\\\\ SN8 4NE \\\\\\\\ Tel: 01793 386000 \\\\\\\\ Email: uk@gabion1.co.uk\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n        },\n        1: {\n            \"header\": \"COR-TEN-STEEL NZ\",\n            \"address\": \"14 Riverbank Road \\\\\\\\ Otaki 5512 \\\\\\\\ Tel: 04 888 7441 \\\\\\\\ Email: nz@cor-ten-steel.co.nz\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n        },\n        5: {\n            \"header\": \"GABION1 NZ\",\n            \"address\": \"14 Riverbank Road \\\\\\\\ Otaki 5512 \\\\\\\\ Tel: 04 888 7440 \\\\\\\\ Email: nz@gabion1.co.nz\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n        },\n        2: {\n            \"header\": \"COR-TEN-STEEL AU\",\n            \"address\": \"53 Hobart St \\\\\\\\ Riverstone 2765 \\\\\\\\ NSW \\\\\\\\ Tel: 02 4062 0026 \\\\\\\\ Email: aus@cor-ten-steel.com.au\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n        },\n        6: {\n            \"header\": \"GABION1 AU\",\n            \"address\": \"53 Hobart St \\\\\\\\ Riverstone 2765 \\\\\\\\ NSW \\\\\\\\ Tel: 02 4062 0025 \\\\\\\\ Email: aus@gabion1.com.au\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n        },\n        4: {\n            \"header\": \"COR-TEN-STEEL USA\",\n            \"address\": \"Mesa Street \\\\\\\\ Hesperia \\\\\\\\ 92345 CA \\\\\\\\ Tel: 323 300 2558 \\\\\\\\ Email: usa@cor-ten-steel.com\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n        },\n        8: {\n            \"header\": \"GABION1 USA\",\n            \"address\": \"Mesa Street \\\\\\\\ Hesperia \\\\\\\\ 92345 CA \\\\\\\\ Tel: 323 300 2585 \\\\\\\\ Email: usa@gabion1.com\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n        },\n    }\n\n    details = country_details[invoice[\"subdivision_id\"]]\n    weight_multiplier = 2.20462 if country == \"US\" else 1\n    # Generate the LaTeX source\n    latex_source = f\"\"\"\n    \\\\documentclass[a4paper,12pt]{{article}}\n    \\\\usepackage{{graphicx}}\n    \\\\usepackage{{geometry}}\n    \\\\geometry{{a4paper, margin=1cm}}\n    \\\\usepackage{{array}}\n    \\\\usepackage{{longtable}}\n    \\\\usepackage{{anyfontsize}}\n    \\\\pagestyle{{empty}}\n\n    \\\\begin{{document}}\n    \n    \\\\vspace{{0.5cm}}\n\n    \\\\noindent\n    \\\\texttt{{Deliver to:}} \\\\\\\\\n\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{20}}{{24}}\\\\selectfont {escape_latex(invoice['customers']['first_name'])}}} \\\\textbf{{\\\\fontsize{{20}}{{24}}\\\\selectfont {escape_latex(invoice['customers']['last_name'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"customers\"][\"company\"]:\n        latex_source += f\"\"\"\n    \\\\noindent\n    \\\\texttt{{{escape_latex(invoice['customers']['company'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"addresses\"][\"building_name\"]:\n        latex_source += f\"\"\"\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{30}}{{36}}\\\\selectfont {escape_latex(invoice['addresses']['building_name'])}}} \\\\\\\\\n    \"\"\"\n    latex_source += f\"\"\"\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{30}}{{36}}\\\\selectfont {escape_latex(invoice['addresses']['street_address'])}}} \\\\\\\\\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{50}}{{60}}\\\\selectfont {escape_latex(invoice['addresses']['suburb'])}}} \\\\\\\\\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{50}}{{60}}\\\\selectfont {escape_latex(invoice['addresses']['city'])}}} \\\\\\\\\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{70}}{{84}}\\\\selectfont {escape_latex(invoice['addresses']['postal_code'])}}} \\\\\\\\\n    \\\\noindent\n    \\\\textsf{{\\\\Large {escape_latex(invoice['customers']['email'])}}} \\\\\\\\\n    \\\\textsf{{\\\\Large {escape_latex(invoice['customers']['phone'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"customers\"][\"second_phone\"]:\n        latex_source += f\"\"\"\n    \\\\textsf{{\\\\Large {escape_latex(invoice['customers']['second_phone'])}}} \\\\\\\\\n    \"\"\"\n    latex_source += f\"\"\"\n    \\\\noindent\n    \\\\textsf{{\\\\Large {escape_latex(invoice['delivery_instructions'])}}} \\\\\\\\\n\n    \\\\vspace{{0.5cm}}\n    \n    \\\\noindent\n    \\\\begin{{minipage}}[t]{{0.45\\\\textwidth}}\n        \\\\raggedright\n        \\\\small\n        {details['header']} \\\\\\\\\n        {details['address']} \\\\\\\\\n    \\\\end{{minipage}}\n    \\\\hfill\n    \\\\begin{{minipage}}[t]{{0.45\\\\textwidth}}\n        \\\\raggedleft\n        \\\\textbf{{\\\\fontsize{{20}}{{24}}\\\\selectfont Picklist}} \\\\\\\\\n        \\\\vspace{{1cm}}\n        \\\\small\n        Invoice Number: \\\\texttt{{{details['invoice_number']}}} \\\\\\\\\n        Date Issued: \\\\texttt{{{time.strftime(\"%d-%b-%Y %H:%M\")}}} \n    \\\\end{{minipage}}\n    \n    \\\\vspace{{0.5cm}}\n\n    \\\\noindent\n    \\\\rule{{\\\\textwidth}}{{0.5pt}}\n\n    \\\\vspace{{0.5cm}}\n\n    \\\\noindent\n    \\\\begin{{tabular}}{{l l}}\n    \\\\textbf{{Total Items:}} & \\\\texttt{{{info['total_items']}}} \\\\\\\\ \n    \\\\textbf{{Total Weight ({'lbs' if country == 'US' else 'kgs'}):}} & \\\\texttt{{{(invoice['weight'] * weight_multiplier):.1f}}} \\\\\\\\ \n    \\\\textbf{{Carrier:}} & \\\\texttt{{{escape_latex(invoice['freight_carrier'])}}} \\\\\\\\ \n    \\\\textbf{{Stickers:}} & \\\\texttt{{{escape_latex(invoice['stickers'])}}} \\\\\\\\ \n    \\\\textbf{{Packing Instructions:}} & \\\\texttt{{{escape_latex(invoice['packing_instructions'])}}} \\\\\\\\ \n    \\\\textbf{{Con Note:}} & \\\\texttt{{{escape_latex(invoice['con_note'])}}} \\\\\\\\ \n    \\\\end{{tabular}}\n\n    \\\\vspace{{0.5cm}}\n\n    \\\\begin{{longtable}}{{|l|l|l|l|}}\n        \\\\hline\n        \\\\textbf{{Code}} & \\\\textbf{{Description}} & \\\\textbf{{Qty}} & \\\\textbf{{Weight ({'lbs' if country == 'US' else 'kgs'})}} \\\\\\\\\n        \\\\hline\n        {picklist_table_rows(components, country, invoice['bracewire'])}\n    \\\\end{{longtable}}\n\n    \\\\end{{document}}\n    \"\"\"\n    return latex_source\n\n\ndef picklist_table_rows(components, country, bracewire):\n    # Use metric or imperial names based on the country\n    name_key = \"name_imperial\" if country == \"US\" else \"name_metric\"\n    weight_multiplier = 2.20462 if country == \"US\" else 1\n    table_rows = \"\"\n    for product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\n        table_rows += f\"\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{(product['products']['weight'] * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    if bracewire and bracewire > 0:\n        table_rows += f\"\\\\texttt{{GabBra}} & \\\\texttt{{Bracewire}} & \\\\texttt{{1}} & \\\\texttt{{{(bracewire * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    return table_rows\n\n\ndef escape_latex(text):\n    if not isinstance(text, str):\n        return text  # Return non-string data as-is\n    return (\n        text.replace(\"\\\\\", \"\\\\textbackslash{}\")  # Escape backslashes\n        .replace(\"%\", \"\\\\%\")\n        .replace(\"_\", \"\\\\_\")\n        .replace(\"$\", \"\\\\$\")\n        .replace(\"&\", \"\\\\&\")\n        .replace(\"#\", \"\\\\#\")\n        .replace(\"{\", \"\\\\{\")\n        .replace(\"}\", \"\\\\}\")\n        .replace(\"~\", \"\\\\textasciitilde{}\")\n        .replace(\"^\", \"\\\\textasciicircum{}\")\n    )\n\n\nif __name__ == \"__main__\":\n    app.run(host=\"0.0.0.0\", port=5000)\n</attachment>\n\n</attachments>\n<context>\nThe current date is 10 November 2025.\nTerminals:\nTerminal: bash\nTerminal: zsh\n\n</context>\n<editorContext>\nThe user's current file is /home/harry/work/latex/app.py. The current selection is from line 480 to line 491.\n</editorContext>\n<repoContext>\nBelow is the information about the current repository. You can use this information when you need to calculate diffs or compare changes with the default branch.\nRepository name: latex\nOwner: rocersa\nCurrent branch: main\n\n</repoContext>\n<reminderInstructions>\nWhen using the replace_string_in_file tool, include 3-5 lines of unchanged code before and after the string you want to replace, to make it unambiguous which part of the file should be edited.\nDo NOT create a new markdown file to document each change or summarize your work unless specifically requested by the user.\n\n</reminderInstructions>\n<userRequest>\nis this valid python?\n</userRequest>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "renderedGlobalContext": [
+            {
+              "type": 1,
+              "text": "<environment_info>\nThe user's current OS is: Linux\nThe user's default shell is: \"zsh\". When you generate terminal commands, please generate them correctly for this shell.\n</environment_info>\n<workspace_info>\nI am working in a workspace with the following folders:\n- /home/harry/work/latex \nI am working in a workspace that has the following structure:\n```\napp.py\ndocker-compose.yml\nDockerfile\nrequirements.txt\n```\nThis is the state of the context at this point in the conversation. The view of the workspace structure may be truncated. You can use tools to collect more context if needed.\n</workspace_info>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "cacheKey": "file:///home/harry/work/latex",
+          "toolCallRounds": [
+            {
+              "response": "Looking at the selected code, there's a **syntax error** on line 486. The `filter` method is being called incorrectly.\n\n```python\nfor product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\n```\n\nThe issue is that `components` appears to be a list or similar collection, but Python lists don't have a `filter` method. You need to use the built-in `filter()` function instead:\n\n```python\nfor product in filter(lambda p: 'gabbra' not in p['products']['code'].lower(), components):\n```\n\nOr convert to a list comprehension:\n\n```python\nfor product in [p for p in components if 'gabbra' not in p['products']['code'].lower()]:\n```\n\nWould you like me to fix this syntax error?",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "1297c04a-1992-4095-9e6c-01f44f15b67f"
+            }
+          ],
+          "modelMessageId": "5ad13062-3e98-43ee-b5e9-eea4f3e9c14b",
+          "responseId": "c33b763f-fcc4-49a4-93dd-20fde8dae74b",
+          "sessionId": "7f30bff4-65f1-4fbc-8138-aedd6a1c7ca7",
+          "agentId": "github.copilot.editsAgent"
+        },
+        "details": "Claude Sonnet 4.5 • 1x"
+      },
+      "responseMarkdownInfo": [
+        {
+          "suggestionId": "sgt-c8d8d683-bb87-42e8-b50c-519b5a6ca90d"
+        },
+        {
+          "suggestionId": "sgt-16cf814b-5388-42a8-8596-ca5322a98262"
+        }
+      ],
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.4",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [
+          {
+            "name": "list"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1762722760195,
+      "modelId": "copilot/claude-sonnet-4.5"
+    },
+    {
+      "requestId": "request_910493ba-ecb7-493e-be51-4a505b38f2c8",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 10
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 11
+            },
+            "text": "yes please",
+            "kind": "text"
+          }
+        ],
+        "text": "yes please"
+      },
+      "variableData": {
+        "variables": [
+          {
+            "kind": "file",
+            "id": "vscode.implicit.selection",
+            "name": "file:app.py",
+            "value": {
+              "uri": {
+                "$mid": 1,
+                "fsPath": "/home/harry/work/latex/app.py",
+                "external": "file:///home/harry/work/latex/app.py",
+                "path": "/home/harry/work/latex/app.py",
+                "scheme": "file"
+              },
+              "range": {
+                "startLineNumber": 480,
+                "startColumn": 1,
+                "endLineNumber": 491,
+                "endColumn": 22,
+                "selectionStartLineNumber": 491,
+                "selectionStartColumn": 22,
+                "positionLineNumber": 480,
+                "positionColumn": 1
+              }
+            },
+            "modelDescription": "User's active selection"
+          }
+        ]
+      },
+      "response": [
+        {
+          "kind": "toolInvocationSerialized",
+          "presentation": "hidden",
+          "invocationMessage": "Using \"Replace String in File\"",
+          "isConfirmed": {
+            "type": 1
+          },
+          "isComplete": true,
+          "source": {
+            "type": "internal",
+            "label": "Built-In"
+          },
+          "toolCallId": "37b5b786-4986-442c-8535-24ae1786ddb8",
+          "toolId": "copilot_replaceString"
+        },
+        {
+          "value": "\n```\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "uris": {}
+        },
+        {
+          "id": "059d3f11-2260-4f57-a725-16f9e9c63aa1",
+          "kind": "undoStop"
+        },
+        {
+          "kind": "codeblockUri",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/harry/work/latex/app.py",
+            "external": "file:///home/harry/work/latex/app.py",
+            "path": "/home/harry/work/latex/app.py",
+            "scheme": "file"
+          },
+          "isEdit": true
+        },
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/harry/work/latex/app.py",
+            "external": "file:///home/harry/work/latex/app.py",
+            "path": "/home/harry/work/latex/app.py",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "def picklist_table_rows(components, country, bracewire):\n    # Use metric or imperial names based on the country\n    name_key = \"name_imperial\" if country == \"US\" else \"name_metric\"\n    weight_multiplier = 2.20462 if country == \"US\" else 1\n    table_rows = \"\"\n    for product in filter(lambda p: 'gabbra' not in p['products']['code'].lower(), components):\n        table_rows += f\"\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{(product['products']['weight'] * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    if bracewire and bracewire > 0:\n        table_rows += f\"\\\\texttt{{GabBra}} & \\\\texttt{{Bracewire}} & \\\\texttt{{1}} & \\\\texttt{{{(bracewire * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    return table_rows",
+                "range": {
+                  "startLineNumber": 480,
+                  "startColumn": 1,
+                  "endLineNumber": 491,
+                  "endColumn": 22
+                }
+              }
+            ],
+            []
+          ],
+          "done": true
+        },
+        {
+          "value": "\n```\n",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "uris": {}
+        },
+        {
+          "value": "Fixed! I've corrected the syntax error by changing `components.filter(...)` to the built-in `filter(..., components)` function.",
+          "supportThemeIcons": false,
+          "supportHtml": false,
+          "baseUri": {
+            "$mid": 1,
+            "path": "/home/harry/work/latex/",
+            "scheme": "file"
+          }
+        }
+      ],
+      "responseId": "response_22577419-f5a8-4ade-9680-c36386853b30",
+      "result": {
+        "timings": {
+          "firstProgress": 9306,
+          "totalElapsed": 15922
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "renderedUserMessage": [
+            {
+              "type": 1,
+              "text": "<attachments>\n<attachment id=\"file:app.py\">\nUser's active selection:\nExcerpt from app.py, lines 480 to 491:\n```python\ndef picklist_table_rows(components, country, bracewire):\n    # Use metric or imperial names based on the country\n    name_key = \"name_imperial\" if country == \"US\" else \"name_metric\"\n    weight_multiplier = 2.20462 if country == \"US\" else 1\n    table_rows = \"\"\n    for product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\n        table_rows += f\"\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{(product['products']['weight'] * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    if bracewire and bracewire > 0:\n        table_rows += f\"\\\\texttt{{GabBra}} & \\\\texttt{{Bracewire}} & \\\\texttt{{1}} & \\\\texttt{{{(bracewire * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    return table_rows\n```\n</attachment>\n<attachment filePath=\"/home/harry/work/latex/app.py\">\nUser's active file for additional context:\nfrom flask import Flask, request, send_file, jsonify\nfrom datetime import datetime\nfrom flask_cors import CORS\nimport subprocess\nimport tempfile\nimport os\nimport pytz\n\napp = Flask(__name__)\nCORS(app)\n\n\n@app.route(\"/generate-pdf-invoice\", methods=[\"POST\"])\ndef generate_pdf_invoice():\n    data = request.json\n    invoice = data.get(\"invoice\")\n    country = data.get(\"country\")\n    utc_now = datetime.now(pytz.utc)\n    uk_time = utc_now.astimezone(pytz.timezone(\"Europe/London\"))\n    us_time = utc_now.astimezone(pytz.timezone(\"America/Los_Angeles\"))\n    nz_time = utc_now.astimezone(pytz.timezone(\"Pacific/Auckland\"))\n    au_time = utc_now.astimezone(pytz.timezone(\"Australia/Sydney\"))\n    # Generate LaTeX source code\n    country = country.upper()\n    if country == \"UK\":\n        latex_source = generate_latex_invoice(invoice, uk_time, country, \"£\")\n    elif country == \"US\":\n        latex_source = generate_latex_invoice(invoice, us_time, country, \"\\\\$\")\n    elif country == \"NZ\":\n        latex_source = generate_latex_invoice(invoice, nz_time, country, \"\\\\$\")\n    elif country == \"AU\":\n        latex_source = generate_latex_invoice(invoice, au_time, country, \"\\\\$\")\n\n    # Use a secure temporary directory\n    with tempfile.TemporaryDirectory() as tmpdirname:\n        tex_file_path = os.path.join(tmpdirname, \"invoice.tex\")\n        pdf_file_path = os.path.join(tmpdirname, \"invoice.pdf\")\n\n        # Write LaTeX source to a file\n        with open(tex_file_path, \"w\") as f:\n            f.write(latex_source)\n\n        # Run pdflatex to generate PDF\n        try:\n            subprocess.run(\n                [\"pdflatex\", \"-output-directory\", tmpdirname, tex_file_path], check=True\n            )\n        except subprocess.CalledProcessError as e:\n            return jsonify({\"error\": \"PDF generation failed\", \"details\": e.stderr}), 500\n\n        # Ensure the generated PDF file exists\n        if not os.path.exists(pdf_file_path):\n            return jsonify({\"error\": \"PDF file not found\"}), 500\n\n        # Send the generated PDF file\n        return send_file(pdf_file_path, as_attachment=True)\n\n\ndef generate_latex_invoice(invoice, time, country, currency):\n    # Define country-specific details\n    country_details = {\n        3: {\n            \"header\": \"COR-TEN-STEEL UK\",\n            \"address\": \"Cadley \\\\\\\\ SN8 4NE \\\\\\\\ 01793 386001 \\\\\\\\ uk@cor-ten-steel.co.uk \\\\\\\\ www.cor-ten-steel.co.uk\",\n            \"tax_label\": \"VAT (20\\\\%)\",\n            \"tax_rate\": 0.2,\n            \"tax_number\": \"VAT Number: 161 6032 40\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{VAT Number: 161 6032 40}} \\\\\\\\ \\\\texttt{{Sort Code: 40-05-16}} \\\\\\\\ \\\\texttt{{Account Number: 02371960}}\",\n        },\n        7: {\n            \"header\": \"GABION1 UK\",\n            \"address\": \"Cadley \\\\\\\\ SN8 4NE \\\\\\\\ 01793 386000 \\\\\\\\ uk@gabion1.co.uk \\\\\\\\ www.gabion1.co.uk\",\n            \"tax_label\": \"VAT (20\\\\%)\",\n            \"tax_rate\": 0.2,\n            \"tax_number\": \"VAT Number: 161 6032 40\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{VAT Number: 161 6032 40}} \\\\\\\\ \\\\texttt{{Sort Code: 40-05-16}} \\\\\\\\ \\\\texttt{{Account Number: 02371960}}\",\n        },\n        1: {\n            \"header\": \"COR-TEN-STEEL NZ\",\n            \"address\": \"14 Riverbank Road \\\\\\\\ Otaki \\\\\\\\ 5512 \\\\\\\\ 04 888 7441 \\\\\\\\ nz@cor-ten-steel.co.nz \\\\\\\\ www.cor-ten-steel.co.nz\",\n            \"tax_label\": \"GST (15\\\\%)\",\n            \"tax_rate\": 0.15,\n            \"tax_number\": \"GST Number: 66 558 215\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{GST Number: 66 558 215}} \\\\\\\\ \\\\texttt{{Account Number: 02-0506-0143690-002}}\",\n        },\n        5: {\n            \"header\": \"GABION1 NZ\",\n            \"address\": \"14 Riverbank Road \\\\\\\\ Otaki \\\\\\\\ 5512 \\\\\\\\ 04 888 7440 \\\\\\\\ nz@gabion1.co.nz \\\\\\\\ www.gabion1.co.nz\",\n            \"tax_label\": \"GST (15\\\\%)\",\n            \"tax_rate\": 0.15,\n            \"tax_number\": \"GST Number: 66 558 215\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{GST Number: 66 558 215}} \\\\\\\\ \\\\texttt{{Account Number: 02-0506-0143690-002}}\",\n        },\n        2: {\n            \"header\": \"COR-TEN-STEEL AU\",\n            \"address\": \"53 Hobart St \\\\\\\\ Riverstone 2765 \\\\\\\\ NSW \\\\\\\\ 02 4062 0026 \\\\\\\\ aus@cor-ten-steel.com.au \\\\\\\\ www.cor-ten-steel.com.au\",\n            \"tax_label\": \"GST (10\\\\%)\",\n            \"tax_rate\": 0.1,\n            \"tax_number\": \"GST Number: 35 671 639 843\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{GST Number: 35 671 639 843}} \\\\\\\\ \\\\texttt{{BSB: 06 2000}} \\\\\\\\ \\\\texttt{{ACC: 14651089}}\",\n        },\n        6: {\n            \"header\": \"GABION1 AU\",\n            \"address\": \"53 Hobart St \\\\\\\\ Riverstone 2765 \\\\\\\\ NSW \\\\\\\\ 02 4062 0025 \\\\\\\\ aus@gabion1.com.au \\\\\\\\ www.gabion1.com.au\",\n            \"tax_label\": \"GST (10\\\\%)\",\n            \"tax_rate\": 0.1,\n            \"tax_number\": \"GST Number: 35 671 639 843\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n            \"bank_details\": f\"\\\\texttt{{Account/Business Name: Rocersa Limited}} \\\\\\\\ \\\\texttt{{GST Number: 35 671 639 843}} \\\\\\\\ \\\\texttt{{BSB: 06 2000}} \\\\\\\\ \\\\texttt{{ACC: 14651089}}\",\n        },\n        4: {\n            \"header\": \"COR-TEN-STEEL USA\",\n            \"address\": \"Mesa Street \\\\\\\\ Hesperia \\\\\\\\ 92345 CA \\\\\\\\ Tel: 323 300 2558 \\\\\\\\ Email: usa@cor-ten-steel.com\",\n            \"tax_label\": \"Tax\",\n            \"tax_rate\": invoice.get(\"us_tax_rate\", 0) / 100,\n            \"tax_number\": \"EIN: 47-3791745\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n            \"bank_details\": \".\",\n        },\n        8: {\n            \"header\": \"GABION1 USA\",\n            \"address\": \"Mesa Street \\\\\\\\ Hesperia \\\\\\\\ 92345 CA \\\\\\\\ Tel: 323 300 2585 \\\\\\\\ Email: usa@gabion1.com\",\n            \"tax_label\": \"Tax\",\n            \"tax_rate\": invoice.get(\"us_tax_rate\", 0) / 100,\n            \"tax_number\": \"EIN: 47-3791745\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n            \"bank_details\": \".\",\n        },\n    }\n    details = country_details[invoice[\"subdivision_id\"]]\n    tax_rate = details[\"tax_rate\"]\n    tax_label = details[\"tax_label\"]\n\n    latex_source = f\"\"\"\n    \\\\documentclass[a4paper,12pt]{{article}}\n    \\\\usepackage{{graphicx}}\n    \\\\usepackage{{geometry}}\n    \\\\geometry{{a4paper, margin=1cm}}\n    \\\\usepackage{{array}}\n    \\\\usepackage{{longtable}}\n    \\\\usepackage{{booktabs}}\n    \\\\usepackage{{ragged2e}}\n    \\\\pagestyle{{empty}}\n\n    %% Define new column types:\n    \\\\newcolumntype{{L}}[1]{{>{{\\\\RaggedRight}}p{{#1\\\\linewidth}}}}\n    \\\\newcolumntype{{R}}[1]{{>{{\\\\RaggedLeft}}p{{#1\\\\linewidth}}}}\n    \\\\newcolumntype{{C}}[1]{{>{{\\\\Centering}}p{{#1\\\\linewidth}}}}\n\n    \\\\begin{{document}}\n    \n    \\\\begin{{center}}\n        \\\\textbf{{\\\\Huge {{{details['header']}}}}}\n    \\\\end{{center}}\n    \\\\vspace{{0.5cm}}\n    \\\\noindent\n    \\\\begin{{minipage}}[t]{{0.45\\\\textwidth}}\n        \\\\raggedright\n        \\\\small\n        {details['address']} \\\\\\\\\n        \\\\vspace{{0.5cm}}\n        \\\\noindent\n        \\\\texttt{{{escape_latex(invoice['customers']['first_name'])}}} \\\\texttt{{{escape_latex(invoice['customers']['last_name'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"customers\"][\"company\"]:\n        latex_source += f\"\"\"\n        \\\\texttt{{{escape_latex(invoice['customers']['company'])}}} \\\\\\\\\n        \"\"\"\n    latex_source += f\"\"\"\n        \\\\texttt{{{escape_latex(invoice['customers']['email'])}}} \\\\\\\\\n        \\\\texttt{{{escape_latex(invoice['customers']['phone'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"customers\"][\"second_phone\"]:\n        latex_source += f\"\"\"\n        \\\\texttt{{{invoice['customers']['second_phone']}}} \\\\\\\\\n        \"\"\"\n    if invoice[\"addresses\"][\"building_name\"]:\n        latex_source += f\"\"\"\n    \\\\texttt{{{escape_latex(invoice['addresses']['building_name'])}}} \\\\\\\\\n    \"\"\"\n    latex_source += f\"\"\"\n        \\\\texttt{{{escape_latex(invoice['addresses']['street_address'])}}} \\\\\\\\\n        \\\\texttt{{{escape_latex(invoice['addresses']['suburb'])}}} \\\\texttt{{{escape_latex(invoice['addresses']['postal_code'])}}} \\\\\\\\\n        \\\\texttt{{{escape_latex(invoice['addresses']['city'])}}} \\\\\\\\\n        \\\\texttt{{{escape_latex(invoice['addresses']['country'])}}}\n    \\\\end{{minipage}}\n    \\\\hfill\n    \\\\begin{{minipage}}[t]{{0.45\\\\textwidth}}\n        \\\\raggedleft\n        \\\\small\n        Tax Invoice \\\\\\\\\n        {{{details['tax_number']}}} \\\\\\\\\n        \\\\vspace{{1cm}}\n        Invoice Number: \\\\texttt{{{details['invoice_number']}}} \\\\\\\\\n        Date Issued: \\\\texttt{{{time.strftime(\"%d-%b-%Y\")}}}\n    \\\\end{{minipage}}\n    \\\\begingroup\n    \\\\footnotesize\n    \\\\setlength\\\\tabcolsep{{3pt}}\n    \\\\begin{{longtable}}{{@{{}} L{{0.4}} C{{0.05}} R{{0.1}} R{{0.1}} R{{0.1}} R{{0.1}} @{{}}}}\n        \\\\textbf{{Item Description}} & \\\\textbf{{Qty}} & \\\\textbf{{Unit Price}} & \\\\textbf{{Total excl. {tax_label}}} & \\\\textbf{{{tax_label}}} & \\\\textbf{{Total}} \\\\\\\\\n        \\\\midrule\n        \\\\endfirsthead\n\n        \\\\multicolumn{{6}}{{@{{}}l}}{{{{\\\\bfseries\\\\tablename\\\\ \\\\thetable}}, continued from previous page}} \\\\\\\\\n        \\\\addlinespace\n        \\\\textbf{{Item Description}} & \\\\textbf{{Qty}} & \\\\textbf{{Unit Price}} & \\\\textbf{{Total excl. {tax_label}}} & \\\\textbf{{{tax_label}}} & \\\\textbf{{Total}} \\\\\\\\\n        \\\\midrule\n        \\\\endhead\n\n        \\\\midrule\n        \\\\multicolumn{{6}}{{r@{{}}}}{{(Continued on next page)}} \\\\\\\\\n        \\\\endfoot\n\n        \\\\endlastfoot\n\n        {invoice_table_rows(invoice, tax_rate, country, currency)}\n        \\\\hline\n        \\\\multicolumn{{3}}{{c}}{{}} & \\\\multicolumn{{1}}{{r|}}{{\\\\textbf{{{currency}{((invoice['price']) * (1/(1 + tax_rate))):.2f}}}}} & \\\\multicolumn{{1}}{{r|}}{{\\\\textbf{{{currency}{(invoice['price'] * (tax_rate / (1 + tax_rate))):.2f}}}}} & \\\\multicolumn{{1}}{{r}}{{\\\\textbf{{{currency}{invoice['price']:.2f}}}}} \\\\\\\\\n        \\\\cline{{4-6}}\n    \"\"\"\n    if invoice[\"amount_paid\"]:\n        latex_source += f\"\"\"\n        \\\\multicolumn{{3}}{{c}}{{}} & \\\\multicolumn{{2}}{{r|}}{{Amount Paid}} & \\\\multicolumn{{1}}{{r|}}{{\\\\texttt{{{currency}{invoice['amount_paid']:.2f}}}}} \\\\\\\\\n        \\\\cline{{4-6}}\n        \\\\multicolumn{{3}}{{c}}{{}} & \\\\multicolumn{{2}}{{r|}}{{Balance due inc. {tax_label}}} & \\\\multicolumn{{1}}{{r}}{{\\\\textbf{{{currency}{(invoice['price'] - invoice['amount_paid']):.2f}}}}} \\\\\\\\\n        \"\"\"\n    else:\n        latex_source += f\"\"\"\n        \\\\multicolumn{{3}}{{c}}{{}} & \\\\multicolumn{{2}}{{r|}}{{Balance due inc. {tax_label}}} & \\\\multicolumn{{1}}{{r}}{{\\\\textbf{{{currency}{(invoice['price']):.2f}}}}} \\\\\\\\\n        \"\"\"\n    latex_source += f\"\"\"\n    \\\\end{{longtable}}\n    \\\\endgroup\n    \\\\noindent\n    \"\"\"\n    if (country != 'US'):\n        latex_source += f\"\"\"\n        Payment can be made by bank transfer to the following account:\n        \\\\begin{{center}}\n        \n        {details['bank_details']} \\\\\\\\\n        \\\\texttt{{Reference: {details['invoice_number']}}}\n        \\\\end{{center}}\n        \"\"\"\n    latex_source += f\"\"\"\n    \\\\end{{document}}\n    \"\"\"\n    return latex_source\n\n\ndef invoice_table_rows(invoice, tax_rate, country, currency):\n    table_rows = \"\"\n    if country == \"US\":\n        name = \"name_imperial\"\n        for product in invoice[\"invoice_components\"]:\n            table_rows += f\"\\\\texttt{{{escape_latex(product['products'][name])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{currency}{(product['price']):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity']):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity'] * tax_rate):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity'] * (1 + tax_rate)):.2f}}} \\\\\\\\ \\n\"\n            table_rows += \"\\\\hline \\n\"\n    else:\n        name = \"name_metric\"\n        for product in invoice[\"invoice_components\"]:\n            table_rows += f\"\\\\texttt{{{escape_latex(product['products'][name])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{currency}{(product['price'] * (1/(1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity'] * (1/(1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity'] * (tax_rate / (1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(product['price'] * product['quantity']):.2f}}} \\\\\\\\ \\n\"\n            table_rows += \"\\\\hline \\n\"\n\n    if invoice[\"freight_charged\"] != 0:\n        table_rows += f\"\\\\texttt{{Freight: {escape_latex(invoice['freight_carrier'])}}} & \\\\texttt{{1}} & \\\\texttt{{{currency}{(invoice['freight_charged'] * (1/(1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(invoice['freight_charged'] * (1/(1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(invoice['freight_charged'] * (tax_rate / (1 + tax_rate))):.2f}}} & \\\\texttt{{{currency}{(invoice['freight_charged']):.2f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    return table_rows\n\n\n@app.route(\"/generate-pdf-picklist\", methods=[\"POST\"])\ndef generate_pdf_picklist():\n    data = request.json\n    invoice = data.get(\"invoice\")\n    info = data.get(\"info\")\n    components = data.get(\"components\")\n    country = data.get(\"country\")\n    utc_now = datetime.now(pytz.utc)\n    uk_time = utc_now.astimezone(pytz.timezone(\"Europe/London\"))\n    us_time = utc_now.astimezone(pytz.timezone(\"America/Los_Angeles\"))\n    nz_time = utc_now.astimezone(pytz.timezone(\"Pacific/Auckland\"))\n    au_time = utc_now.astimezone(pytz.timezone(\"Australia/Sydney\"))\n    # Generate LaTeX source code\n    country = country.upper()\n    if country == \"UK\":\n        latex_source = generate_latex_picklist(\n            invoice, info, components, uk_time, country\n        )\n    elif country == \"US\":\n        latex_source = generate_latex_picklist(\n            invoice, info, components, us_time, country\n        )\n    elif country == \"NZ\":\n        latex_source = generate_latex_picklist(\n            invoice, info, components, nz_time, country\n        )\n    elif country == \"AU\":\n        latex_source = generate_latex_picklist(\n            invoice, info, components, au_time, country\n        )\n\n    # Use a secure temporary directory\n    with tempfile.TemporaryDirectory() as tmpdirname:\n        tex_file_path = os.path.join(tmpdirname, \"picklist.tex\")\n        pdf_file_path = os.path.join(tmpdirname, \"picklist.pdf\")\n\n        # Write LaTeX source to a file\n        with open(tex_file_path, \"w\") as f:\n            f.write(latex_source)\n        # Run pdflatex to generate PDF\n        try:\n            subprocess.run(\n                [\"pdflatex\", \"-output-directory\", tmpdirname, tex_file_path], check=True\n            )\n        except subprocess.CalledProcessError as e:\n            return jsonify({\"error\": \"PDF generation failed\", \"details\": e.stderr}), 500\n\n        # Ensure the generated PDF file exists\n        if not os.path.exists(pdf_file_path):\n            return jsonify({\"error\": \"PDF file not found\"}), 500\n\n        # Send the generated PDF file\n        return send_file(pdf_file_path, as_attachment=True)\n\n\ndef generate_latex_picklist(invoice, info, components, time, country):\n    # Define country-specific details\n    country_details = {\n        3: {\n            \"header\": \"COR-TEN-STEEL UK\",\n            \"address\": \"Cadley \\\\\\\\ SN8 4NE \\\\\\\\ Tel: 01793 386001 \\\\\\\\ Email: uk@cor-ten-steel.co.uk\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n        },\n        7: {\n            \"header\": \"GABION1 UK\",\n            \"address\": \"Cadley \\\\\\\\ SN8 4NE \\\\\\\\ Tel: 01793 386000 \\\\\\\\ Email: uk@gabion1.co.uk\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n        },\n        1: {\n            \"header\": \"COR-TEN-STEEL NZ\",\n            \"address\": \"14 Riverbank Road \\\\\\\\ Otaki 5512 \\\\\\\\ Tel: 04 888 7441 \\\\\\\\ Email: nz@cor-ten-steel.co.nz\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n        },\n        5: {\n            \"header\": \"GABION1 NZ\",\n            \"address\": \"14 Riverbank Road \\\\\\\\ Otaki 5512 \\\\\\\\ Tel: 04 888 7440 \\\\\\\\ Email: nz@gabion1.co.nz\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n        },\n        2: {\n            \"header\": \"COR-TEN-STEEL AU\",\n            \"address\": \"53 Hobart St \\\\\\\\ Riverstone 2765 \\\\\\\\ NSW \\\\\\\\ Tel: 02 4062 0026 \\\\\\\\ Email: aus@cor-ten-steel.com.au\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n        },\n        6: {\n            \"header\": \"GABION1 AU\",\n            \"address\": \"53 Hobart St \\\\\\\\ Riverstone 2765 \\\\\\\\ NSW \\\\\\\\ Tel: 02 4062 0025 \\\\\\\\ Email: aus@gabion1.com.au\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n        },\n        4: {\n            \"header\": \"COR-TEN-STEEL USA\",\n            \"address\": \"Mesa Street \\\\\\\\ Hesperia \\\\\\\\ 92345 CA \\\\\\\\ Tel: 323 300 2558 \\\\\\\\ Email: usa@cor-ten-steel.com\",\n            \"invoice_number\": f'C{invoice[\"id\"]:05}',\n        },\n        8: {\n            \"header\": \"GABION1 USA\",\n            \"address\": \"Mesa Street \\\\\\\\ Hesperia \\\\\\\\ 92345 CA \\\\\\\\ Tel: 323 300 2585 \\\\\\\\ Email: usa@gabion1.com\",\n            \"invoice_number\": f'G{invoice[\"id\"]:05}',\n        },\n    }\n\n    details = country_details[invoice[\"subdivision_id\"]]\n    weight_multiplier = 2.20462 if country == \"US\" else 1\n    # Generate the LaTeX source\n    latex_source = f\"\"\"\n    \\\\documentclass[a4paper,12pt]{{article}}\n    \\\\usepackage{{graphicx}}\n    \\\\usepackage{{geometry}}\n    \\\\geometry{{a4paper, margin=1cm}}\n    \\\\usepackage{{array}}\n    \\\\usepackage{{longtable}}\n    \\\\usepackage{{anyfontsize}}\n    \\\\pagestyle{{empty}}\n\n    \\\\begin{{document}}\n    \n    \\\\vspace{{0.5cm}}\n\n    \\\\noindent\n    \\\\texttt{{Deliver to:}} \\\\\\\\\n\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{20}}{{24}}\\\\selectfont {escape_latex(invoice['customers']['first_name'])}}} \\\\textbf{{\\\\fontsize{{20}}{{24}}\\\\selectfont {escape_latex(invoice['customers']['last_name'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"customers\"][\"company\"]:\n        latex_source += f\"\"\"\n    \\\\noindent\n    \\\\texttt{{{escape_latex(invoice['customers']['company'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"addresses\"][\"building_name\"]:\n        latex_source += f\"\"\"\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{30}}{{36}}\\\\selectfont {escape_latex(invoice['addresses']['building_name'])}}} \\\\\\\\\n    \"\"\"\n    latex_source += f\"\"\"\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{30}}{{36}}\\\\selectfont {escape_latex(invoice['addresses']['street_address'])}}} \\\\\\\\\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{50}}{{60}}\\\\selectfont {escape_latex(invoice['addresses']['suburb'])}}} \\\\\\\\\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{50}}{{60}}\\\\selectfont {escape_latex(invoice['addresses']['city'])}}} \\\\\\\\\n    \\\\noindent\n    \\\\textbf{{\\\\fontsize{{70}}{{84}}\\\\selectfont {escape_latex(invoice['addresses']['postal_code'])}}} \\\\\\\\\n    \\\\noindent\n    \\\\textsf{{\\\\Large {escape_latex(invoice['customers']['email'])}}} \\\\\\\\\n    \\\\textsf{{\\\\Large {escape_latex(invoice['customers']['phone'])}}} \\\\\\\\\n    \"\"\"\n    if invoice[\"customers\"][\"second_phone\"]:\n        latex_source += f\"\"\"\n    \\\\textsf{{\\\\Large {escape_latex(invoice['customers']['second_phone'])}}} \\\\\\\\\n    \"\"\"\n    latex_source += f\"\"\"\n    \\\\noindent\n    \\\\textsf{{\\\\Large {escape_latex(invoice['delivery_instructions'])}}} \\\\\\\\\n\n    \\\\vspace{{0.5cm}}\n    \n    \\\\noindent\n    \\\\begin{{minipage}}[t]{{0.45\\\\textwidth}}\n        \\\\raggedright\n        \\\\small\n        {details['header']} \\\\\\\\\n        {details['address']} \\\\\\\\\n    \\\\end{{minipage}}\n    \\\\hfill\n    \\\\begin{{minipage}}[t]{{0.45\\\\textwidth}}\n        \\\\raggedleft\n        \\\\textbf{{\\\\fontsize{{20}}{{24}}\\\\selectfont Picklist}} \\\\\\\\\n        \\\\vspace{{1cm}}\n        \\\\small\n        Invoice Number: \\\\texttt{{{details['invoice_number']}}} \\\\\\\\\n        Date Issued: \\\\texttt{{{time.strftime(\"%d-%b-%Y %H:%M\")}}} \n    \\\\end{{minipage}}\n    \n    \\\\vspace{{0.5cm}}\n\n    \\\\noindent\n    \\\\rule{{\\\\textwidth}}{{0.5pt}}\n\n    \\\\vspace{{0.5cm}}\n\n    \\\\noindent\n    \\\\begin{{tabular}}{{l l}}\n    \\\\textbf{{Total Items:}} & \\\\texttt{{{info['total_items']}}} \\\\\\\\ \n    \\\\textbf{{Total Weight ({'lbs' if country == 'US' else 'kgs'}):}} & \\\\texttt{{{(invoice['weight'] * weight_multiplier):.1f}}} \\\\\\\\ \n    \\\\textbf{{Carrier:}} & \\\\texttt{{{escape_latex(invoice['freight_carrier'])}}} \\\\\\\\ \n    \\\\textbf{{Stickers:}} & \\\\texttt{{{escape_latex(invoice['stickers'])}}} \\\\\\\\ \n    \\\\textbf{{Packing Instructions:}} & \\\\texttt{{{escape_latex(invoice['packing_instructions'])}}} \\\\\\\\ \n    \\\\textbf{{Con Note:}} & \\\\texttt{{{escape_latex(invoice['con_note'])}}} \\\\\\\\ \n    \\\\end{{tabular}}\n\n    \\\\vspace{{0.5cm}}\n\n    \\\\begin{{longtable}}{{|l|l|l|l|}}\n        \\\\hline\n        \\\\textbf{{Code}} & \\\\textbf{{Description}} & \\\\textbf{{Qty}} & \\\\textbf{{Weight ({'lbs' if country == 'US' else 'kgs'})}} \\\\\\\\\n        \\\\hline\n        {picklist_table_rows(components, country, invoice['bracewire'])}\n    \\\\end{{longtable}}\n\n    \\\\end{{document}}\n    \"\"\"\n    return latex_source\n\n\ndef picklist_table_rows(components, country, bracewire):\n    # Use metric or imperial names based on the country\n    name_key = \"name_imperial\" if country == \"US\" else \"name_metric\"\n    weight_multiplier = 2.20462 if country == \"US\" else 1\n    table_rows = \"\"\n    for product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\n        table_rows += f\"\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\texttt{{{product['quantity']}}} & \\\\texttt{{{(product['products']['weight'] * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    if bracewire and bracewire > 0:\n        table_rows += f\"\\\\texttt{{GabBra}} & \\\\texttt{{Bracewire}} & \\\\texttt{{1}} & \\\\texttt{{{(bracewire * weight_multiplier):.1f}}} \\\\\\\\ \\n\"\n        table_rows += \"\\\\hline \\n\"\n    return table_rows\n\n\ndef escape_latex(text):\n    if not isinstance(text, str):\n        return text  # Return non-string data as-is\n    return (\n        text.replace(\"\\\\\", \"\\\\textbackslash{}\")  # Escape backslashes\n        .replace(\"%\", \"\\\\%\")\n        .replace(\"_\", \"\\\\_\")\n        .replace(\"$\", \"\\\\$\")\n        .replace(\"&\", \"\\\\&\")\n        .replace(\"#\", \"\\\\#\")\n        .replace(\"{\", \"\\\\{\")\n        .replace(\"}\", \"\\\\}\")\n        .replace(\"~\", \"\\\\textasciitilde{}\")\n        .replace(\"^\", \"\\\\textasciicircum{}\")\n    )\n\n\nif __name__ == \"__main__\":\n    app.run(host=\"0.0.0.0\", port=5000)\n</attachment>\n\n</attachments>\n<context>\nThe current date is 10 November 2025.\nTerminals:\nTerminal: bash\nTerminal: zsh\n\n</context>\n<editorContext>\nThe user's current file is /home/harry/work/latex/app.py. The current selection is from line 480 to line 491.\n</editorContext>\n<repoContext>\nBelow is the information about the current repository. You can use this information when you need to calculate diffs or compare changes with the default branch.\nRepository name: latex\nOwner: rocersa\nCurrent branch: main\n\n</repoContext>\n<reminderInstructions>\nWhen using the replace_string_in_file tool, include 3-5 lines of unchanged code before and after the string you want to replace, to make it unambiguous which part of the file should be edited.\nDo NOT create a new markdown file to document each change or summarize your work unless specifically requested by the user.\n\n</reminderInstructions>\n<userRequest>\nyes please\n</userRequest>\n"
+            },
+            {
+              "type": 3,
+              "cacheType": "ephemeral"
+            }
+          ],
+          "toolCallRounds": [
+            {
+              "response": "",
+              "toolCalls": [
+                {
+                  "name": "replace_string_in_file",
+                  "arguments": "{\"filePath\": \"/home/harry/work/latex/app.py\", \"oldString\": \"def picklist_table_rows(components, country, bracewire):\\n    # Use metric or imperial names based on the country\\n    name_key = \\\"name_imperial\\\" if country == \\\"US\\\" else \\\"name_metric\\\"\\n    weight_multiplier = 2.20462 if country == \\\"US\\\" else 1\\n    table_rows = \\\"\\\"\\n    for product in components.filter(lambda p: 'gabbra' not in p['products']['code'].lower()):\\n        table_rows += f\\\"\\\\\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\\\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\\\\\texttt{{{product['quantity']}}} & \\\\\\\\texttt{{{(product['products']['weight'] * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\\\\\\\\\ \\\\n\\\"\\n        table_rows += \\\"\\\\\\\\hline \\\\n\\\"\\n    if bracewire and bracewire > 0:\\n        table_rows += f\\\"\\\\\\\\texttt{{GabBra}} & \\\\\\\\texttt{{Bracewire}} & \\\\\\\\texttt{{1}} & \\\\\\\\texttt{{{(bracewire * weight_multiplier):.1f}}} \\\\\\\\\\\\\\\\ \\\\n\\\"\\n        table_rows += \\\"\\\\\\\\hline \\\\n\\\"\\n    return table_rows\", \"newString\": \"def picklist_table_rows(components, country, bracewire):\\n    # Use metric or imperial names based on the country\\n    name_key = \\\"name_imperial\\\" if country == \\\"US\\\" else \\\"name_metric\\\"\\n    weight_multiplier = 2.20462 if country == \\\"US\\\" else 1\\n    table_rows = \\\"\\\"\\n    for product in filter(lambda p: 'gabbra' not in p['products']['code'].lower(), components):\\n        table_rows += f\\\"\\\\\\\\texttt{{{escape_latex(product['products']['code'])}}} & \\\\\\\\texttt{{{escape_latex(product['products'][name_key])}}} & \\\\\\\\texttt{{{product['quantity']}}} & \\\\\\\\texttt{{{(product['products']['weight'] * product['quantity'] * weight_multiplier):.1f}}} \\\\\\\\\\\\\\\\ \\\\n\\\"\\n        table_rows += \\\"\\\\\\\\hline \\\\n\\\"\\n    if bracewire and bracewire > 0:\\n        table_rows += f\\\"\\\\\\\\texttt{{GabBra}} & \\\\\\\\texttt{{Bracewire}} & \\\\\\\\texttt{{1}} & \\\\\\\\texttt{{{(bracewire * weight_multiplier):.1f}}} \\\\\\\\\\\\\\\\ \\\\n\\\"\\n        table_rows += \\\"\\\\\\\\hline \\\\n\\\"\\n    return table_rows\"}",
+                  "id": "toolu_01CrWUYceefoyA5P4eHCbfWd__vscode-1762722720939"
+                }
+              ],
+              "toolInputRetry": 0,
+              "id": "000dd15f-c076-49a7-85ea-2adadb9e355f"
+            },
+            {
+              "response": "Fixed! I've corrected the syntax error by changing `components.filter(...)` to the built-in `filter(..., components)` function.",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "5e6c0722-d67f-44af-ae22-150bd3b8adb4"
+            }
+          ],
+          "toolCallResults": {
+            "toolu_01CrWUYceefoyA5P4eHCbfWd__vscode-1762722720939": {
+              "$mid": 20,
+              "content": [
+                {
+                  "$mid": 23,
+                  "value": {
+                    "node": {
+                      "type": 1,
+                      "ctor": 2,
+                      "ctorName": "Qv",
+                      "children": [
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "The following files were successfully edited:",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "\n",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "/home/harry/work/latex/app.py",
+                          "lineBreakBefore": false
+                        },
+                        {
+                          "type": 2,
+                          "priority": 9007199254740991,
+                          "text": "\n",
+                          "lineBreakBefore": false
+                        }
+                      ],
+                      "props": {},
+                      "references": []
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "modelMessageId": "066020bc-3ae7-458a-9b75-3913c547bdfc",
+          "responseId": "abccba7f-2f21-4328-909c-1e536165323d",
+          "sessionId": "7f30bff4-65f1-4fbc-8138-aedd6a1c7ca7",
+          "agentId": "github.copilot.editsAgent"
+        },
+        "details": "Claude Sonnet 4.5 • 1x"
+      },
+      "responseMarkdownInfo": [],
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.4",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editsAgent",
+        "description": "Edit files in your workspace in agent mode",
+        "when": "config.chat.agent.enabled",
+        "metadata": {
+          "themeIcon": {
+            "id": "tools"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "agent",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "panel"
+        ],
+        "modes": [
+          "agent"
+        ],
+        "slashCommands": [
+          {
+            "name": "list"
+          }
+        ],
+        "disambiguation": []
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1762722779097,
+      "modelId": "copilot/claude-sonnet-4.5"
+    }
+  ],
+  "sessionId": "757aa588-7d7a-4ea6-ad28-5a89841bf082",
+  "creationDate": 1760920689642,
+  "isImported": false,
+  "lastMessageDate": 1762722779097,
+  "customTitle": "Validating Python code syntax"
+}

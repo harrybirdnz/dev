@@ -1,0 +1,256 @@
+{
+  "version": 3,
+  "requesterUsername": "harrybirdwork",
+  "requesterAvatarIconUri": {
+    "$mid": 1,
+    "path": "/u/150116999",
+    "scheme": "https",
+    "authority": "avatars.githubusercontent.com",
+    "query": "v=4"
+  },
+  "responderUsername": "GitHub Copilot",
+  "responderAvatarIconUri": {
+    "id": "copilot"
+  },
+  "initialLocation": "editor",
+  "requests": [
+    {
+      "requestId": "request_fb08d98c-7814-4af4-8291-6f7a4c3c4aba",
+      "message": {
+        "parts": [
+          {
+            "range": {
+              "start": 0,
+              "endExclusive": 42
+            },
+            "editorRange": {
+              "startLineNumber": 1,
+              "startColumn": 1,
+              "endLineNumber": 1,
+              "endColumn": 43
+            },
+            "text": "centre the image and make it a bit smaller",
+            "kind": "text"
+          }
+        ],
+        "text": "centre the image and make it a bit smaller"
+      },
+      "variableData": {
+        "variables": []
+      },
+      "response": [
+        {
+          "kind": "textEditGroup",
+          "uri": {
+            "$mid": 1,
+            "fsPath": "/home/harry/personal/coding/websites/blog/src/posts/capital-critique-1.md",
+            "external": "file:///home/harry/personal/coding/websites/blog/src/posts/capital-critique-1.md",
+            "path": "/home/harry/personal/coding/websites/blog/src/posts/capital-critique-1.md",
+            "scheme": "file"
+          },
+          "edits": [
+            [
+              {
+                "text": "<div style=\"text-align: center;\">",
+                "range": {
+                  "startLineNumber": 10,
+                  "startColumn": 1,
+                  "endLineNumber": 10,
+                  "endColumn": 33
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n    <img src=\"/capital-cover.avif\" alt=\"Alt text\" width=\"400\">",
+                "range": {
+                  "startLineNumber": 10,
+                  "startColumn": 34,
+                  "endLineNumber": 10,
+                  "endColumn": 34
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n</div>",
+                "range": {
+                  "startLineNumber": 11,
+                  "startColumn": 63,
+                  "endLineNumber": 11,
+                  "endColumn": 63
+                }
+              }
+            ],
+            [
+              {
+                "text": "\n",
+                "range": {
+                  "startLineNumber": 12,
+                  "startColumn": 7,
+                  "endLineNumber": 12,
+                  "endColumn": 7
+                }
+              }
+            ],
+            []
+          ],
+          "state": {
+            "sha1": "52fa780fb5e93e117b3c4f4bb2451d3572fa38ce",
+            "applied": 1
+          }
+        }
+      ],
+      "responseId": "response_bde5977b-cf0f-4814-9191-30b1d08eb47f",
+      "result": {
+        "timings": {
+          "totalElapsed": 2951
+        },
+        "metadata": {
+          "codeBlocks": [],
+          "toolCallRounds": [
+            {
+              "response": "-+-+-+-+-+\n<div style=\"text-align: center;\">\n  <img src=\"/capital-cover.avif\" alt=\"Alt text\" width=\"400\">\n</div>\n\n-+-+-+-+-+",
+              "toolCalls": [],
+              "toolInputRetry": 0,
+              "id": "be78abd5-adf7-4d62-8da1-75d215e21fb4"
+            }
+          ],
+          "modelMessageId": "c0582513-4ed2-47b2-9df9-2ffd5c7c7318",
+          "responseId": "f012b318-d14e-45ea-ae62-d2c2fd14dc6c",
+          "sessionId": "b6002052-aaf5-4dca-82a6-43b75f50845b",
+          "agentId": "github.copilot.editor"
+        },
+        "details": "Claude Sonnet 4.5 • 1x"
+      },
+      "followups": [],
+      "isCanceled": false,
+      "agent": {
+        "extensionId": {
+          "value": "GitHub.copilot-chat",
+          "_lower": "github.copilot-chat"
+        },
+        "extensionVersion": "0.32.4",
+        "publisherDisplayName": "GitHub",
+        "extensionPublisherId": "GitHub",
+        "extensionDisplayName": "GitHub Copilot Chat",
+        "id": "github.copilot.editor",
+        "description": "Ask or edit in context",
+        "when": "!config.inlineChat.enableV2 && !config.github.copilot.chat.advanced.inlineChat2",
+        "metadata": {
+          "themeIcon": {
+            "id": "copilot"
+          },
+          "hasFollowups": false,
+          "supportIssueReporting": false
+        },
+        "name": "Copilot",
+        "fullName": "GitHub Copilot",
+        "isDefault": true,
+        "locations": [
+          "editor"
+        ],
+        "modes": [
+          "ask"
+        ],
+        "slashCommands": [
+          {
+            "name": "generate",
+            "description": "Generate new code",
+            "disambiguation": [
+              {
+                "category": "generate",
+                "description": "Generate new code",
+                "examples": [
+                  "Add a function that returns the sum of two numbers"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "edit",
+            "description": "Edit the selected code in your active editor",
+            "disambiguation": [
+              {
+                "category": "edit",
+                "description": "Make changes to existing code",
+                "examples": [
+                  "Change this method to use async/await"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "doc",
+            "description": "Add documentation comment for this symbol",
+            "disambiguation": [
+              {
+                "category": "doc",
+                "description": "Add documentation comment for this symbol",
+                "examples": [
+                  "Add jsdoc to this method"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "fix",
+            "description": "Propose a fix for the problems in the selected code",
+            "disambiguation": [
+              {
+                "category": "fix",
+                "description": "Propose a fix for the problems in the selected code",
+                "examples": [
+                  "There is a problem in this code. Rewrite the code to show it with the bug fixed."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "explain",
+            "description": "Explain how the code in your active editor works",
+            "disambiguation": [
+              {
+                "category": "explain",
+                "description": "Explain how the code in your active editor works",
+                "examples": [
+                  "Write an explanation for the code above as paragraphs of text."
+                ]
+              }
+            ]
+          },
+          {
+            "name": "tests",
+            "description": "Generate unit tests for the selected code",
+            "disambiguation": [
+              {
+                "category": "tests",
+                "description": "Generate unit tests for the selected code. The user does not want to fix their existing tests.",
+                "examples": [
+                  "Write a set of detailed unit test functions for the code above."
+                ]
+              }
+            ]
+          }
+        ],
+        "disambiguation": [
+          {
+            "category": "unknown",
+            "description": "Intent of this command is unclear or is not related to information technologies",
+            "examples": [
+              "Add a dog to this comment."
+            ]
+          }
+        ]
+      },
+      "contentReferences": [],
+      "codeCitations": [],
+      "timestamp": 1762302643789,
+      "modelId": "copilot/claude-sonnet-4.5"
+    }
+  ],
+  "sessionId": "64967d2e-e410-42dd-b44a-1fb9322afbe4",
+  "creationDate": 1762302635777,
+  "isImported": false,
+  "lastMessageDate": 1762302643790
+}

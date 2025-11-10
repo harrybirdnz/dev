@@ -1,0 +1,15 @@
+{
+  "environment": {
+    "executable": "/home/harry/programs/miniconda3/envs/unsw-nn/bin/python",
+    "prefix": "/home/harry/programs/miniconda3/envs/unsw-nn",
+    "version": "3.11.9.final.0",
+    "is64Bit": true,
+    "symlinks": [
+      "/home/harry/programs/miniconda3/envs/unsw-nn/bin/python",
+      "/home/harry/programs/miniconda3/envs/unsw-nn/bin/python3",
+      "/home/harry/programs/miniconda3/envs/unsw-nn/bin/python3.1",
+      "/home/harry/programs/miniconda3/envs/unsw-nn/bin/python3.11"
+    ]
+  },
+  "symlinks": []
+}
