@@ -1,0 +1,11 @@
+#! /usr/bin/env bash
+brew tap creativeprojects/tap
+brew install resticprofile --with-restic
+
+# Enable and start the systemd services and timer
+systemctl --user enable resticprofile-backup.timer
+systemctl --user start resticprofile-backup.timer
+systemctl --user enable resticprofile-backup.service
+systemctl --user enable resticprofile-shutdown.service
+
+

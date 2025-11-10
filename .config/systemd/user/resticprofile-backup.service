@@ -1,0 +1,13 @@
+[Unit]
+Description=Resticprofile backup to bird-server
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/linuxbrew/.linuxbrew/bin/resticprofile --config %h/.config/resticprofile/config.yaml --no-ansi --log %h/.local/share/resticprofile/backup.log bird-daily.backup
+# Continue even if backup fails
+SuccessExitStatus=0 3
+
+[Install]
+WantedBy=default.target

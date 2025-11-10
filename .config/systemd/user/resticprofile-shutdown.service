@@ -1,0 +1,16 @@
+[Unit]
+Description=Resticprofile backup before shutdown
+DefaultDependencies=no
+Before=shutdown.target reboot.target halt.target
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=/home/linuxbrew/.linuxbrew/bin/resticprofile --config %h/.config/resticprofile/config.yaml --no-ansi --log %h/.local/share/resticprofile/shutdown-backup.log bird-daily.backup
+TimeoutStartSec=300
+# Continue shutdown even if backup fails
+SuccessExitStatus=0 3
+
+[Install]
+WantedBy=shutdown.target
