@@ -3,28 +3,60 @@
 # Exit on error and unset variables
 set -euo pipefail
 
-# Install dependencies (wget for downloading, apt-utils for debconf)
-echo "⚙️ Installing dependencies..."
-sudo apt update && sudo apt install -y wget apt-utils
+# Check if VS Code is already installed
+if command -v code >/dev/null 2>&1; then
+    echo "✅ VS Code is already installed at $(command -v code)"
+else
+    echo "📦 VS Code not found. Installing..."
+    
+    # Install dependencies (wget for downloading, apt-utils for debconf)
+    echo "⚙️ Installing dependencies..."
+    sudo apt update && sudo apt install -y wget apt-utils
 
-# Download and install VS Code
-echo "⬇️ Downloading VS Code..."
-wget -O code_latest_amd64.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
+    # Download and install VS Code
+    echo "⬇️ Downloading VS Code..."
+    wget -O code_latest_amd64.deb "https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64"
 
-echo "🛠 Installing VS Code..."
-sudo apt install -y ./code_latest_amd64.deb
-rm code_latest_amd64.deb
+    echo "🛠 Installing VS Code..."
+    sudo apt install -y ./code_latest_amd64.deb
+    rm code_latest_amd64.deb
+    
+    echo "✅ VS Code installed successfully"
+fi
 
 # Install extensions (if extensions.txt exists)
-EXTENSIONS_FILE="$HOME/personal/dev/.config/Code/User/extensions.txt"
-if [ -f "$EXTENSIONS_FILE" ]; then
+# Check repository and home config locations (common mistake: wrong path)
+REPO_EXT="$PWD/.config/Code/User/extensions.txt"
+HOME_EXT="$HOME/.config/Code/User/extensions.txt"
+EXTENSIONS_FILE=""
+if [ -f "$REPO_EXT" ]; then
+    EXTENSIONS_FILE="$REPO_EXT"
+elif [ -f "$HOME_EXT" ]; then
+    EXTENSIONS_FILE="$HOME_EXT"
+fi
+
+if [ -n "$EXTENSIONS_FILE" ]; then
     echo "📦 Installing extensions from $EXTENSIONS_FILE..."
-    while read -r extension; do
+    echo "📄 Preview (first 5 lines):"
+    head -n 5 "$EXTENSIONS_FILE" || true
+
+    if ! command -v code >/dev/null 2>&1; then
+        echo "⚠️ 'code' CLI not found. The VS Code binary may not be on PATH yet."
+        echo "If VS Code is installed, try opening Code once or run: 'sudo ln -s /usr/share/code/bin/code /usr/local/bin/code'"
+    fi
+
+    while IFS= read -r extension || [ -n "$extension" ]; do
+        extension="${extension//$'\r'/}"
+        extension="${extension%% }"
+        extension="${extension## }"
+        if [ -z "$extension" ]; then
+            continue
+        fi
         echo "🔧 Installing: $extension"
         code --install-extension "$extension" --force || echo "⚠️ Failed to install: $extension"
     done < "$EXTENSIONS_FILE"
 else
-    echo "❌ No extensions.txt found at $EXTENSIONS_FILE. Skipping extensions."
+    echo "❌ No extensions.txt found in repository or home config. Skipping extensions."
 fi
 
 echo "✅ Done! VS Code and extensions installed."

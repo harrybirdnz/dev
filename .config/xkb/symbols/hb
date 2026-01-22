@@ -6,18 +6,18 @@ xkb_symbols "hb" {
 
     name[Group1] = "English (Harry)";
 
-    // Modified top row (numbers & symbols) - same as your original
+    // Modified top row (numbers & symbols) 
     key <TLDE> { [     grave, numbersign ] };  // ` → $, ~
-    key <AE01> { [     plus,        1 ] };                                  // 1 → +, 1
-    key <AE02> { [     bracketleft, 2 ] };                                  // 2 → [, 2
-    key <AE03> { [     braceleft,   3 ] };                                  // 3 → {, 3
-    key <AE04> { [     parenleft,   4 ] };                                  // 4 → (, 4
-    key <AE05> { [     ampersand,   5 ] };                                  // 5 → &, 5
-    key <AE06> { [     equal,       6 ] };                                  // 6 → =, 6
-    key <AE07> { [     parenright,  7 ] };                                  // 7 → ), 7
-    key <AE08> { [     braceright,  8 ] };                                  // 8 → }, 8
-    key <AE09> { [     bracketright,9 ] };                                  // 9 → ], 9
-    key <AE10> { [     asterisk,    0 ] };                                  // 0 → *, 0
+    key <AE01> { [     1,        plus ] };                                  // 1 → +, 1
+    key <AE02> { [     2, bracketleft ] };                                  // 2 → [, 2
+    key <AE03> { [     3,   braceleft ] };                                  // 3 → {, 3
+    key <AE04> { [     4,   parenleft ] };                                  // 4 → (, 4
+    key <AE05> { [     5,   ampersand ] };                                  // 5 → &, 5
+    key <AE06> { [     6,       equal ] };                                  // 6 → =, 6
+    key <AE07> { [     7,  parenright ] };                                  // 7 → ), 7
+    key <AE08> { [     8,  braceright ] };                                  // 8 → }, 8
+    key <AE09> { [     9,bracketright ] };                                  // 9 → ], 9
+    key <AE10> { [     0,    asterisk ] };                                  // 0 → *, 0
     key <AE11> { [     exclam,      percent ] };                             // - → !, %
     key <AE12> { [     dollar,      asciitilde ] };                          // = → -, _
 
