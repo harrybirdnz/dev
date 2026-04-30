@@ -1,0 +1,31 @@
+#! /usr/bin/env bash
+
+# Enable wake-from-suspend via dock keyboard/mouse (Lenovo USB hub + Logitech Bolt)
+
+sudo tee /etc/udev/rules.d/90-dock-wake.rules << 'EOF'
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="17ef", ATTR{idProduct}=="10d5", RUN+="/bin/sh -c 'echo enabled > /sys/bus/usb/devices/usb1/power/wakeup; echo enabled > /sys$devpath/power/wakeup'"
+ACTION=="add", SUBSYSTEM=="usb", ATTR{idVendor}=="046d", ATTR{idProduct}=="c548", RUN+="/bin/sh -c 'echo enabled > /sys$devpath/power/wakeup'"
+EOF
+
+sudo tee /etc/systemd/system/dock-wake.service << 'EOF'
+[Unit]
+Description=Enable dock USB wake from suspend
+Before=sleep.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c '\
+  echo enabled > /sys/bus/usb/devices/usb1/power/wakeup 2>/dev/null; \
+  echo enabled > /sys/bus/usb/devices/usb2/power/wakeup 2>/dev/null; \
+  echo enabled > /sys/bus/usb/devices/1-4/power/wakeup 2>/dev/null; \
+  for d in /sys/bus/usb/devices/1-4.*/power/wakeup; do \
+    echo enabled > "$d" 2>/dev/null; \
+  done'
+
+[Install]
+WantedBy=sleep.target
+EOF
+
+sudo systemctl daemon-reload
+sudo systemctl enable dock-wake.service
+sudo udevadm control --reload-rules
