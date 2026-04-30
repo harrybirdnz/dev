@@ -135,3 +135,6 @@ unset __conda_setup
 
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+# Use a lighter blue for directories in `ls` output
+export LS_COLORS="${LS_COLORS}:di=01;94"
